@@ -6,7 +6,7 @@ import Thumbnail from "../Thumbnail/Thumbnail";
 import "./ThumbGrid.css";
 const PAGE_SIZE = 96;
 
-const ThumbGrid = ({ items, clicked, open, route }) => {
+const ThumbGrid = ({ items, clicked, open, route, small }) => {
   const [page, setPage] = useState(0);
   const first = items.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE);
 
@@ -25,7 +25,13 @@ const ThumbGrid = ({ items, clicked, open, route }) => {
       <Grid container spacing={2}>
         {first.map((item, i) => (
           <Grid key={i} item xs={6} sm={3} md={3} xl={2} lg={2}>
-            <Thumbnail open={open} clicked={clicked} track={item} />
+            <Thumbnail
+              small={small}
+              cubed
+              open={open}
+              clicked={clicked}
+              track={item}
+            />
           </Grid>
         ))}
       </Grid>

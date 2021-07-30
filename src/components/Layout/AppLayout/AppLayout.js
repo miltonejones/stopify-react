@@ -143,13 +143,14 @@ export const AppLayoutContent = ({
     direct: chooseObject || navigateToObject,
     open: sidebarOpen,
     route,
+    screenIsBiggerThanSmSize,
   };
 
   const okToShowDashShell = screenIsBiggerThanSmSize ? !0 : !playerBodyOpen;
   const home = !selectedObject?.dataType && !route?.type;
 
   if (!okToShowDashShell) {
-    return <i/>;
+    return <i />;
   }
   return (
     <>

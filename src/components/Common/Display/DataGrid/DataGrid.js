@@ -4,7 +4,13 @@ import { query } from "../../../../services/RemoteData";
 import ThumbGrid from "../ThumbGrid/ThumbGrid";
 import "./DataGrid.css";
 
-const DataGrid = ({ dataType, direct, open, route }) => {
+const DataGrid = ({
+  dataType,
+  direct,
+  open,
+  route,
+  screenIsBiggerThanSmSize,
+}) => {
   const [items, setItems] = useState([]);
   const [type, setType] = useState(false);
   useEffect(() => {
@@ -23,7 +29,13 @@ const DataGrid = ({ dataType, direct, open, route }) => {
 
   return (
     <div className="DataGrid">
-      <ThumbGrid route={route} open={open} clicked={direct} items={items} />
+      <ThumbGrid
+        small={!screenIsBiggerThanSmSize}
+        route={route}
+        open={open}
+        clicked={direct}
+        items={items}
+      />
     </div>
   );
 };

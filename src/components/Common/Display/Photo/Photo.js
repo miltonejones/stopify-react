@@ -18,8 +18,8 @@ const PhotoPromise = (src) =>
     im.src = src;
   });
 
-const Photo = ({ src, alt, className, open, onLaunch }) => {
-  const [turned, setTurned] = useState(false)
+const Photo = ({ src, alt, className, open, onLaunch, onPlay, cubed }) => {
+  const [turned, setTurned] = useState(false);
   const [source, setSource] = useState(null);
   const [original, setOriginal] = useState(src);
   useEffect(() => {
@@ -33,25 +33,34 @@ const Photo = ({ src, alt, className, open, onLaunch }) => {
     return "Loading...";
   }
 
-  const cubeClass = rxcs({cube:!0,'show-right': turned});
-  const componentClass = rxcs({Photo:!0, open});
+  const cubeClass = rxcs({ cube: !0, "show-right": turned });
+  const componentClass = rxcs({ Photo: !0, open, cubed });
 
   return (
     <div className={componentClass}>
       <div className={cubeClass}>
-        <div className="cube__face cube__face--front"
-        onClick={() => setTurned(!turned)}><img src={source} className={className} alt={alt} /></div>
+        <div
+          className="cube__face cube__face--front"
+          onClick={() => setTurned(!turned)}
+        >
+          <img src={source} className={className} alt={alt} />
+        </div>
         <div className="cube__face cube__face--back">back</div>
         <div className="cube__face cube__face--right">
-          <IconButton onClick={()=>{ 
-            setTurned(false)
-          }}>
+          <IconButton
+            onClick={() => {
+              onPlay && onPlay();
+              setTurned(false);
+            }}
+          >
             <PlayCircleFilled />
           </IconButton>
-          <IconButton onClick={()=>{
-            onLaunch && onLaunch();
-            setTurned(false)
-          }}>
+          <IconButton
+            onClick={() => {
+              onLaunch && onLaunch();
+              setTurned(false);
+            }}
+          >
             <Launch />
           </IconButton>
         </div>
@@ -59,7 +68,6 @@ const Photo = ({ src, alt, className, open, onLaunch }) => {
         <div className="cube__face cube__face--top">top</div>
         <div className="cube__face cube__face--bottom">bottom</div>
       </div>
-      
     </div>
   );
 };

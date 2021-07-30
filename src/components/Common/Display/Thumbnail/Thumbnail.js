@@ -6,6 +6,7 @@ import "./Thumbnail.css";
 import { ThumbnailTypes } from "./ThumbnailTypes";
 import { makeStyles } from "@material-ui/core/styles";
 import { rxcs } from "../../../../util/Functions";
+import { queueCollection } from "../../../../util/PlayerConnect";
 
 const useStyles = makeStyles((theme) => ({
   Thumbnail: {
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Thumbnail = (props) => {
-  const { track, clicked, open } = props;
+  const { track, clicked, open, cubed, small } = props;
   const classes = useStyles(props);
   const what = ThumbnailTypes.filter((t) => t.when(track))[0];
   if (!what) {
@@ -49,6 +50,7 @@ const Thumbnail = (props) => {
   const { Title, count = 0, image, footer, secondary } = parsed;
   const foot = footer(track);
   const line = secondary && secondary(track);
+  const playOn = () => queueCollection(parsed.type, parsed.ID, small);
   return (
     <>
       <div
@@ -58,7 +60,15 @@ const Thumbnail = (props) => {
         })}
       >
         <Badge max={9999} color="secondary" badgeContent={count}>
-          <Photo onLaunch={() => clicked && clicked(parsed)} open={open} className="standard-button" src={image} alt={Title} />
+          <Photo
+            onLaunch={() => clicked && clicked(parsed)}
+            onPlay={() => playOn()}
+            cubed={cubed}
+            open={open}
+            className="standard-button"
+            src={image}
+            alt={Title}
+          />
         </Badge>
         <Caption text={Title} />
         <Caption text={foot} small />

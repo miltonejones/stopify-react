@@ -1,4 +1,4 @@
-.Photo {
+.Photo.cubed {
     --photo-width: 180px;
     --minus-z: -90px;
     --plus-z: 90px;
@@ -9,17 +9,18 @@
 
 
 @media only screen and (max-width: 600px) {
-    .Photo {
+    .Photo.cubed {
         --photo-width: 160px;
         --minus-z: -80px;
         --plus-z: 80px; 
     }
-    .Photo.open {
+    .Photo.cubed.open {
         --photo-width: 132px;
-        --minus-z: -76px;
-        --plus-z: 76px; 
+        --minus-z: -66px;
+        --plus-z: 66px; 
     }
 }
+ 
 
 .cube {
     width: var(--photo-width);
@@ -47,6 +48,11 @@
   font-weight: bold;
   color: white;
   text-align: center;
+  display: none;
+}
+.Photo.cubed .cube__face ,
+.cube__face--front {
+    display: block;
 }
 
 .cube__face--front  { background: hsla(  0, 100%, 50%, 0.7); }

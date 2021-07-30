@@ -108,7 +108,7 @@ const ListHeader = (props) => {
       )}
       <div className="lower img">
         <div>
-          <Photo src={image} alt={title} />
+          <img src={image} alt={title} />
         </div>
         <Button
           variant="contained"
