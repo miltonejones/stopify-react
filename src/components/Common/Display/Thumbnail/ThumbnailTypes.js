@@ -37,7 +37,7 @@ export const ThumbnailTypes = [
   // album
   {
     when: (i) =>
-      i.hasOwnProperty("collectionId") || i.hasOwnProperty("albumImage"),
+      i.hasOwnProperty("collectionId") || (i.hasOwnProperty("albumImage")&&i.hasOwnProperty("trackCount")),
     is: (i) => ({
       ID: i.ID,
       Title: i.Name,

@@ -1,6 +1,7 @@
 import { Button, Link, Menu, MenuItem } from "@material-ui/core";
 import { LocalOffer } from "@material-ui/icons";
 import React, { useState } from "react";
+import { MenuLink } from "../LinkList/LinkList";
 import "./GenreMenu.css";
 
 const GenreMenu = ({ items }) => {
@@ -32,23 +33,24 @@ const GenreMenu = ({ items }) => {
       >
         {items.map((item) => (
           <MenuItem key={item.Name} onClick={handleClose}>
-            <MenuLink to={`/browse/genre/${item.genreKey}`}>
+            <MenuLink to={
+              {
+                data:
+                  {address:`/browse/genre/${item.genreKey}`}
+                }}>
               {item.Name} ({item.Count}
             </MenuLink>
             )
           </MenuItem>
         ))}
         <MenuItem onClick={handleClose}>
-          <MenuLink to="/list/Genre.html">View all genres...</MenuLink>
+          <MenuLink to={ { data: {address:"/browse/genre"}  }}>View all genres...</MenuLink>
         </MenuItem>
       </Menu>
     </div>
   );
 };
 
-function MenuLink(props) {
-  return <Link href={props.to}>{props.children}</Link>;
-}
-
+ 
 GenreMenu.defaultProps = {};
 export default GenreMenu;

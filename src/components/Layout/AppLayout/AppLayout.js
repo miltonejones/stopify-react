@@ -147,6 +147,10 @@ export const AppLayoutContent = ({
 
   const okToShowDashShell = screenIsBiggerThanSmSize ? !0 : !playerBodyOpen;
   const home = !selectedObject?.dataType && !route?.type;
+
+  if (!okToShowDashShell) {
+    return <i/>;
+  }
   return (
     <>
       {!!params?.type && (

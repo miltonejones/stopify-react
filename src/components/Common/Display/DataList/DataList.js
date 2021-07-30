@@ -48,7 +48,7 @@ const DataList = ({ dataType, ID, flat, route, small, direct }) => {
           caption: `${i.length} tracks from your library`,
           title: name,
         });
-        setArtistFk(i[0].artistFk);
+        setArtistFk(i?.[0].artistFk);
         setItems(i);
         setCache(c);
         const msgRoute = route || { path: "Library.html" };

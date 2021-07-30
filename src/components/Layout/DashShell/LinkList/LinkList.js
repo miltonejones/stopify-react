@@ -1,5 +1,6 @@
 import { Link } from "@material-ui/core";
 import React from "react";
+import { useHistory } from "react-router-dom";
 import appRoutes from "../../../../app/Routes";
 import "./LinkList.css";
 
@@ -37,8 +38,13 @@ const LinkList = ({ direct }) => {
 LinkList.defaultProps = {};
 export default LinkList;
 
-function MenuLink(props) {
-  const d = props.to;
-  const address = d?.data?.address || `/${d?.type}`;
-  return <Link href={address}>{props.children}</Link>;
+export function MenuLink(props) {
+  const locale = useHistory();
+  const navigateToObject = () => { 
+    const d = props.to;
+    const address = d?.data?.address || `/browse/${d?.type}`;
+    locale.push(address);
+  };
+
+  return <Link onClick={navigateToObject}>{props.children}</Link>;
 }
