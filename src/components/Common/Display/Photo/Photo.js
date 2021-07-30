@@ -1,4 +1,7 @@
+import { IconButton } from "@material-ui/core";
+import { Launch, PlayCircleFilled } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
+import { rxcs } from "../../../../util/Functions";
 import "./Photo.css";
 
 const DEFAULT_IMAGE = "http://ullify.com/assets/cdrom-unmount.png";
@@ -15,7 +18,8 @@ const PhotoPromise = (src) =>
     im.src = src;
   });
 
-const Photo = ({ src, alt, className }) => {
+const Photo = ({ src, alt, className, open, onLaunch }) => {
+  const [turned, setTurned] = useState(false)
   const [source, setSource] = useState(null);
   const [original, setOriginal] = useState(src);
   useEffect(() => {
@@ -29,9 +33,33 @@ const Photo = ({ src, alt, className }) => {
     return "Loading...";
   }
 
+  const cubeClass = rxcs({cube:!0,'show-right': turned});
+  const componentClass = rxcs({Photo:!0, open});
+
   return (
-    <div className="Photo">
-      <img src={source} className={className} alt={alt} />
+    <div className={componentClass}>
+      <div className={cubeClass}>
+        <div className="cube__face cube__face--front"
+        onClick={() => setTurned(!turned)}><img src={source} className={className} alt={alt} /></div>
+        <div className="cube__face cube__face--back">back</div>
+        <div className="cube__face cube__face--right">
+          <IconButton onClick={()=>{ 
+            setTurned(false)
+          }}>
+            <PlayCircleFilled />
+          </IconButton>
+          <IconButton onClick={()=>{
+            onLaunch && onLaunch();
+            setTurned(false)
+          }}>
+            <Launch />
+          </IconButton>
+        </div>
+        <div className="cube__face cube__face--left">left</div>
+        <div className="cube__face cube__face--top">top</div>
+        <div className="cube__face cube__face--bottom">bottom</div>
+      </div>
+      
     </div>
   );
 };

@@ -18,7 +18,9 @@ const Template = (args) => {
   const parsed = what.is(args.track);
   return (
     <>
+      <div style={{margin:0}}>
       <Thumbnail {...args} />
+      </div>
 
       <fieldset style={{ margin: "24px 0" }}>
         <legend>Debug Data</legend>
@@ -43,7 +45,7 @@ const artist = artists[index];
 const playlist = playlists[index];
 const genre = genres[index];
 
-TrackView.args = { x: 200, y: 0, z: 0, track };
+TrackView.args = { x: 200, y: 0, z: 0, track, turned: false };
 AlbumView.args = { ...TrackView.args, track: album };
 ArtistView.args = { ...TrackView.args, track: artist };
 PlaylistView.args = { ...TrackView.args, track: playlist };

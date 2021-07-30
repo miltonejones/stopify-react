@@ -1,1 +1,64 @@
-.Photo {}
+.Photo {
+    --photo-width: 180px;
+    --minus-z: -90px;
+    --plus-z: 90px;
+    width: var(--photo-width);
+    height: var(--photo-width); 
+    perspective: 400px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .Photo {
+        --photo-width: 160px;
+        --minus-z: -80px;
+        --plus-z: 80px; 
+    }
+    .Photo.open {
+        --photo-width: 132px;
+        --minus-z: -76px;
+        --plus-z: 76px; 
+    }
+}
+
+.cube {
+    width: var(--photo-width);
+    height: var(--photo-width);
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(var(--minus-z));
+    transition: transform 0.2s;
+  }
+  
+.cube.show-front  { transform: translateZ(var(--minus-z)) rotateY(   0deg); }
+.cube.show-right  { transform: translateZ(var(--minus-z)) rotateY( -60deg); }
+.cube.show-back   { transform: translateZ(var(--minus-z)) rotateY(-180deg); }
+.cube.show-left   { transform: translateZ(var(--minus-z)) rotateY(  30deg); }
+.cube.show-top    { transform: translateZ(var(--minus-z)) rotateX( -90deg); }
+.cube.show-bottom { transform: translateZ(var(--minus-z)) rotateX(  90deg); }
+
+.cube__face {
+  position: absolute;
+  width: var(--photo-width);
+  height: var(--photo-width);
+  /* border: 2px solid black; */
+  line-height: var(--photo-width);
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.cube__face--front  { background: hsla(  0, 100%, 50%, 0.7); }
+.cube__face--right  { background: hsla( 200, 100%, 50%, 0.9); }
+.cube__face--back   { background: hsla(120, 100%, 50%, 0.7); }
+.cube__face--left   { background: hsla(180, 100%, 50%, 0.7); }
+.cube__face--top    { background: hsla(240, 100%, 50%, 0.7); }
+.cube__face--bottom { background: hsla(300, 100%, 50%, 0.7); }
+
+.cube__face--front  { transform: rotateY(  0deg) translateZ(var(--plus-z)); }
+.cube__face--right  { transform: rotateY( 90deg) translateZ(var(--plus-z)); }
+.cube__face--back   { transform: rotateY(180deg) translateZ(var(--plus-z)); }
+.cube__face--left   { transform: rotateY(-90deg) translateZ(var(--plus-z)); }
+.cube__face--top    { transform: rotateX( 90deg) translateZ(var(--plus-z)); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(var(--plus-z)); }

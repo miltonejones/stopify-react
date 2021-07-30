@@ -1,5 +1,5 @@
 import { Badge } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import Photo from "../Photo/Photo";
 import Caption from "./Caption/Caption";
 import "./Thumbnail.css";
@@ -56,10 +56,9 @@ const Thumbnail = (props) => {
           [classes.Thumbnail]: true,
           open,
         })}
-        onClick={() => clicked && clicked(parsed)}
       >
         <Badge max={9999} color="secondary" badgeContent={count}>
-          <Photo className="standard-button" src={image} alt={Title} />
+          <Photo onLaunch={() => clicked && clicked(parsed)} open={open} className="standard-button" src={image} alt={Title} />
         </Badge>
         <Caption text={Title} />
         <Caption text={foot} small />
