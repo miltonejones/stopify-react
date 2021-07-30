@@ -1,0 +1,52 @@
+ 
+
+@keyframes rolling-disk {
+  0%      {transform: rotate(0);}
+  100%    {transform: rotate(1turn);}
+}
+
+
+@media only screen and (max-width: 600px) {
+  .PlayerBody.collapsed { 
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    min-width: 100vw; 
+   display: flex; 
+
+
+   display: grid;
+   grid-template: 60px/60px 60px auto ; 
+   grid-template-areas: 'photo buttons eq' ;  
+  
+  }
+  
+  .PlayerBody.collapsed .info,
+  .PlayerBody.collapsed .prog,
+  .PlayerBody.collapsed .Playhead.lower ,
+  .PlayerBody.collapsed .header { 
+    display: none;
+  }   
+  .PlayerBody.collapsed .Playhead {
+    margin: 0;
+    grid-area: buttons;
+  } 
+   
+  .PlayerBody.collapsed .Photo {
+    margin: 0;
+    grid-area: photo;
+  } 
+   
+  .PlayerBody.collapsed .Photo .art{
+    display: block;
+    width: 60px; 
+    transition: all .2s linear;
+    z-index: 1;
+  }
+
+  .PlayerBody.flat .EqLabel {
+    grid-area: eq; 
+  }
+  
+  
+}

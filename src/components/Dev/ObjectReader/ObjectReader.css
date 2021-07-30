@@ -1,0 +1,44 @@
+.ObjectReader {}
+
+label{
+  font-size:.8rem;
+  font-weight: 600; 
+  padding: 1px 4px;
+  border-radius: 2px;
+  color: rgba(0,0,0,.54);
+}
+
+
+.ObjectReader ul {
+  list-style: none;
+  border: solid 1px #E0E0E0;
+  padding: 0;
+  margin: 24px;
+}
+
+.ObjectReader ul li:not(.list){
+  display: grid;
+  grid-template-columns: 140px 80px 1fr;
+  grid-template-areas: "label type value";
+  border-bottom: solid 1px #E0E0E0;
+  min-height: 32px;
+  padding: 12px;
+}
+
+.ObjectReader ul li .em{
+  grid-area: type;
+}
+
+.ObjectReader ul li label{
+  grid-area: label;
+}
+
+.ObjectReader ul li .value{
+  grid-area: value;
+}
+
+label .em { 
+  font-weight: normal;
+  font-style: italic;
+  font-size:.7rem;
+}

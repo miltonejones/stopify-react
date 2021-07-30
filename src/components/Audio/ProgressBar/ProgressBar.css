@@ -1,0 +1,63 @@
+.ProgressBar {
+  width: 100%;
+  height: 10px;
+  padding: 1px;
+  border-radius: 25px;
+
+  background: linear-gradient(145deg, #fbfbfb, #d4d4d4);
+  box-shadow:  5px 5px 10px #a5a5a5, 
+              -5px -5px 10px #ffffff;
+
+
+    --bg: #EBEBEB;
+    --black: #333333;
+    --prog: #A4B7BE;
+}
+
+.prog-bar-inner {
+  height: 8px;
+  background: var(--prog);
+  border-radius: 25px;
+}
+
+.ProgressBar.flat .prog-bar-inner {
+  display: none;
+}
+
+  .ProgressBar.flat {
+  position: relative;
+  top: -1.5rem;
+  right: 0;
+  left: 0;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.95);
+  width: 80%;
+  height: 0.125rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.ProgressBar.flat:before { 
+  height: 100%;
+  background: linear-gradient(to right, rgba(211, 3, 32, 0.5), rgba(211, 3, 32, 0.85));
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.ProgressBar.flat:after {
+  top: -0.375rem; 
+  z-index: 3;
+  width: 0.875rem;
+  height: 0.875rem;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgb(0 0 0 / 15%), 0 2px 4px rgb(0 0 0 / 15%);
+  transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.ProgressBar.flat:before,
+.ProgressBar.flat:after {
+  content: "";
+  position: absolute;
+  cursor: pointer;
+}

@@ -1,0 +1,19 @@
+.Playhead {
+  margin: 2rem 0; 
+   width: 100%;
+   list-style: none;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+  }
+
+  .Playhead.flat {
+    margin: 1rem 0; 
+    justify-content: center;
+  }
+  
+  .Playhead.lower { 
+    margin: 1rem 0; 
+    justify-content: space-around;
+  }
+  

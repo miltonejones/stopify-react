@@ -1,0 +1,11 @@
+.AppLayout {
+  display: flex;
+}
+
+.left.open  {
+  width: calc(100vw - 80px)
+}
+.left  {
+  width: calc(100vw);
+  transition: width 0.2s linear;
+}

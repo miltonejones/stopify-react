@@ -1,0 +1,12 @@
+.Spinner {
+  width: 24px;
+  height: 24px;
+}
+.Spinner.on {
+  animation: spinning-icon 0.5s linear infinite;
+}
+
+@keyframes spinning-icon {
+  0%      {transform: rotate(0);}
+  100%    {transform: rotate(1turn);}
+}

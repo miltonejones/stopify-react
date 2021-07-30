@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
+import { MoreHoriz } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   LinkButton: {
@@ -9,13 +10,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LinkButton = () => {
+const LinkButton = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.LinkButton} data-testid="test-for-LinkButton">
-      <Button variant="contained" color="primary">
-        Test
-      </Button>
+      <IconButton {...props}>
+        <MoreHoriz />
+      </IconButton>
     </div>
   );
 };

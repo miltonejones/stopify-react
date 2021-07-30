@@ -1,0 +1,20 @@
+.TrackEditor {
+  padding: 24px 24px 24px 0; 
+  max-width: 450px;
+}
+
+.collapser {
+  max-height: 400px; 
+  overflow: auto;
+  width: 100%;
+}
+
+.title-bar {
+  margin-bottom: 24px;
+}
+
+.wrapper {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}

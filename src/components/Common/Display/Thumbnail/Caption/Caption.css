@@ -1,0 +1,12 @@
+.Caption {}
+
+.Caption.small {
+  font-size: .8rem;
+  color: rgba(0,0,0,0.54);
+  width: 180px; 
+}
+
+.caption-title-line {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;}

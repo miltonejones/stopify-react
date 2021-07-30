@@ -1,0 +1,904 @@
+[
+  {
+    "Name": "3",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "3",
+    "genreImage": null
+  },
+  {
+    "Name": "7",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "7",
+    "genreImage": null
+  },
+  {
+    "Name": "Hip-Hop",
+    "Count": 131,
+    "percent": 1.68,
+    "genreKey": "hiphop",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music22/v4/c1/4e/30/c14e30e2-d8f7-d88a-34b6-c908998ca632/source/100x100bb.jpg",
+    "albumImage": "http://is5.mzstatic.com/image/thumb/Music19/v4/54/9f/ad/549fade8-e5cb-cd7a-36cc-8d35ad470e93/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Hip-Hop/Rap",
+    "Count": 1977,
+    "percent": 25.48,
+    "genreKey": "hiphoprap",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music4/v4/ee/01/a6/ee01a6a8-06d3-6e62-d126-cffd5436bafc/source/100x100bb.jpg",
+    "albumImage": "http://is4.mzstatic.com/image/thumb/Music62/v4/fe/de/a5/fedea5c3-d59f-1428-0f95-f62aed1ad274/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Bollywood",
+    "Count": 7,
+    "percent": 0.09,
+    "genreKey": "bollywood",
+    "genreImage": "http://is3.mzstatic.com/image/thumb/Music/v4/fd/13/0a/fd130a24-68e7-d0a6-5b69-c2e6a281aa51/source/100x100bb.jpg",
+    "albumImage": "http://is3.mzstatic.com/image/thumb/Music/v4/fd/13/0a/fd130a24-68e7-d0a6-5b69-c2e6a281aa51/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Electronic",
+    "Count": 212,
+    "percent": 2.73,
+    "genreKey": "electronic",
+    "genreImage": "http://is5.mzstatic.com/image/thumb/Music/v4/84/f0/8a/84f08ae2-09a6-221b-9636-34aa0206b35d/source/100x100bb.jpg",
+    "albumImage": "http://is1.mzstatic.com/image/thumb/Music/v4/e5/72/e7/e572e758-10a9-b1ef-09ad-65fe0102ae5e/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Rock",
+    "Count": 1121,
+    "percent": 14.44,
+    "genreKey": "rock",
+    "genreImage": "http://is1.mzstatic.com/image/thumb/Music/v4/f8/88/b6/f888b69b-6e44-f4de-572f-f40d712306ef/source/100x100bb.jpg",
+    "albumImage": "http://is2.mzstatic.com/image/thumb/Music/v4/f3/07/44/f307440d-7f65-d0aa-9ba4-b2e4fb6958d5/source/100x100bb.jpg"
+  },
+  {
+    "Name": "R&B/Soul",
+    "Count": 848,
+    "percent": 10.93,
+    "genreKey": "r&bsoul",
+    "genreImage": "http://is5.mzstatic.com/image/thumb/Music/v4/66/78/4d/66784d18-f9ad-db60-4113-125b46d9ed41/source/100x100bb.jpg",
+    "albumImage": "http://is5.mzstatic.com/image/thumb/Music/v4/02/92/5c/02925ca2-150e-3772-7b0a-890c0b65bd8b/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Pop",
+    "Count": 1029,
+    "percent": 13.26,
+    "genreKey": "pop",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music49/v4/54/10/30/541030e3-0c87-08b4-0138-56ac83a606f2/source/100x100bb.jpg",
+    "albumImage": "http://is2.mzstatic.com/image/thumb/Music/v4/a5/6e/c7/a56ec712-8766-fd34-18e5-e68abdc63123/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Comedy",
+    "Count": 63,
+    "percent": 0.81,
+    "genreKey": "comedy",
+    "genreImage": "https://pbs.twimg.com/profile_images/1256835565/Burflockobama_400x400.png",
+    "albumImage": "http://is5.mzstatic.com/image/thumb/Music5/v4/5f/83/71/5f8371b6-a6a4-8041-7071-884d5cd8dd0c/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Alternative",
+    "Count": 405,
+    "percent": 5.22,
+    "genreKey": "alternative",
+    "genreImage": "http://is3.mzstatic.com/image/thumb/Music/v4/f7/81/cc/f781cc75-f0d3-52dd-da73-c56c53455195/source/100x100bb.jpg",
+    "albumImage": "http://is4.mzstatic.com/image/thumb/Music/v4/73/ee/67/73ee67dc-d0ec-ee51-9d75-40ed4560fc49/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Dance",
+    "Count": 69,
+    "percent": 0.88,
+    "genreKey": "dance",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music/v4/10/ad/c0/10adc0a9-ea45-9a87-9ad1-2744816816fc/source/100x100bb.jpg",
+    "albumImage": "http://is4.mzstatic.com/image/thumb/Music/v4/10/ad/c0/10adc0a9-ea45-9a87-9ad1-2744816816fc/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Soundtrack",
+    "Count": 274,
+    "percent": 3.53,
+    "genreKey": "soundtrack",
+    "genreImage": "http://is1.mzstatic.com/image/thumb/Music/v4/7c/07/53/7c0753b6-67a8-f6a0-c912-f37694aca84e/source/100x100bb.jpg",
+    "albumImage": "http://is4.mzstatic.com/image/thumb/Music/v4/98/62/f6/9862f6a3-d2e5-40a7-47e4-013dc1775f37/source/100x100bb.jpg"
+  },
+  {
+    "Name": "genre",
+    "Count": 4,
+    "percent": 0.05,
+    "genreKey": "genre",
+    "genreImage": "https://img.discogs.com/THTyvTJv3Pkt_x7_fj4uUZAGYAA=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-1827681-1384566323-5230.jpeg.jpg",
+    "albumImage": "https://s3.amazonaws.com/demoo/https%3A//is5-ssl.mzstatic.com/image/thumb/Music/v4/33/68/9e/33689ece-6a18-4f4d-27a8-1b1c994469b1/source/100x100bb.jpg"
+  },
+  {
+    "Name": "French Pop",
+    "Count": 26,
+    "percent": 0.33,
+    "genreKey": "frenchpop",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music/v4/db/99/09/db99092c-80f2-5fe1-3c18-d4acb6900ce1/source/100x100bb.jpg",
+    "albumImage": "http://is1.mzstatic.com/image/thumb/Music2/v4/dc/d6/6c/dcd66c4a-628c-3b82-19d0-737652da441a/source/100x100bb.jpg"
+  },
+  {
+    "Name": "K-Pop",
+    "Count": 43,
+    "percent": 0.55,
+    "genreKey": "kpop",
+    "genreImage": "http://is5.mzstatic.com/image/thumb/Music5/v4/e6/5e/4b/e65e4be1-ef08-2d4b-865e-8ac77d40327d/source/100x100bb.jpg",
+    "albumImage": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/1f/70/e3/1f70e370-79c4-8a72-9fa7-d322127022ee/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Bossa Nova",
+    "Count": 14,
+    "percent": 0.18,
+    "genreKey": "bossanova",
+    "genreImage": "http://is5.mzstatic.com/image/thumb/Music/v4/c6/b9/86/c6b986cd-5a80-db72-f2b8-8bf3b16827a2/source/100x100bb.jpg",
+    "albumImage": "http://is5.mzstatic.com/image/thumb/Music/v4/c6/b9/86/c6b986cd-5a80-db72-f2b8-8bf3b16827a2/source/100x100bb.jpg"
+  },
+  {
+    "Name": "J-POP",
+    "Count": 14,
+    "percent": 0.18,
+    "genreKey": "jpop",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music5/v4/cf/b1/1d/cfb11dea-618f-ec99-831e-e3518fbd1c6c/source/100x100bb.jpg",
+    "albumImage": "http://is4.mzstatic.com/image/thumb/Music5/v4/cf/b1/1d/cfb11dea-618f-ec99-831e-e3518fbd1c6c/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Pop/Rock",
+    "Count": 16,
+    "percent": 0.2,
+    "genreKey": "poprock",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music6/v4/e3/1d/82/e31d8238-61fd-db64-cadf-b1758e98de5d/source/100x100bb.jpg",
+    "albumImage": "http://is4.mzstatic.com/image/thumb/Music6/v4/e3/1d/82/e31d8238-61fd-db64-cadf-b1758e98de5d/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Rap",
+    "Count": 58,
+    "percent": 0.74,
+    "genreKey": "rap",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music/v4/a5/5c/b7/a55cb705-9a3a-a2d3-c957-02ecb8e708bb/source/100x100bb.jpg",
+    "albumImage": "http://is3.mzstatic.com/image/thumb/Music/v4/8c/80/18/8c80188e-c589-4d4d-dedc-15d4737c004b/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Unknown Genre",
+    "Count": 447,
+    "percent": 5.76,
+    "genreKey": "unknowngenre",
+    "genreImage": null,
+    "albumImage": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e6/Twennynine_with_Lenny_White.jpg/220px-Twennynine_with_Lenny_White.jpg"
+  },
+  {
+    "Name": "Metal",
+    "Count": 19,
+    "percent": 0.24,
+    "genreKey": "metal",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music5/v4/cf/b1/1d/cfb11dea-618f-ec99-831e-e3518fbd1c6c/source/100x100bb.jpg",
+    "albumImage": "http://is3.mzstatic.com/image/thumb/Music69/v4/72/e1/67/72e1674e-91a4-b1fb-dfee-7274a618bc6c/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Hardcore Rap",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "hardcorerap",
+    "genreImage": "http://is5.mzstatic.com/image/thumb/Music/v4/fb/53/f6/fb53f62b-f4dc-d452-8af1-94147c290e5a/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Classical",
+    "Count": 57,
+    "percent": 0.73,
+    "genreKey": "classical",
+    "genreImage": "http://is5.mzstatic.com/image/thumb/Music/v4/80/0b/0f/800b0fec-5863-aecd-216d-3b7350a22917/source/100x100bb.jpg",
+    "albumImage": "http://is3.mzstatic.com/image/thumb/Music/v4/02/c4/b1/02c4b16f-c311-ddea-b57a-44e8dbb10abb/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Soul",
+    "Count": 12,
+    "percent": 0.15,
+    "genreKey": "soul",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music6/v4/b4/e7/9e/b4e79e01-ac06-b724-14e6-a2cb801723ec/source/100x100bb.jpg",
+    "albumImage": "http://is4.mzstatic.com/image/thumb/Music/v4/e1/d1/58/e1d158c1-997e-2004-54a8-8be92bcd83c3/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Hard Rock",
+    "Count": 67,
+    "percent": 0.86,
+    "genreKey": "hardrock",
+    "genreImage": "https://s3.amazonaws.com/demoo/https%3A//is3-ssl.mzstatic.com/image/thumb/Music114/v4/66/d1/a2/66d1a2da-5137-15da-0701-9b41d18c28b5/source/100x100bb.jpg",
+    "albumImage": "https://s3.amazonaws.com/demoo/https%3A//is3-ssl.mzstatic.com/image/thumb/Music114/v4/66/d1/a2/66d1a2da-5137-15da-0701-9b41d18c28b5/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Rap & Hip-Hop",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "rap&hiphop",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music/v4/cf/41/b4/cf41b491-de7d-8479-532e-1ababe316cea/source/100x100bb.jpg"
+  },
+  {
+    "Name": "International",
+    "Count": 4,
+    "percent": 0.05,
+    "genreKey": "international",
+    "genreImage": "http://is1.mzstatic.com/image/thumb/Music1/v4/9f/c7/3d/9fc73dae-d7a2-70f9-9d8c-e85fc2cf4998/source/100x100bb.jpg",
+    "albumImage": "http://is3.mzstatic.com/image/thumb/Music/v4/87/5f/2b/875f2b49-e249-68f8-9622-d0a5c7936a7f/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Tamil",
+    "Count": 22,
+    "percent": 0.28,
+    "genreKey": "tamil",
+    "genreImage": null,
+    "albumImage": "https://s3.amazonaws.com/demoo/https%3A//is5-ssl.mzstatic.com/image/thumb/Music69/v4/0b/7e/3f/0b7e3fdd-12ea-5c66-9ba9-c18d0879fc8e/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Jazz",
+    "Count": 161,
+    "percent": 2.07,
+    "genreKey": "jazz",
+    "genreImage": "http://is1.mzstatic.com/image/thumb/Music/v4/24/6d/7b/246d7bfb-5de3-d814-80b4-a4de656cec41/source/100x100bb.jpg",
+    "albumImage": "http://is1.mzstatic.com/image/thumb/Music/v4/24/6d/7b/246d7bfb-5de3-d814-80b4-a4de656cec41/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Latino",
+    "Count": 33,
+    "percent": 0.42,
+    "genreKey": "latino",
+    "genreImage": "http://is3.mzstatic.com/image/thumb/Music/v4/ec/7a/98/ec7a98e9-c74f-3bbf-3ecf-a8de1f412141/source/100x100bb.jpg",
+    "albumImage": "http://is3.mzstatic.com/image/thumb/Music/v4/ec/7a/98/ec7a98e9-c74f-3bbf-3ecf-a8de1f412141/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Reggae",
+    "Count": 47,
+    "percent": 0.6,
+    "genreKey": "reggae",
+    "genreImage": null,
+    "albumImage": "http://is3.mzstatic.com/image/thumb/Music/v4/63/04/a8/6304a845-a580-c176-d27a-d4b696bf5e31/source/100x100bb.jpg"
+  },
+  {
+    "Name": "World",
+    "Count": 32,
+    "percent": 0.41,
+    "genreKey": "world",
+    "genreImage": "http://is3.mzstatic.com/image/thumb/Music6/v4/80/21/7f/80217f7e-a52d-e83b-a3b1-3fbd9d20026f/source/100x100bb.jpg",
+    "albumImage": "http://is3.mzstatic.com/image/thumb/Music6/v4/80/21/7f/80217f7e-a52d-e83b-a3b1-3fbd9d20026f/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Christian & Gospel",
+    "Count": 17,
+    "percent": 0.21,
+    "genreKey": "christian&gospel",
+    "genreImage": "http://is3.mzstatic.com/image/thumb/Music62/v4/51/94/c7/5194c7e6-064c-0008-416b-2fa723c347bc/source/100x100bb.jpg",
+    "albumImage": "http://is2.mzstatic.com/image/thumb/Music42/v4/10/19/d1/1019d18a-2ba6-00df-1cd0-adc2dfd79c3e/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Punk",
+    "Count": 10,
+    "percent": 0.12,
+    "genreKey": "punk",
+    "genreImage": "http://is1.mzstatic.com/image/thumb/Music4/v4/ad/16/49/ad1649b9-23c7-f923-5b53-85324c74e24b/source/100x100bb.jpg",
+    "albumImage": "http://is1.mzstatic.com/image/thumb/Music4/v4/ad/16/49/ad1649b9-23c7-f923-5b53-85324c74e24b/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Musicals",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "musicals",
+    "genreImage": null
+  },
+  {
+    "Name": "Folk-Rock",
+    "Count": 8,
+    "percent": 0.1,
+    "genreKey": "folkrock",
+    "genreImage": "http://is5.mzstatic.com/image/thumb/Music/v4/2e/f9/6a/2ef96a07-09fa-bce6-1778-58f7946bc38b/source/100x100bb.jpg",
+    "albumImage": "http://is5.mzstatic.com/image/thumb/Music/v4/2e/f9/6a/2ef96a07-09fa-bce6-1778-58f7946bc38b/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Brazilian",
+    "Count": 17,
+    "percent": 0.21,
+    "genreKey": "brazilian",
+    "genreImage": "http://is5.mzstatic.com/image/thumb/Music/v4/ef/3f/32/ef3f3235-d65b-fcc5-4aa7-5407ea83df0c/source/100x100bb.jpg",
+    "albumImage": "http://is5.mzstatic.com/image/thumb/Music/v4/ef/3f/32/ef3f3235-d65b-fcc5-4aa7-5407ea83df0c/source/100x100bb.jpg"
+  },
+  {
+    "Name": "R&B",
+    "Count": 14,
+    "percent": 0.18,
+    "genreKey": "r&b",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music/v4/bd/b1/0a/bdb10ab2-b68f-2643-3f89-974d2734eb58/source/100x100bb.jpg",
+    "albumImage": "http://is4.mzstatic.com/image/thumb/Music/v4/bd/b1/0a/bdb10ab2-b68f-2643-3f89-974d2734eb58/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Country",
+    "Count": 93,
+    "percent": 1.19,
+    "genreKey": "country",
+    "genreImage": "http://is5.mzstatic.com/image/thumb/Music/v4/26/16/20/2616204f-5e34-59af-c760-93437831881b/source/100x100bb.jpg",
+    "albumImage": "http://is4.mzstatic.com/image/thumb/Music/v4/5f/f0/79/5ff07924-9e33-ffeb-7967-b3629a6a0304/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Hip Hop/Rap",
+    "Count": 8,
+    "percent": 0.1,
+    "genreKey": "hiphoprap",
+    "genreImage": null,
+    "albumImage": "http://is3.mzstatic.com/image/thumb/Music/v4/90/d0/4f/90d04ffb-4b0a-3b82-16ac-19121f58f497/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Mash-Up",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "mashup",
+    "genreImage": null
+  },
+  {
+    "Name": "Goth Rock",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "gothrock",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music/v4/73/ee/67/73ee67dc-d0ec-ee51-9d75-40ed4560fc49/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Variété Française",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "variétéfrançaise",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music/v4/db/99/09/db99092c-80f2-5fe1-3c18-d4acb6900ce1/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Anime",
+    "Count": 19,
+    "percent": 0.24,
+    "genreKey": "anime",
+    "genreImage": null,
+    "albumImage": "http://is1.mzstatic.com/image/thumb/Music/v4/6f/e2/3f/6fe23f6e-5a53-eeca-e8e8-ab04895e5356/source/100x100bb.jpg"
+  },
+  {
+    "Name": "(12)",
+    "Count": 4,
+    "percent": 0.05,
+    "genreKey": "(12)",
+    "genreImage": "https://s3.amazonaws.com/demoo/https%3A//is5-ssl.mzstatic.com/image/thumb/Music/v4/33/68/9e/33689ece-6a18-4f4d-27a8-1b1c994469b1/source/100x100bb.jpg",
+    "albumImage": "https://s3.amazonaws.com/demoo/https%3A//is5-ssl.mzstatic.com/image/thumb/Music/v4/33/68/9e/33689ece-6a18-4f4d-27a8-1b1c994469b1/source/100x100bb.jpg"
+  },
+  {
+    "Name": "rock",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "rock",
+    "genreImage": null
+  },
+  {
+    "Name": "Rap Metal",
+    "Count": 4,
+    "percent": 0.05,
+    "genreKey": "rapmetal",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music/v4/a3/da/73/a3da7362-c9f7-a6a4-bd00-632776ac74c1/source/100x100bb.jpg",
+    "albumImage": "http://is4.mzstatic.com/image/thumb/Music/v4/a3/da/73/a3da7362-c9f7-a6a4-bd00-632776ac74c1/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Latin Urban",
+    "Count": 15,
+    "percent": 0.19,
+    "genreKey": "latinurban",
+    "genreImage": "http://is3.mzstatic.com/image/thumb/Music/v4/34/78/03/3478031c-8784-2471-95d6-aafc270b7bf8/source/100x100bb.jpg",
+    "albumImage": "http://is3.mzstatic.com/image/thumb/Music/v4/34/78/03/3478031c-8784-2471-95d6-aafc270b7bf8/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Rap & Hip Hop",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "rap&hiphop",
+    "genreImage": "http://is3.mzstatic.com/image/thumb/Music4/v4/39/b8/d2/39b8d23c-0874-05c5-1d84-43618fbf2424/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Blues",
+    "Count": 45,
+    "percent": 0.58,
+    "genreKey": "blues",
+    "genreImage": "http://is5.mzstatic.com/image/thumb/Music60/v4/c6/52/89/c65289a7-1eb9-9f76-cfbf-84aa92ff4bd6/source/100x100bb.jpg",
+    "albumImage": "http://is5.mzstatic.com/image/thumb/Music60/v4/c6/52/89/c65289a7-1eb9-9f76-cfbf-84aa92ff4bd6/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Blues-Rock",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "bluesrock",
+    "genreImage": "https://s3.amazonaws.com/demoo/http%3A//is5.mzstatic.com/image/thumb/Music/v4/7b/86/57/7b865784-1f89-5a11-e079-c053e4c79ec9/source/100x100bb.jpg"
+  },
+  {
+    "Name": "J-Pop",
+    "Count": 27,
+    "percent": 0.34,
+    "genreKey": "jpop",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music/v4/db/fb/cd/dbfbcd5c-fc06-eb8f-f9d6-61687646e8c8/source/100x100bb.jpg",
+    "albumImage": "http://is3.mzstatic.com/image/thumb/Music/v4/87/5f/2b/875f2b49-e249-68f8-9622-d0a5c7936a7f/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Dance & DJ",
+    "Count": 4,
+    "percent": 0.05,
+    "genreKey": "dance&dj",
+    "genreImage": "http://is5.mzstatic.com/image/thumb/Music2/v4/54/9d/c1/549dc1bc-746d-b10a-3c0d-61c3667e532e/source/100x100bb.jpg",
+    "albumImage": "http://is3.mzstatic.com/image/thumb/Music/v4/ae/ac/40/aeac40fa-fc03-c11b-59fc-f5736a65c42c/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Latin Music",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "latinmusic",
+    "genreImage": "http://is3.mzstatic.com/image/thumb/Music/v4/ec/7a/98/ec7a98e9-c74f-3bbf-3ecf-a8de1f412141/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Funk",
+    "Count": 4,
+    "percent": 0.05,
+    "genreKey": "funk",
+    "genreImage": "http://is1.mzstatic.com/image/thumb/Music/v4/9b/3b/4c/9b3b4cc5-83fc-8b7b-f820-fa30d8eaaf8a/source/100x100bb.jpg",
+    "albumImage": "http://is1.mzstatic.com/image/thumb/Music1/v4/3e/54/a4/3e54a466-0028-985e-c790-a95461292224/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Salsa y Tropical",
+    "Count": 7,
+    "percent": 0.09,
+    "genreKey": "salsaytropical",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music/v4/fd/56/5d/fd565d01-932a-5605-af1c-0c3fdbb29552/source/100x100bb.jpg",
+    "albumImage": "http://is2.mzstatic.com/image/thumb/Music/v4/fd/56/5d/fd565d01-932a-5605-af1c-0c3fdbb29552/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Genre",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "genre",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music49/v4/c2/9f/17/c29f17c3-e9db-8bad-de23-b9f9c15542e5/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Holiday",
+    "Count": 10,
+    "percent": 0.12,
+    "genreKey": "holiday",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music/v4/ba/bf/0a/babf0a78-0cbf-e13b-2026-ee44d18ac52c/source/100x100bb.jpg",
+    "albumImage": "https://is2-ssl.mzstatic.com/image/thumb/Music71/v4/db/24/1b/db241b29-0841-2486-a36b-d49eb389aac4/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Other",
+    "Count": 5,
+    "percent": 0.06,
+    "genreKey": "or",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music/v4/90/c8/8c/90c88c5c-b4a9-b4e9-545a-1f6b0695d35a/source/100x100bb.jpg",
+    "albumImage": "http://is3.mzstatic.com/image/thumb/Music/v4/9c/f9/1d/9cf91d75-f7e7-e59d-3417-d34c58c1e4ab/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Reggaeton y Hip-Hop",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "reggaetonyhiphop",
+    "genreImage": "http://is3.mzstatic.com/image/thumb/Music/v4/e1/1b/92/e11b92f8-9ba1-85ff-fa9c-96cd87d703ad/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Fitness & Workout",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "fitness&workout",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music2/v4/85/9a/29/859a29d0-1cf3-8bc5-aa31-87ee8c575ff0/source/100x100bb.jpg"
+  },
+  {
+    "Name": "(9)",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "(9)",
+    "genreImage": "http://is5.mzstatic.com/image/thumb/Music122/v4/50/89/c3/5089c3f8-ed7c-cdeb-fe3b-2931deee3a98/source/100x100bb.jpg"
+  },
+  {
+    "Name": "DYI",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "dyi",
+    "genreImage": null
+  },
+  {
+    "Name": "Prog-Rock/Art Rock",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "progrockartrock",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music5/v4/7a/4e/48/7a4e4871-bcda-f45b-1cee-bb31dc4185a6/source/100x100bb.jpg"
+  },
+  {
+    "Name": "New Wave",
+    "Count": 4,
+    "percent": 0.05,
+    "genreKey": "newwave",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music111/v4/4f/79/26/4f7926f5-942e-fcdb-9f67-5d477e766f21/source/100x100bb.jpg",
+    "albumImage": "http://is2.mzstatic.com/image/thumb/Music/v4/bb/e4/40/bbe44001-7291-c0c1-dfd1-2083727062f3/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Miscellaneous",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "miscellaneous",
+    "genreImage": "http://is5.mzstatic.com/image/thumb/Music4/v4/6d/16/a5/6d16a5f2-fcac-3eb3-8000-159803690b23/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Rock/Pop",
+    "Count": 2,
+    "percent": 0.02,
+    "genreKey": "rockpop",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music117/v4/a9/a1/94/a9a194e7-bcd6-8dfb-d2f5-195d5c2324cb/source/100x100bb.jpg",
+    "albumImage": "http://is2.mzstatic.com/image/thumb/Music/v4/66/b9/67/66b967b5-048a-380c-3adc-b8c737c0e652/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Instrumental",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "instrumental",
+    "genreImage": "http://is1.mzstatic.com/image/thumb/Music22/v4/31/61/23/316123f0-9d47-2162-e51c-906d89a76543/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Soundtrack ",
+    "Count": 3,
+    "percent": 0.03,
+    "genreKey": "soundtrack",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music1/v4/07/4c/43/074c43f0-d83e-6a38-d65f-36f088539b81/source/100x100bb.jpg",
+    "albumImage": "http://is2.mzstatic.com/image/thumb/Music1/v4/07/4c/43/074c43f0-d83e-6a38-d65f-36f088539b81/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Progressive Rock",
+    "Count": 2,
+    "percent": 0.02,
+    "genreKey": "progressiverock",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music/v4/e5/b0/d5/e5b0d50b-0b3e-f33b-c8d9-4a359facbf6e/source/100x100bb.jpg",
+    "albumImage": "http://is3.mzstatic.com/image/thumb/Music/v4/0d/74/94/0d749406-96ae-a429-9085-f49cbd04fd0c/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Urbano latino",
+    "Count": 14,
+    "percent": 0.18,
+    "genreKey": "urbanolatino",
+    "genreImage": "http://is3.mzstatic.com/image/thumb/Music/v4/34/78/03/3478031c-8784-2471-95d6-aafc270b7bf8/source/100x100bb.jpg",
+    "albumImage": "https://s3.amazonaws.com/demoo/http%3A//is2.mzstatic.com/image/thumb/Music/v4/6f/86/55/6f8655b6-72ce-949c-160d-2827a3587e1c/source/100x100bb.jpg"
+  },
+  {
+    "Name": "TV Soundtrack",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "tvsoundtrack",
+    "genreImage": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/4c/c8/2b/4cc82b1a-6c3f-a8ec-b8ef-404572c5bbd1/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Sound Track",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "soundtrack",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music/v4/bd/b1/0a/bdb10ab2-b68f-2643-3f89-974d2734eb58/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Soundtracks",
+    "Count": 2,
+    "percent": 0.02,
+    "genreKey": "soundtracks",
+    "genreImage": null,
+    "albumImage": "https://i1.sndcdn.com/artworks-000373911237-tvs3v9-t500x500.jpg"
+  },
+  {
+    "Name": "Disco",
+    "Count": 5,
+    "percent": 0.06,
+    "genreKey": "disco",
+    "genreImage": "http://is1.mzstatic.com/image/thumb/Music4/v4/74/d2/c4/74d2c444-b968-f50a-131f-283bf616ba72/source/100x100bb.jpg",
+    "albumImage": "https://s3.amazonaws.com/demoo/https%3A//is3-ssl.mzstatic.com/image/thumb/Music118/v4/32/f4/d1/32f4d10a-e788-97cc-1a70-c4deaa1d3f81/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Classic Rock",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "classicrock",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music2/v4/ab/fd/1a/abfd1a14-0562-55b3-c802-f34c3d2ef60e/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Latin",
+    "Count": 6,
+    "percent": 0.07,
+    "genreKey": "latin",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music/v4/9d/10/62/9d1062b9-e438-11a7-d63a-91cdaf3a9a6c/source/100x100bb.jpg",
+    "albumImage": "https://s3.amazonaws.com/demoo/https%3A//is4-ssl.mzstatic.com/image/thumb/Music114/v4/de/92/2c/de922ce3-ff7f-c826-4985-1790aee8264f/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Gospel",
+    "Count": 4,
+    "percent": 0.05,
+    "genreKey": "gospel",
+    "genreImage": "http://is5.mzstatic.com/image/thumb/Music/v4/56/c4/42/56c44244-679e-d9d6-95a3-ea45e997cd73/source/100x100bb.jpg",
+    "albumImage": "http://is5.mzstatic.com/image/thumb/Music/v4/56/c4/42/56c44244-679e-d9d6-95a3-ea45e997cd73/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Worldwide",
+    "Count": 12,
+    "percent": 0.15,
+    "genreKey": "worldwide",
+    "genreImage": "http://is3.mzstatic.com/image/thumb/Music/v4/87/5f/2b/875f2b49-e249-68f8-9622-d0a5c7936a7f/source/100x100bb.jpg",
+    "albumImage": "https://s3.amazonaws.com/demoo/https%3A//is2-ssl.mzstatic.com/image/thumb/Music/v4/db/a6/e3/dba6e379-fe59-c61e-a427-aad6192e5dea/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Punk Rock",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "punkrock",
+    "genreImage": null
+  },
+  {
+    "Name": "Pop Latino",
+    "Count": 3,
+    "percent": 0.03,
+    "genreKey": "poplatino",
+    "genreImage": "http://is4.mzstatic.com/image/thumb/Music2/v4/a9/a6/90/a9a6902f-a733-ead0-d3c6-0814aa261c61/source/100x100bb.jpg",
+    "albumImage": "https://s3.amazonaws.com/demoo/https%3A//is1-ssl.mzstatic.com/image/thumb/Music124/v4/9b/85/18/9b851824-6613-69f9-7e56-8c0214591ed5/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Singer/Songwriter",
+    "Count": 27,
+    "percent": 0.34,
+    "genreKey": "singersongwriter",
+    "genreImage": "https://is5-ssl.mzstatic.com/image/thumb/Music/v4/7f/b7/ef/7fb7ef0d-01d9-218c-4e20-0d5dc0443ff0/source/100x100bb.jpg",
+    "albumImage": "https://s3.amazonaws.com/demoo/http%3A//is3.mzstatic.com/image/thumb/Music/v4/f6/f7/dd/f6f7dde6-9b7e-6230-6458-d02b5ee63485/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Folk",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "folk",
+    "genreImage": "https://s3.amazonaws.com/demoo/http%3A//is3.mzstatic.com/image/thumb/Music5/v4/c6/20/f7/c620f7c3-e861-f517-a227-2ac36224d1dc/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Karaoke",
+    "Count": 3,
+    "percent": 0.03,
+    "genreKey": "karaoke",
+    "genreImage": "https://s3.amazonaws.com/demoo/http%3A//is5.mzstatic.com/image/thumb/Music/v4/92/4d/f3/924df374-3fe8-3756-9c52-c1bd481d2204/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Easy Listening",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "easylistening",
+    "genreImage": "https://s3.amazonaws.com/demoo/http%3A//is2.mzstatic.com/image/thumb/Music/v4/17/9a/02/179a02ba-d9d3-33a6-067e-847654b4fd70/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Techno",
+    "Count": 2,
+    "percent": 0.02,
+    "genreKey": "techno",
+    "genreImage": null,
+    "albumImage": "https://s3.amazonaws.com/demoo/https%3A//is3-ssl.mzstatic.com/image/thumb/Music113/v4/6a/5f/ad/6a5fade7-0a94-bb7e-b187-8b7feb041992/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Gangsta Rap",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "gangstarap",
+    "genreImage": "https://s3.amazonaws.com/demoo/http%3A//is5.mzstatic.com/image/thumb/Music6/v4/9a/d8/44/9ad844aa-255c-2eab-84d3-8d29beab3242/source/100x100bb.jpg"
+  },
+  {
+    "Name": "CCM",
+    "Count": 3,
+    "percent": 0.03,
+    "genreKey": "ccm",
+    "genreImage": "https://s3.amazonaws.com/demoo/http%3A//is2.mzstatic.com/image/thumb/Music71/v4/34/46/b4/3446b4c0-e141-bccb-b557-5b54326d6f00/source/100x100bb.jpg",
+    "albumImage": "https://s3.amazonaws.com/demoo/http%3A//is2.mzstatic.com/image/thumb/Music71/v4/12/2e/31/122e3100-cd82-5c7c-ae1b-d9538810d674/source/100x100bb.jpg"
+  },
+  {
+    "Name": "House",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "house",
+    "genreImage": null
+  },
+  {
+    "Name": "Japan",
+    "Count": 19,
+    "percent": 0.24,
+    "genreKey": "japan",
+    "genreImage": null,
+    "albumImage": "https://is2-ssl.mzstatic.com/image/thumb/Music7/v4/3a/15/97/3a159707-cf17-6bc3-19d5-86bd31ab11ef/source/100x100bb.jpg"
+  },
+  {
+    "Name": "New Age",
+    "Count": 11,
+    "percent": 0.14,
+    "genreKey": "newage",
+    "genreImage": null,
+    "albumImage": "https://s3.amazonaws.com/demoo/https%3A//is2-ssl.mzstatic.com/image/thumb/Music/v4/ff/a0/c0/ffa0c05d-951f-8a0c-f0c7-fbe5703f53ce/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Bass",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "bass",
+    "genreImage": null
+  },
+  {
+    "Name": "Música tropical",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "músicatropical",
+    "genreImage": "http://is2.mzstatic.com/image/thumb/Music/v4/fd/56/5d/fd565d01-932a-5605-af1c-0c3fdbb29552/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Jungle/Drum'n'bass",
+    "Count": 2,
+    "percent": 0.02,
+    "genreKey": "jungledrum'n'bass",
+    "genreImage": null
+  },
+  {
+    "Name": "Vocal",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "vocal",
+    "genreImage": null
+  },
+  {
+    "Name": "Afro-Pop",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "afropop",
+    "genreImage": "https://s3.amazonaws.com/demoo/https%3A//is5-ssl.mzstatic.com/image/thumb/Music111/v4/d9/7a/08/d97a0891-0c2f-dc7f-b73e-0a29f5b6bd75/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Ambient",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "ambient",
+    "genreImage": null
+  },
+  {
+    "Name": "Oldies",
+    "Count": 2,
+    "percent": 0.02,
+    "genreKey": "oldies",
+    "genreImage": "https://s3.amazonaws.com/demoo/https%3A//is3-ssl.mzstatic.com/image/thumb/Music/v4/c4/81/f0/c481f01d-42ac-0d71-ed2a-dffbd9840cf8/source/100x100bb.jpg",
+    "albumImage": "https://s3.amazonaws.com/demoo/https%3A//is3-ssl.mzstatic.com/image/thumb/Music/v4/c4/81/f0/c481f01d-42ac-0d71-ed2a-dffbd9840cf8/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Música Mexicana",
+    "Count": 14,
+    "percent": 0.18,
+    "genreKey": "músicamexicana",
+    "genreImage": "https://s3.amazonaws.com/demoo/https%3A//is1-ssl.mzstatic.com/image/thumb/Music114/v4/ee/9a/ea/ee9aea66-0225-5b59-d3ba-0797ab19f6a9/source/100x100bb.jpg",
+    "albumImage": "https://s3.amazonaws.com/demoo/https%3A//is3-ssl.mzstatic.com/image/thumb/Music114/v4/76/e1/b5/76e1b566-5086-f6f4-47c6-29d227ef6005/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Electronica",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "electronica",
+    "genreImage": "https://s3.amazonaws.com/demoo/https%3A//is3-ssl.mzstatic.com/image/thumb/Music118/v4/8c/9f/aa/8c9faa4c-caba-f2fe-794f-0f9cd666d61b/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Christian",
+    "Count": 3,
+    "percent": 0.03,
+    "genreKey": "christian",
+    "genreImage": "https://s3.amazonaws.com/demoo/https%3A//is4-ssl.mzstatic.com/image/thumb/Music2/v4/00/8d/6d/008d6d8d-7f43-6cef-0300-acb4901389d6/source/100x100bb.jpg",
+    "albumImage": "https://s3.amazonaws.com/demoo/https%3A//is3-ssl.mzstatic.com/image/thumb/Music128/v4/ee/e9/b1/eee9b18b-2f1c-8c13-7669-613461fbd9db/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Indian",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "indian",
+    "genreImage": "https://s3.amazonaws.com/demoo/https%3A//is3-ssl.mzstatic.com/image/thumb/Music3/v4/46/1c/d5/461cd5da-0566-a998-47e4-a528daf0a82e/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Regional Indian",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "regionalindian",
+    "genreImage": null
+  },
+  {
+    "Name": "Teen Pop",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "teenpop",
+    "genreImage": "https://s3.amazonaws.com/demoo/https%3A//is3-ssl.mzstatic.com/image/thumb/Music118/v4/ce/9f/7c/ce9f7ca6-e2fe-58a5-bc24-b37a933c7f05/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Vocal Pop",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "vocalpop",
+    "genreImage": "https://s3.amazonaws.com/demoo/https%3A//is2-ssl.mzstatic.com/image/thumb/Music118/v4/48/85/e9/4885e917-4e51-23ab-9d97-199c9342768f/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Latin Jazz",
+    "Count": 13,
+    "percent": 0.16,
+    "genreKey": "latinjazz",
+    "genreImage": "https://images-na.ssl-images-amazon.com/images/I/5123BGY4D2L.jpg",
+    "albumImage": "https://images-na.ssl-images-amazon.com/images/I/5123BGY4D2L.jpg"
+  },
+  {
+    "Name": "Lounge",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "lounge",
+    "genreImage": null
+  },
+  {
+    "Name": "Alternative Folk",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "alternativefolk",
+    "genreImage": "https://images-na.ssl-images-amazon.com/images/I/71Fw0mzu78L._SL1425_.jpg"
+  },
+  {
+    "Name": "Praise & Worship",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "praise&worship",
+    "genreImage": "https://s3.amazonaws.com/demoo/http%3A//is4.mzstatic.com/image/thumb/Music4/v4/c4/a0/2b/c4a02b48-18ae-ab0e-86dd-64f41e484ed2/source/100x100bb.jpg"
+  },
+  {
+    "Name": "College Rock",
+    "Count": 13,
+    "percent": 0.16,
+    "genreKey": "collegerock",
+    "genreImage": "https://upload.wikimedia.org/wikipedia/en/1/1e/Camper_Van_Beethoven_Key_Lime_Pie.jpg",
+    "albumImage": "https://upload.wikimedia.org/wikipedia/en/1/1e/Camper_Van_Beethoven_Key_Lime_Pie.jpg"
+  },
+  {
+    "Name": "Trance",
+    "Count": 13,
+    "percent": 0.16,
+    "genreKey": "trance",
+    "genreImage": "https://www.listentothis.info/wp-content/uploads/2017/12/Art_Of_Noise-The_Ambient_Collection-Frontal.jpg",
+    "albumImage": "https://www.listentothis.info/wp-content/uploads/2017/12/Art_Of_Noise-The_Ambient_Collection-Frontal.jpg"
+  },
+  {
+    "Name": "Afrobeats",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "afrobeats",
+    "genreImage": null
+  },
+  {
+    "Name": "Motown",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "motown",
+    "genreImage": null
+  },
+  {
+    "Name": "Flamenco",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "flamenco",
+    "genreImage": null
+  },
+  {
+    "Name": "Spoken Word",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "spokenword",
+    "genreImage": "https://s3.amazonaws.com/demoo/https%3A//is2-ssl.mzstatic.com/image/thumb/Music/v4/ed/98/24/ed98247a-5a0c-f894-bb42-7d30ca0d81b8/source/100x100bb.jpg"
+  },
+  {
+    "Name": "Mandopop",
+    "Count": 1,
+    "percent": 0,
+    "genreKey": "mandopop",
+    "genreImage": null
+  },
+  {
+    "Name": "Modern Dancehall",
+    "Count": 5,
+    "percent": 0.06,
+    "genreKey": "moderndancehall",
+    "genreImage": null
+  },
+  {
+    "Name": "Alternative Rap",
+    "Count": 2,
+    "percent": 0.02,
+    "genreKey": "alternativerap",
+    "genreImage": null
+  }
+]

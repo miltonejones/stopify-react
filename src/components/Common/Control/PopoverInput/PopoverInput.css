@@ -1,0 +1,16 @@
+.busy {
+  animation: spinning-icon 0.5s linear infinite;
+}
+
+@keyframes spinning-icon {
+  0%      {transform: rotate(0);}
+  100%    {transform: rotate(1turn);}
+}
+
+.secondary {
+  min-width: 240px;
+  max-width: 300px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

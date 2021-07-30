@@ -1,0 +1,30 @@
+.DashShell{
+  padding: 12px;
+}
+
+.dash-page-paper {
+  padding: 20px;
+  color: #333;
+  margin: 4px 0 0 0;
+  border-radius: 0 !important;
+}
+
+.amplify-card-header {
+  display: flex;
+  align-items: center;
+}
+
+.amplify-card-header label {
+  font-size: 1rem;
+}
+
+.see-all {
+  margin-left: auto;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.see-all:hover {
+  color: var(--accent-text-color)
+}

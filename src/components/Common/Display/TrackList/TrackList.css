@@ -1,0 +1,18 @@
+.TrackList {
+  background-color: white;
+  z-index: 22;
+}
+.collapse {
+  z-index: 12;
+}
+.typo {
+  margin: 0 0 16px 0 !important;
+}
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.truncate.saved { 
+  font-weight: 600;
+}

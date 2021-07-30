@@ -1,0 +1,16 @@
+.ThumbGrid {}
+.flexed {
+  display: flex;
+align-items: center;
+}
+
+.crumb {
+  margin-left: auto;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .crumb { 
+    display: none;
+  }
+}

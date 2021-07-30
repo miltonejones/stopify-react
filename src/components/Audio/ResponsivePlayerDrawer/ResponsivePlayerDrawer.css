@@ -1,0 +1,18 @@
+
+
+@media only screen and (max-width: 600px) {
+  .ResponsivePlayerDrawer {  
+    height: 60px; 
+  }
+  .ResponsivePlayerDrawer.open { 
+    position: absolute;
+    top: 0;
+    height: 100vh; 
+  }
+  .hidden {
+    position: static;
+    height: 60px !important;
+    z-index: 4;
+    visibility: visible !important;
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "songs": {
+    "icon": "music",
+    "label": "Songs",
+    "path": "home",
+    "length": 33,
+    "items": [
+      {
+        "type": "songs",
+        "Title": "Papillon (aka Hot Butterfly)",
+        "Key": "Chaka Khan - Papillon [aka] Hot Butterfly (1980).ogg.mp3",
+        "artistFk": 590,
+        "albumFk": 727,
+        "Artist": "Chaka Khan",
+        "image": "http://is4.mzstatic.com/image/thumb/Music/v4/7d/45/89/7d458913-4c8c-9acd-5342-8e6f74269293/source/100x100bb.jpg"
+      },
+      {
+        "type": "songs",
+        "Title": "Ain't Nobody",
+        "Key": "Chaka Khan-Ain't Nobody.mp3",
+        "artistFk": 590,
+        "albumFk": 727,
+        "Artist": "Chaka Khan",
+        "image": "http://is4.mzstatic.com/image/thumb/Music/v4/7d/45/89/7d458913-4c8c-9acd-5342-8e6f74269293/source/100x100bb.jpg"
+      }
+    ],
+    "map": {
+      "Title": "Title",
+      "Artist": "artistName",
+      "image": "albumImage",
+      "Key": "FileKey"
+    },
+    "menu": "audiofile"
+  },
+  "albums": {
+    "icon": "file-audio-o",
+    "label": "Albums",
+    "path": "album/0/0",
+    "length": 6,
+    "items": [
+      {
+        "Title": "Epiphany: The Best of Chaka Khan, Vol. 1",
+        "Key": 727,
+        "Artist": "Chaka Khan",
+        "image": "http://is4.mzstatic.com/image/thumb/Music/v4/7d/45/89/7d458913-4c8c-9acd-5342-8e6f74269293/source/100x100bb.jpg",
+        "count": 16
+      },
+      {
+        "Title": "I Feel for You",
+        "Key": 1045,
+        "Artist": "Chaka Khan",
+        "image": "https://s3.amazonaws.com/demoo/http%3A//is1.mzstatic.com/image/thumb/Music/v4/90/5c/ed/905ced8b-ca94-b7a4-0320-3f67519e4a42/source/100x100bb.jpg",
+        "count": 2
+      }
+    ],
+    "map": {
+      "Title": "Name",
+      "count": "trackCount",
+      "Artist": "artistName",
+      "image": "albumImage",
+      "Key": "ID"
+    },
+    "link": true
+  },
+  "artists": {
+    "icon": "user-circle-o",
+    "label": "Artists",
+    "path": "artist/0/0",
+    "length": 3,
+    "items": [
+      {
+        "Title": "Chaka Khan",
+        "Key": 590,
+        "image": "http://is4.mzstatic.com/image/thumb/Music/v4/7d/45/89/7d458913-4c8c-9acd-5342-8e6f74269293/source/100x100bb.jpg",
+        "count": 27
+      },
+      {
+        "Title": "Rufus & Chaka Khan",
+        "Key": 791,
+        "image": "http://is1.mzstatic.com/image/thumb/Music/v4/d7/2b/e7/d72be766-815b-f7a9-3bfa-8dde0baa1f5d/source/100x100bb.jpg",
+        "count": 2
+      }
+    ],
+    "map": {
+      "Title": "Name",
+      "count": "trackCount",
+      "image": "artistImage",
+      "Key": "ID"
+    },
+    "link": true
+  },
+  "itunes": {
+    "icon": "apple",
+    "label": "iTunes",
+    "path": "itunes",
+    "length": 50,
+    "items": [
+      {
+        "type": "itunes",
+        "Title": "Asueno Melody",
+        "Artist": "Chaka",
+        "image": "https://is3-ssl.mzstatic.com/image/thumb/Music124/v4/b6/84/43/b68443b0-22a9-bddb-aefd-49c0fdb3ed70/source/100x100bb.jpg",
+        "Key": 1323019041,
+        "data": {
+          "wrapperType": "track",
+          "kind": "song",
+          "artistId": 1496178592,
+          "collectionId": 1323018840,
+          "trackId": 1323019041,
+          "artistName": "Chaka",
+          "collectionName": "Cardcaptor Sakura Song Collection 1999.4-2001.2",
+          "trackName": "Asueno Melody",
+          "collectionCensoredName": "Cardcaptor Sakura Song Collection 1999.4-2001.2",
+          "trackCensoredName": "Asueno Melody",
+          "collectionArtistId": 151566958,
+          "collectionArtistName": "Various Artists",
+          "artistViewUrl": "https://music.apple.com/us/artist/chaka/1496178592?uo=4",
+          "collectionViewUrl": "https://music.apple.com/us/album/asueno-melody/1323018840?i=1323019041&uo=4",
+          "trackViewUrl": "https://music.apple.com/us/album/asueno-melody/1323018840?i=1323019041&uo=4",
+          "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview118/v4/5b/7f/89/5b7f8994-4978-f37c-bb72-f56573ac446a/mzaf_2939113708654944093.plus.aac.p.m4a",
+          "artworkUrl30": "https://is3-ssl.mzstatic.com/image/thumb/Music124/v4/b6/84/43/b68443b0-22a9-bddb-aefd-49c0fdb3ed70/source/30x30bb.jpg",
+          "artworkUrl60": "https://is3-ssl.mzstatic.com/image/thumb/Music124/v4/b6/84/43/b68443b0-22a9-bddb-aefd-49c0fdb3ed70/source/60x60bb.jpg",
+          "artworkUrl100": "https://is3-ssl.mzstatic.com/image/thumb/Music124/v4/b6/84/43/b68443b0-22a9-bddb-aefd-49c0fdb3ed70/source/100x100bb.jpg",
+          "collectionPrice": 15.99,
+          "trackPrice": 1.29,
+          "releaseDate": "2017-12-13T12:00:00Z",
+          "collectionExplicitness": "notExplicit",
+          "trackExplicitness": "notExplicit",
+          "discCount": 1,
+          "discNumber": 1,
+          "trackCount": 19,
+          "trackNumber": 16,
+          "trackTimeMillis": 332840,
+          "country": "USA",
+          "currency": "USD",
+          "primaryGenreName": "Anime",
+          "isStreamable": true
+        },
+        "existing": 0
+      },
+      {
+        "type": "itunes",
+        "Title": "No Lloren",
+        "Artist": "Chaka El Makiavelico & Chaka",
+        "image": "https://is4-ssl.mzstatic.com/image/thumb/Music118/v4/51/b7/8b/51b78bbe-dab3-0166-c26c-014c185834eb/source/100x100bb.jpg",
+        "Key": 1351428092,
+        "data": {
+          "wrapperType": "track",
+          "kind": "song",
+          "artistId": 1351428089,
+          "collectionId": 1351428088,
+          "trackId": 1351428092,
+          "artistName": "Chaka El Makiavelico & Chaka",
+          "collectionName": "No Lloren - Single",
+          "trackName": "No Lloren",
+          "collectionCensoredName": "No Lloren - Single",
+          "trackCensoredName": "No Lloren",
+          "artistViewUrl": "https://music.apple.com/us/artist/chaka-el-makiavelico/1351428089?uo=4",
+          "collectionViewUrl": "https://music.apple.com/us/album/no-lloren/1351428088?i=1351428092&uo=4",
+          "trackViewUrl": "https://music.apple.com/us/album/no-lloren/1351428088?i=1351428092&uo=4",
+          "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview118/v4/0a/ae/7f/0aae7f47-1523-25f2-b94f-8dbf2bce3948/mzaf_2883180232963167684.plus.aac.p.m4a",
+          "artworkUrl30": "https://is4-ssl.mzstatic.com/image/thumb/Music118/v4/51/b7/8b/51b78bbe-dab3-0166-c26c-014c185834eb/source/30x30bb.jpg",
+          "artworkUrl60": "https://is4-ssl.mzstatic.com/image/thumb/Music118/v4/51/b7/8b/51b78bbe-dab3-0166-c26c-014c185834eb/source/60x60bb.jpg",
+          "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Music118/v4/51/b7/8b/51b78bbe-dab3-0166-c26c-014c185834eb/source/100x100bb.jpg",
+          "collectionPrice": 0.99,
+          "trackPrice": 0.99,
+          "releaseDate": "2017-07-04T12:00:00Z",
+          "collectionExplicitness": "notExplicit",
+          "trackExplicitness": "notExplicit",
+          "discCount": 1,
+          "discNumber": 1,
+          "trackCount": 1,
+          "trackNumber": 1,
+          "trackTimeMillis": 245891,
+          "country": "USA",
+          "currency": "USD",
+          "primaryGenreName": "Hip-Hop/Rap",
+          "isStreamable": true
+        },
+        "existing": 0
+      }
+    ],
+    "map": {
+      "Title": "trackName",
+      "Artist": "artistName",
+      "image": "artworkUrl30",
+      "Key": "trackId"
+    },
+    "menu": "selected"
+  },
+  "youtube": {
+    "label": "YouTube",
+    "icon": "youtube",
+    "path": "youtube",
+    "length": 0,
+    "items": [],
+    "map": {
+      "Title": "title",
+      "Artist": "artist",
+      "Key": "key"
+    }
+  }
+}

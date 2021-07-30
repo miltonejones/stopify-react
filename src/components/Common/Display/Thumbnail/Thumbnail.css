@@ -1,0 +1,22 @@
+.Thumbnail {
+  height: 226px;
+  margin-top: 12px;
+  line-height: 1.125;
+}
+
+.Thumbnail img {
+  width: 172px;
+  height: 172px;
+}
+
+.Thumbnail.editing img {
+  outline: dotted 2px red;
+}
+
+.Thumbnail.selected img {
+  outline: solid 3px #37a;
+}
+
+.Thumbnail {
+  
+}

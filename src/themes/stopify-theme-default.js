@@ -212,6 +212,19 @@ let theme = createTheme({
     snackbar: 1400,
     tooltip: 1500,
   },
+  // overrides: {
+  //   MuiIconButton: {
+  //     root: {
+  //       boxShadow: ` 5px 5px 10px #d4d4d4,
+  //                     -5px -5px 10px #ffffff`,
+  //       "& :active": {
+  //         borderRadius: "50%",
+  //         boxShadow: `inset 6px 6px 12px #c8c8c8,
+  //                                   inset -6px -6px 12px #ffffff`,
+  //       },
+  //     },
+  //   },
+  // },
   // DENSITY EFFECTS BY USING 'components' object:
   // REF: https://next.material-ui.com/customization/theme-components/
   // REF: https://next.material-ui.com/customization/density/
