@@ -6,9 +6,13 @@
 align-items: center;
 }
 
+.pages-list {
+  margin-left: auto;  
+}
+
 .sorter {
   margin-left: auto; 
-  margin-right: 24px;
+  margin-right: 24px; 
 }
 
 .crumb {

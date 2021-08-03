@@ -3,6 +3,7 @@
 @media only screen and (max-width: 600px) {
   .ResponsivePlayerDrawer {  
     height: 60px; 
+    max-width: 100vw;
   }
   .ResponsivePlayerDrawer.open { 
     position: absolute;

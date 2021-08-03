@@ -29,13 +29,13 @@ const EqLabel = ({ width, color = "#EBEBEB", flat }) => {
       className={className}
       style={{ width }}
       onClick={() => drawerOpen.next({ open: true })}
-    >
+    > 
       <div
         style={{
           backgroundImage: fullGrid(flat ? "white" : color, width),
           backgroundSize: `${width}px 40px`,
           backgroundRepeat: "no-repeat",
-          width,
+          width:600,
         }}
         className="grid-mask"
       ></div>

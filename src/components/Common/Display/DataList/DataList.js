@@ -10,8 +10,7 @@ import {
 } from "../../../../services/RemoteData";
 import { sortObjects } from "../../../../util/Functions";
 import { PlayerAction } from "../../../Audio/Player/Player";
-import { drawerOpen } from "../../../Audio/ResponsivePlayerDrawer/ResponsivePlayerDrawer";
-// import { SCREEN_STATE } from "../../../Layout/AppLayout/AppLayout";
+import { drawerOpen } from "../../../Audio/ResponsivePlayerDrawer/ResponsivePlayerDrawer"; 
 import ArtistHeader from "../ArtistHeader/ArtistHeader";
 import { GridFieldType } from "../Thumbnail/ThumbnailTypes";
 import TrackGrid from "../TrackGrid/TrackGrid";

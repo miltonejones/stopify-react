@@ -25,6 +25,19 @@
  
 
 
+@media only screen and (orientation: landscape) {
+    .Photo.cubed {
+        --photo-width: 160px;
+        --minus-z: -80px;
+        --plus-z: 80px; 
+    }
+    .Photo.cubed.open {
+        --photo-width: 132px;
+        --minus-z: -66px;
+        --plus-z: 66px; 
+    }
+  }
+
 .Photo.cubed { 
     width: var(--photo-width);
     height: var(--photo-width); 

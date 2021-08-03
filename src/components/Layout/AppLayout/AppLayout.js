@@ -7,6 +7,7 @@ import {
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { SCREEN_STATE } from "../../../app/Constants";
 import {
   blobDownloadComplete,
   blobDownloadProgress,
@@ -25,12 +26,6 @@ import AppSidebar from "../AppSidebar/AppSidebar";
 import AppToolbar from "../AppToolbar/AppToolbar";
 import DashShell from "../DashShell/DashShell";
 import "./AppLayout.css";
-
-export const SCREEN_STATE = {
-  SCREEN: "screen",
-  MOBILE: "mobile",
-  TABLET: "tablet",
-};
 
 const AppLayout = () => {
   const [route, setRoute] = useState({});

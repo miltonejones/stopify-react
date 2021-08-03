@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CrumbList({ route, name, direct, dark }) {
+export default function CrumbList({ route, name, icononly, dark }) {
   const classes = useStyles();
   // const home = appRoutes[0];
   // const handleClick = (event, haus) => {
@@ -52,8 +52,9 @@ export default function CrumbList({ route, name, direct, dark }) {
     >
       <MenuLink color="inherit" dest="/" className={classes.link}>
         <HomeIcon className={classes.icon} />
-        Home
+        <IconOnly hide={icononly}>Home</IconOnly>
       </MenuLink>
+
       {!!route?.type && (
         <MenuLink
           underline="hover"
@@ -61,9 +62,12 @@ export default function CrumbList({ route, name, direct, dark }) {
           dest={`/browse/${route.type}`}
           className={classes.link}
         >
-          {route?.data?.icon}[{route?.data?.label}]
+           {route?.data?.icon} 
+        <IconOnly hide={icononly}>{route?.data?.label}</IconOnly>
+       
         </MenuLink>
       )}
+
       {!!name && (
         <Typography color="textPrimary" className={classes.link}>
           {name}
@@ -71,4 +75,9 @@ export default function CrumbList({ route, name, direct, dark }) {
       )}
     </Breadcrumbs>
   );
+}
+
+function IconOnly({hide, children}) {
+  if (hide) return <i/>
+return <>{children}</>
 }

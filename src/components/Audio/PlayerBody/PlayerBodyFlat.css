@@ -92,6 +92,10 @@
   margin-top: auto;
   /* margin: .5rem 0 0 0; */
   text-align: center;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .PlayerBody.flat .info h1 {
   padding: 42px 0 0 0;

@@ -24,8 +24,8 @@ import { SongPersistService } from "../../../services/Persist";
 import { compareTrackToLists } from "../../../services/RemoteData";
 import { openPlaylistMenuDrawer } from "../../Common/Control/PlaylistMenu/PlaylistMenu";
 import PopoverInputDrawer from "../../Common/Control/PopoverInputDrawer/PopoverInputDrawer";
-import { drawerOpen } from "../ResponsivePlayerDrawer/ResponsivePlayerDrawer";
-import { SCREEN_STATE } from "../../Layout/AppLayout/AppLayout";
+import { drawerOpen } from "../ResponsivePlayerDrawer/ResponsivePlayerDrawer"; 
+import { SCREEN_STATE } from "../../../app/Constants";
 
 const useStyles = makeStyles({
   root: {
@@ -194,8 +194,8 @@ const PlayerBody = (props) => {
     selection: [track?.ID],
   };
   const EqSizes = {
-    360: screenIsBiggerThanSmSize && !orientationLandscape,
-    240: collapsed,
+    360: screenIsBiggerThanSmSize && !collapsed,
+    242: collapsed,
     [width - (flat ? 0 : 48)]: !(
       screenIsBiggerThanSmSize ||
       collapsed ||
@@ -244,9 +244,9 @@ const PlayerBody = (props) => {
       <Photo src={track.albumImage} alt={track.Title} className={className} />
 
       <div className="info">
-        <h1>{track.artistName} </h1>
-        <p>{track.Title}</p>
-        <em>{track.albumName}</em>
+        <h1 className="no-wrap max-300">{track.artistName} </h1>
+        <p className="no-wrap max-300">{track.Title}</p>
+        <em className="no-wrap max-300">{track.albumName}</em>
       </div>
 
       <div className="header lower">
@@ -282,7 +282,6 @@ const PlayerBody = (props) => {
       </div>
 
       {flat && <Playhead {...PlayheadArgs} />}
-
       <EqLabel {...EqLabelArgs} />
 
       {!flat && <Playhead {...PlayheadArgs} />}

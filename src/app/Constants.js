@@ -29,3 +29,9 @@ export {
   OMITTED_COLUMNS,
   CACHE_TABLE_DEF,
 };
+
+export const SCREEN_STATE = {
+  SCREEN: "screen",
+  MOBILE: "mobile",
+  TABLET: "tablet",
+};

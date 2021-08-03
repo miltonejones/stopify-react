@@ -9,8 +9,7 @@ import {
 
 import {
   AppLayoutContent,
-  DownloadMessageDrawer,
-  SCREEN_STATE,
+  DownloadMessageDrawer, 
 } from "./components/Layout/AppLayout/AppLayout";
 import AppToolbar from "./components/Layout/AppToolbar/AppToolbar";
 import ResponsivePlayerDrawer, {
@@ -28,13 +27,14 @@ import { TrackEditorDrawer } from "./components/Common/Form/TrackEditor/TrackEdi
 import { ImporterDrawer } from "./components/Common/Form/Importer/Importer";
 import EventSnackBar from "./components/Common/EventSnackBar/EventSnackBar";
 import { updatePlaylistCollection } from "./services/RemoteData";
+import { SCREEN_STATE } from "./app/Constants";
 
 function App() {
   const [sidebarOpen, setOpen] = useState(true);
   const [playerBodyOpen, setPlayerBodyOpen] = useState(false);
   const theme = useTheme();
   const screenIsBiggerThanSmSize = useMediaQuery(theme.breakpoints.up("sm"));
-  const screenIsBiggerThanLgSize = useMediaQuery(theme.breakpoints.up("lg"));
+  const screenIsBiggerThanLgSize = useMediaQuery(theme.breakpoints.up("md"));
   const orientationLandscape = useMediaQuery("(orientation: landscape)");
   useEffect(() => {
     const sub = drawerOpen.subscribe((d) => {
@@ -85,7 +85,7 @@ function App() {
           <ResponsivePlayerDrawer screenState={screenState} />
           <div className="AppLayout">
             <AppSidebar {...sidebarArgs} />
-            <div className={rxcs({ left: true, open: okToShowSidebar })}>
+            <div className={rxcs({ left: true, open: okToShowSidebar })}> 
               <Choice>
                 <Route
                   path="/library"

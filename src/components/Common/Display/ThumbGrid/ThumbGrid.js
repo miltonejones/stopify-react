@@ -5,8 +5,8 @@ import CrumbList from "../CrumbList/CrumbList";
 import Thumbnail from "../Thumbnail/Thumbnail";
 import "./ThumbGrid.css";
 import { ArrowDownward, ArrowUpward, MoreVert } from "@material-ui/icons";
-import { rxcs } from "../../../../util/Functions";
-import { SCREEN_STATE } from "../../../Layout/AppLayout/AppLayout";
+import { rxcs } from "../../../../util/Functions"; 
+import { SCREEN_STATE } from "../../../../app/Constants";
 const PAGE_SIZE = 96;
 const ThumbGrid = ({
   items,
@@ -36,9 +36,9 @@ const ThumbGrid = ({
   //   });
   // };
   const landscape = screenState === SCREEN_STATE.TABLET;
-  const crumbClass = rxcs({ crumb: 1, landscape });
+  const crumbClass = rxcs({ crumb: 1 });
   return (
-    <div className="ThumbGrid">
+    <div className="ThumbGrid"> 
       {/* {JSON.stringify(sorter)}
       <br />
       --------------------------
@@ -47,12 +47,14 @@ const ThumbGrid = ({
       --------------------------
       {(sorter === sorter).toString()} */}
       <div className="flexed">
-        <PaginationBar {...args} />
         <div className={crumbClass}>
-          {!!route && <CrumbList dark route={route} />}
+          {!!route && <CrumbList icononly={landscape || small} dark route={route} />}
         </div>
+        <div className='pages-list'>
+        <PaginationBar {...args} />
+        </div> 
         <div className="sorter">
-          <SortMenu small={small} choose={choose} sorter={sorter} />
+          <SortMenu small={small||landscape} choose={choose} sorter={sorter} />
         </div>
       </div>
       <Grid container spacing={2}>
@@ -61,6 +63,7 @@ const ThumbGrid = ({
             <Thumbnail
               small={small}
               cubed
+              landscape={landscape}
               open={open}
               clicked={clicked}
               track={item}
@@ -129,7 +132,7 @@ function SortMenu({ sorter, small, choose }) {
 
   return (
     <>
-      {sorter?.map((s) => (
+      Sort by: {sorter?.map((s) => (
         <Chip
           icon={s.isActive ? <SortIcon sorter={s} /> : ""}
           color="primary"

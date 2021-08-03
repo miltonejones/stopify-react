@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     },
     "@media (orientation: landscape)": {
       height: 48,
-      backgroundPositionY: -1760,
+      backgroundPositionY: '-760px !important',
       "& .lower": {
         display: "none",
       },
@@ -78,9 +78,9 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     display: "flex",
     alignItems: "center",
-    "@media (orientation: landscape)": {
-      display: "none",
-    },
+    // "@media (orientation: landscape)": {
+    //   display: "none",
+    // },
   },
 }));
 

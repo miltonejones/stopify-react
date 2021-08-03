@@ -18,6 +18,12 @@ const useStyles = makeStyles((theme) => ({
       width: 180,
       height: 180,
     },
+    "@media (orientation: landscape)": {
+      "& img": {
+        width: 160,
+        height: 160,
+      },
+    },
     [theme.breakpoints.down("xs")]: {
       height: 196,
       marginTop: 12,
@@ -36,12 +42,22 @@ const useStyles = makeStyles((theme) => ({
           height: 132,
         },
       },
+
+
+      "@media (orientation: landscape)": {
+        "& img": {
+          width: 132,
+          height: 132,
+        },
+      },
+
+      
     },
   },
 }));
 
 const Thumbnail = (props) => {
-  const { track, clicked, open, cubed, small, rect } = props;
+  const { track, clicked, open, cubed, small, rect, landscape } = props;
   const classes = useStyles(props);
   const what = ThumbnailTypes.filter((t) => t.when(track))[0];
   if (!what) {
@@ -70,6 +86,7 @@ const Thumbnail = (props) => {
             src={image}
             alt={Title}
             rect={rect}
+            landscape={landscape}
           />
         </Badge>
         <Caption text={Title} />
