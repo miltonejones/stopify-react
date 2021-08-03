@@ -10,13 +10,14 @@ import "./PlaylistMenu.css";
 import { rxcs } from "../../../../util/Functions";
 import Observer from "../../../../services/Observables";
 import Underline from "../../Underline/Underline";
+import { sortBy, ThumbViewSorters } from "../../../../util/Sorters";
 const PlaylistMenu = ({ track }) => {
   const [lists, setLists] = useState([]);
   const update = useCallback(
     () =>
       query("playlist").then((res) => {
         console.log({ res });
-        setLists([...res.data]);
+        setLists(sortBy(ThumbViewSorters.playlist, [...res.data]));
       }),
     []
   );

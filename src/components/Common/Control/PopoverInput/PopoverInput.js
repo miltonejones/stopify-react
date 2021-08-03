@@ -16,6 +16,7 @@ import {
   Album,
   ChevronRight,
   LocalOffer,
+  MoreHoriz,
   MusicNote,
   People,
   Sync,
@@ -24,10 +25,12 @@ import { rxcs } from "../../../../util/Functions";
 import { queueTrack } from "../../../../util/PlayerConnect";
 import PopoverStyles from "./PopoverStyles";
 import { useHistory } from "react-router-dom";
-
+import { grey } from "@material-ui/core/colors";
+import { openTrackMenuDrawer } from "../TrackMenu/TrackMenu";
 const PopoverInput = ({ setChosed, setParams }) => {
   const classes = PopoverStyles();
   const [paremeter, setParameter] = React.useState(null);
+  const [on, setOn] = React.useState(grey[300]);
   const [data, setData] = React.useState({});
   const [busy, setBusy] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -65,11 +68,13 @@ const PopoverInput = ({ setChosed, setParams }) => {
     <div className="PopoverInput">
       <div className={classes.search}>
         <div className={rxcs({ [classes.searchIcon]: true, busy })}>
-          {busy ? <Sync /> : <MusicNote />}
+          {busy ? <Sync /> : <MusicNote style={{ color: on }} />}
         </div>
         <InputBase
           placeholder="Find music…"
           disabled={busy}
+          onBlur={() => setOn(grey[300])}
+          onFocus={() => setOn(grey[600])}
           onKeyUp={handleClick}
           classes={{
             root: classes.inputRoot,
@@ -127,6 +132,14 @@ function PopoverInputSection({
       handleClose();
     });
   };
+  const menu = (Key) => {
+    const Keys = [Key];
+    send("tune", { Keys }).then((res) => {
+      const { data } = res;
+      openTrackMenuDrawer.next({ track: data[0] });
+      handleClose();
+    });
+  };
   const launch = (ID) => {
     if (type === "songs") return queue(ID);
     !!Types[type] && setChosed({ dataType: Types[type], ID });
@@ -155,6 +168,11 @@ function PopoverInputSection({
               primary={k.Title}
               secondary={k.Artist || `${k.count} tracks`}
             />
+            {type === "songs" && (
+              <ListItemSecondaryAction onClick={() => menu(k.Key)}>
+                <MoreHoriz />
+              </ListItemSecondaryAction>
+            )}
           </ListItem>
         ))}
 

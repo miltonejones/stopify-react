@@ -16,7 +16,7 @@
 
 
    display: grid;
-   grid-template: 60px/60px 60px auto ; 
+   grid-template: 60px/60px 110px auto ; 
    grid-template-areas: 'photo buttons eq' ;  
   
   }
@@ -29,11 +29,12 @@
   }   
   .PlayerBody.collapsed .Playhead {
     margin: 0;
-    grid-area: buttons;
+    grid-area: buttons; 
   } 
    
   .PlayerBody.collapsed .Photo {
     margin: 0;
+    padding: 0 8px;
     grid-area: photo;
   } 
    
@@ -44,6 +45,13 @@
     z-index: 1;
   }
 
+  .PlayerBody.collapsed .Photo .art.on {
+    border-radius: 50%; 
+    width: 60px; 
+    height: 60px; 
+    animation: rolling-disk 7.5s 0.25s linear infinite; 
+  }
+  
   .PlayerBody.flat .EqLabel {
     grid-area: eq; 
   }

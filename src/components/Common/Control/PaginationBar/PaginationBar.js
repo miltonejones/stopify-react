@@ -13,7 +13,8 @@ function PaginationBar({ startPage, pageSize, collection, selection, click }) {
     collection.length
   )} of  ${collection.length}`;
   const last = startPage + pageSize >= collection.length;
-  const target = collection?.indexOf(selection);
+  const ids = collection?.map((f) => f.ID);
+  const target = !selection?.length ? -1 : ids?.indexOf(selection[0]);
   const diff = Math.floor((target - startPage) / pageSize);
 
   if (collection.length <= pageSize) return "";

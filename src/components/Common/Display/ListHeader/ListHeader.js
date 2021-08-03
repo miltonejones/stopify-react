@@ -8,13 +8,13 @@ import {
   PlayCircleFilled,
 } from "@material-ui/icons";
 import { Button, IconButton, LinearProgress } from "@material-ui/core";
-import Photo from "../Photo/Photo";
 import CrumbList from "../CrumbList/CrumbList";
 import { rxcs } from "../../../../util/Functions";
 
 const useStyles = makeStyles((theme) => ({
   button: {
     minWidth: 88,
+    margin: "4px 0",
   },
   small: {
     marginLeft: 8,
@@ -54,7 +54,13 @@ const useStyles = makeStyles((theme) => ({
         display: "none",
       },
     },
-
+    "@media (orientation: landscape)": {
+      height: 48,
+      backgroundPositionY: -1760,
+      "& .lower": {
+        display: "none",
+      },
+    },
     [theme.breakpoints.down("xs")]: {
       display: "none",
     },
@@ -62,6 +68,9 @@ const useStyles = makeStyles((theme) => ({
   white: {
     color: "white",
     marginLeft: "auto",
+    "@media (orientation: landscape)": {
+      display: "none",
+    },
   },
   CrumbList: {
     padding: " 0 12px",
@@ -69,6 +78,9 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     display: "flex",
     alignItems: "center",
+    "@media (orientation: landscape)": {
+      display: "none",
+    },
   },
 }));
 

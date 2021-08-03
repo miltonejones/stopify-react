@@ -3,7 +3,6 @@ import {
   Avatar,
   Button,
   Collapse,
-  Divider,
   Grid,
   IconButton,
   List,
@@ -17,7 +16,6 @@ import { Edit, Save, Search } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import Observer from "../../../../services/Observables";
 import { createPlus, iTuneLookup, save } from "../../../../services/RemoteData";
-import ObjectReader from "../../../Dev/ObjectReader/ObjectReader";
 import PopoverSearch from "../../Control/PopoverSearch/PopoverSearch";
 import { dataListChanged } from "../../Display/DataList/DataList";
 import Underline from "../../Underline/Underline";

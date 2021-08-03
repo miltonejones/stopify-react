@@ -34,7 +34,7 @@
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
-  max-width: 160px;
+  /* max-width: 160px; */
 }
 .empty-song-list .genre-song-item .genre-song-item-artist,
 .genre-song-list .genre-song-item .genre-song-item-artist {

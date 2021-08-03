@@ -2,11 +2,11 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-import Link from "@material-ui/core/Link";
 import HomeIcon from "@material-ui/icons/Home";
 import "./CrumbList.css";
 import { NavigateNext } from "@material-ui/icons";
-import appRoutes from "../../../../app/Routes";
+import { rxcs } from "../../../../util/Functions";
+import { MenuLink } from "../../../Layout/DashShell/LinkList/LinkList";
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
   next: {
     color: "white",
   },
+  dark: {
+    color: "black",
+  },
   icon: {
     marginRight: theme.spacing(0.5),
     width: 20,
@@ -24,9 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CrumbList({ route, name, direct }) {
+export default function CrumbList({ route, name, direct, dark }) {
   const classes = useStyles();
-  const home = appRoutes[0];
+  // const home = appRoutes[0];
   // const handleClick = (event, haus) => {
   //   event.preventDefault();
   //   console.info("You clicked a breadcrumb.", {
@@ -38,23 +41,28 @@ export default function CrumbList({ route, name, direct }) {
 
   return (
     <Breadcrumbs
-      separator={<NavigateNext className={classes.next} fontSize="small" />}
+      separator={
+        <NavigateNext
+          className={rxcs({ [classes.next]: !dark, [classes.dark]: dark })}
+          fontSize="small"
+        />
+      }
       classes={{ root: "CrumbList" }}
       aria-label="breadcrumb"
     >
-      <Link color="inherit" href="/" className={classes.link}>
+      <MenuLink color="inherit" dest="/" className={classes.link}>
         <HomeIcon className={classes.icon} />
         Home
-      </Link>
+      </MenuLink>
       {!!route?.type && (
-        <Link
+        <MenuLink
           underline="hover"
           color="inherit"
-          href={`/browse/${route.type}`}
+          dest={`/browse/${route.type}`}
           className={classes.link}
         >
           {route?.data?.icon}[{route?.data?.label}]
-        </Link>
+        </MenuLink>
       )}
       {!!name && (
         <Typography color="textPrimary" className={classes.link}>

@@ -127,6 +127,7 @@ const VerticalList = (props) => {
             type,
             loadVertical,
             field,
+            key: i,
           };
           return <VerticalListItem {...args} />;
         })}

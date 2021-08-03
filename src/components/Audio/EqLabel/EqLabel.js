@@ -9,11 +9,11 @@ const EqLabel = ({ width, color = "#EBEBEB", flat }) => {
   const [size, setSize] = useState(0);
   useEffect(() => {
     const sub = Analyser.eqOutput.subscribe((data) => {
-      setData(data);
+      !!data?.length && setData(data);
     });
     size !== width &&
       (function () {
-        Analyser.eqResize.next(true);
+        Analyser.eqResize.next(width);
       })();
     Analyser.start();
     console.log("SUBSCRIBED", Analyser.running);

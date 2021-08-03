@@ -146,8 +146,22 @@ function TrackItemText({ track }) {
   return (
     <ListItemText
       primary={<DecoratedTrackTitle track={track} />}
-      secondary={track.artistName}
+      secondary={<TrackItemInfo track={track} />}
+      classes={{ primary: "no-wrap max-300" }}
     ></ListItemText>
+  );
+}
+
+function TrackItemInfo({ track }) {
+  return (
+    <>
+      {!!track.albumName && (
+        <div className="track-album no-wrap max-200">{track.albumName}</div>
+      )}
+      {!!track.artistName && (
+        <div className="track-artist no-wrap max-200">{track.artistName}</div>
+      )}
+    </>
   );
 }
 

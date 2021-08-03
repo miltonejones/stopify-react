@@ -11,9 +11,14 @@ const margin = [
     size: 48,
   },
   {
-    when: (props) => props.flat,
+    when: (props) => props.flat && !props.solo,
     what: "8px 16px",
-    size: 64,
+    size: 32,
+  },
+  {
+    when: (props) => props.solo,
+    what: "0",
+    size: 28,
   },
   {
     when: () => !0,
@@ -44,8 +49,8 @@ const styles = {
   sizeSmall: {
     color: "black",
     fontSize: "1rem",
-    width: 40,
-    height: 40,
+    width: (props) => margin.filter((m) => m.when(props))[0].size,
+    height: (props) => margin.filter((m) => m.when(props))[0].size,
   },
   disabled: {
     boxShadow: `inset 6px 6px 12px #c8c8c8, 

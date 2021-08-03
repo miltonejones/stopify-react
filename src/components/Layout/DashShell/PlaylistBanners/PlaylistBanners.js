@@ -9,6 +9,7 @@ const PlaylistBanners = ({ small }) => {
   useEffect(() => {
     !objects?.length &&
       query("playlist").then((res) => {
+        console.log({ res });
         const o = randomize((res.data || res)?.filter((f) => !!f.image)).slice(
           0,
           small ? 3 : 6
@@ -19,8 +20,8 @@ const PlaylistBanners = ({ small }) => {
   }, [objects, small]);
   return (
     <div className="banner-container">
-      {objects?.map((object) => (
-        <PlaylistBanner i={object} small={small} />
+      {objects?.map((object, i) => (
+        <PlaylistBanner key={i} i={object} small={small} />
       ))}
     </div>
   );

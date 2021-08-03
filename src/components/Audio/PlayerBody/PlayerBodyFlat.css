@@ -202,6 +202,7 @@
   .PlayerBody.flat .Photo .art{
     display: block;
     width: 80px; 
+    height: 80px; 
     transition: all .2s linear;
     z-index: 1;
   }
@@ -239,3 +240,10 @@
   }
   
 }
+
+.PlayerBody.flat.landscape {  
+  display: grid;
+  grid-template: 72px/80px 160px 240px 180px 32px 100px; 
+  grid-template-areas: 'photo info buttons eq . lower' ;  
+ 
+ }

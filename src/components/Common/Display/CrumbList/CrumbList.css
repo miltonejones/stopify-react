@@ -1,3 +1,27 @@
 .CrumbList {
   margin: 0 24px;
 }
+
+/* 
+
+@media screen 
+  and (max-width: 600px) 
+  and (orientation: landscape)   {
+}
+
+
+@media only screen and (min-width: 600px) {
+
+  .CrumbList {
+    display: none;
+  }
+  
+}
+
+@media only screen and (orientation: landscape) {
+
+  .CrumbList {
+    display: none;
+  }
+  
+} */

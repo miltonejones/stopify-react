@@ -3,7 +3,7 @@ import { DataGrid } from "@material-ui/data-grid";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import "./TrackGrid.css";
-import { mmss } from "../../../../util/Functions";
+import { mmss, pristine } from "../../../../util/Functions";
 import TrackList from "../TrackList/TrackList";
 import { MoreVert } from "@material-ui/icons";
 import { IconButton } from "@material-ui/core";
@@ -14,6 +14,7 @@ import { queueTracks } from "../../../../util/PlayerConnect";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { PlayerAction } from "../../../Audio/Player/Player";
+import { SongPersistService } from "../../../../services/Persist";
 
 const columns = [
   {
@@ -56,7 +57,6 @@ const columns = [
         <IconButton
           onClick={() => {
             const track = params.row;
-            console.log({ track });
             openTrackMenuDrawer.next({ track });
           }}
           size="small"
@@ -80,7 +80,7 @@ export default function TrackGrid({
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
 
   const requestPlay = (t) => {
-    const start = rows.indexOf(t);
+    const start = pristine(rows).indexOf(t);
     const p = queueTracks(matches, rows, start, t);
     setArgs(p);
   };
@@ -103,13 +103,13 @@ export default function TrackGrid({
     e.field !== "menu" && requestPlay(e.row);
   };
   useEffect(() => {
+    const o = SongPersistService.current;
     const sub = PlayerAction.subscribe((t) => {
       t?.hasOwnProperty("FileKey") && setArgs({ ...args, t });
     });
+    !!o && !args?.t && setArgs({ ...args, t: o });
     return () => sub.unsubscribe();
-  });
-  rows?.map((row) => (row.id = row.id || row.ID || Math.random()));
-  console.log({ rows });
+  }, [args]);
   const selected = [args.t?.ID];
   if (matches) {
     return (

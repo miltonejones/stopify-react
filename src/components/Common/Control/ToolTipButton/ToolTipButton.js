@@ -11,6 +11,7 @@ const ToolTipButton = ({ title, click, disabled, icon, css }) => {
           classes={{ root: "icon-button-no-padding" }}
           onClick={click}
           color="inherit"
+          size="small"
           disabled={disabled}
         >
           <Icon>{icon}</Icon>

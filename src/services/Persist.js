@@ -1,8 +1,10 @@
 class SongPersistService$ {
   limit = 1000000;
   session = [];
+  current = null;
   add(track) {
     const setting = this.get().filter((old) => old.ID !== track.ID);
+    this.current = track;
     setting.push(track);
     this.set(setting);
     console.warn(`Added ${track.Title} to cache:`);

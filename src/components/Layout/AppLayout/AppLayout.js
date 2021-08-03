@@ -1,4 +1,10 @@
-import { Drawer, Typography, useMediaQuery, useTheme } from "@material-ui/core";
+import {
+  Collapse,
+  Drawer,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import {
@@ -20,6 +26,12 @@ import AppToolbar from "../AppToolbar/AppToolbar";
 import DashShell from "../DashShell/DashShell";
 import "./AppLayout.css";
 
+export const SCREEN_STATE = {
+  SCREEN: "screen",
+  MOBILE: "mobile",
+  TABLET: "tablet",
+};
+
 const AppLayout = () => {
   const [route, setRoute] = useState({});
   const [selectedObject, setSelectedObject] = useState({});
@@ -29,6 +41,16 @@ const AppLayout = () => {
 
   const theme = useTheme();
   const screenIsBiggerThanSmSize = useMediaQuery(theme.breakpoints.up("sm"));
+  const orientationLandscape = useMediaQuery("(orientation: landscape)");
+
+  const windowStates = {
+    [SCREEN_STATE.SCREEN]: screenIsBiggerThanSmSize,
+    [SCREEN_STATE.MOBILE]: !screenIsBiggerThanSmSize && !orientationLandscape,
+    [SCREEN_STATE.TABLET]: orientationLandscape, // && !screenIsBiggerThanSmSize,
+  };
+  const screenState = Object.keys(windowStates).filter(
+    (s) => windowStates[s]
+  )[0];
 
   useEffect(() => {
     const sub = drawerOpen.subscribe((d) => {
@@ -68,6 +90,7 @@ const AppLayout = () => {
     sidebarOpen,
     screenIsBiggerThanSmSize,
     playerBodyOpen,
+    screenState,
   };
   return (
     <>
@@ -80,7 +103,14 @@ const AppLayout = () => {
       <div className="AppLayout">
         <AppSidebar {...sidebarArgs} />
         <div className={rxcs({ left: true, open: ok })}>
-          <AppLayoutContent {...contentArgs} />
+          !![{screenState}]
+          {Object.keys(windowStates).map((s) => (
+            <>
+              [{s}: {windowStates[s].toString()}]
+            </>
+          ))}
+          ??
+          {/* <AppLayoutContent {...contentArgs} /> */}
         </div>
       </div>
       <TrackMenuDrawer direct={chooseObject} />
@@ -127,6 +157,7 @@ export const AppLayoutContent = ({
   screenIsBiggerThanSmSize, //
   playerBodyOpen, //
   okToShowSidebar,
+  screenState,
   // deprecated with route
   setRoute,
   chooseObject,
@@ -144,16 +175,18 @@ export const AppLayoutContent = ({
     open: sidebarOpen,
     route,
     screenIsBiggerThanSmSize,
+    screenState,
   };
 
+  const orientationLandscape = useMediaQuery("(orientation: landscape)");
   const okToShowDashShell = screenIsBiggerThanSmSize ? !0 : !playerBodyOpen;
   const home = !selectedObject?.dataType && !route?.type;
 
-  if (!okToShowDashShell) {
-    return <i />;
-  }
+  // if (!okToShowDashShell) {
+  //   return <i />;
+  // }
   return (
-    <>
+    <Collapse in={okToShowDashShell}>
       {!!params?.type && (
         <SearchGrid
           direct={chooseObject}
@@ -173,6 +206,7 @@ export const AppLayoutContent = ({
       {!!selectedObject?.dataType && !params?.type && (
         <DataList
           small={!screenIsBiggerThanSmSize}
+          screenState={screenState}
           flat
           direct={direct}
           route={route}
@@ -182,6 +216,6 @@ export const AppLayoutContent = ({
       {!!route?.type && !params?.type && !selectedObject?.dataType && (
         <DataGrid {...dataGridArgs} />
       )}
-    </>
+    </Collapse>
   );
 };

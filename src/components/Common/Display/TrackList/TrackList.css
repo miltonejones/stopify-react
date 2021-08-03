@@ -16,3 +16,12 @@
 .truncate.saved { 
   font-weight: 600;
 }
+
+.track-album {
+  font-size: .8rem;
+  line-height: 1;
+}
+.track-artist {
+  font-size: .7rem;
+  line-height: 1;
+}

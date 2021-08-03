@@ -1,11 +1,26 @@
-.ThumbGrid {}
+.ThumbGrid {
+  padding: 0 24px;
+}
 .flexed {
   display: flex;
 align-items: center;
 }
 
+.sorter {
+  margin-left: auto; 
+  margin-right: 24px;
+}
+
 .crumb {
-  margin-left: auto;
+  margin-left: 24px;
+}
+
+.crumb.landscape {    
+  display: none;
+}
+
+.chip {
+  margin: 0 4px !important;
 }
 
 
@@ -13,4 +28,9 @@ align-items: center;
   .crumb { 
     display: none;
   }
+
+  .sorter { 
+    margin-right: 0;
+  }
+
 }

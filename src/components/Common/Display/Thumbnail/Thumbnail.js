@@ -1,5 +1,5 @@
 import { Badge } from "@material-ui/core";
-import React, { useState } from "react";
+import React from "react";
 import Photo from "../Photo/Photo";
 import Caption from "./Caption/Caption";
 import "./Thumbnail.css";
@@ -28,8 +28,9 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     "&.open": {
-      height: 176,
+      height: 196,
       [theme.breakpoints.down("xs")]: {
+        height: 176,
         "& img": {
           width: 132,
           height: 132,
@@ -40,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Thumbnail = (props) => {
-  const { track, clicked, open, cubed, small } = props;
+  const { track, clicked, open, cubed, small, rect } = props;
   const classes = useStyles(props);
   const what = ThumbnailTypes.filter((t) => t.when(track))[0];
   if (!what) {
@@ -68,6 +69,7 @@ const Thumbnail = (props) => {
             className="standard-button"
             src={image}
             alt={Title}
+            rect={rect}
           />
         </Badge>
         <Caption text={Title} />

@@ -5,12 +5,12 @@ import {
   Switch as Choice,
   Route,
   useParams,
-  useHistory,
 } from "react-router-dom";
 
-import AppLayout, {
+import {
   AppLayoutContent,
   DownloadMessageDrawer,
+  SCREEN_STATE,
 } from "./components/Layout/AppLayout/AppLayout";
 import AppToolbar from "./components/Layout/AppToolbar/AppToolbar";
 import ResponsivePlayerDrawer, {
@@ -25,19 +25,34 @@ import { setup } from "./services/Blob";
 import { rxcs } from "./util/Functions";
 import appRoutes from "./app/Routes";
 import { TrackEditorDrawer } from "./components/Common/Form/TrackEditor/TrackEditor";
+import { ImporterDrawer } from "./components/Common/Form/Importer/Importer";
+import EventSnackBar from "./components/Common/EventSnackBar/EventSnackBar";
+import { updatePlaylistCollection } from "./services/RemoteData";
 
 function App() {
   const [sidebarOpen, setOpen] = useState(true);
   const [playerBodyOpen, setPlayerBodyOpen] = useState(false);
   const theme = useTheme();
   const screenIsBiggerThanSmSize = useMediaQuery(theme.breakpoints.up("sm"));
+  const screenIsBiggerThanLgSize = useMediaQuery(theme.breakpoints.up("lg"));
+  const orientationLandscape = useMediaQuery("(orientation: landscape)");
   useEffect(() => {
     const sub = drawerOpen.subscribe((d) => {
       setPlayerBodyOpen(d.open);
     });
+    updatePlaylistCollection();
     setup().then((count) => console.log("%s cached files", count));
     return () => sub.unsubscribe();
   }, [playerBodyOpen]);
+
+  const windowStates = {
+    [SCREEN_STATE.SCREEN]: screenIsBiggerThanSmSize && !orientationLandscape,
+    [SCREEN_STATE.MOBILE]: !screenIsBiggerThanSmSize && !orientationLandscape,
+    [SCREEN_STATE.TABLET]: orientationLandscape && !screenIsBiggerThanLgSize,
+  };
+  const screenState = Object.keys(windowStates).filter(
+    (s) => windowStates[s]
+  )[0];
 
   const okToShowSidebar = screenIsBiggerThanSmSize
     ? sidebarOpen
@@ -57,6 +72,7 @@ function App() {
     screenIsBiggerThanSmSize,
     playerBodyOpen,
     okToShowSidebar,
+    screenState,
   };
   return (
     <Router>
@@ -66,7 +82,7 @@ function App() {
             clicked={() => setOpen(!sidebarOpen)}
             setParams={setParams}
           />
-          <ResponsivePlayerDrawer />
+          <ResponsivePlayerDrawer screenState={screenState} />
           <div className="AppLayout">
             <AppSidebar {...sidebarArgs} />
             <div className={rxcs({ left: true, open: okToShowSidebar })}>
@@ -102,6 +118,8 @@ function App() {
           <PlaylistMenuDrawer />
           <DownloadMessageDrawer />
           <TrackEditorDrawer />
+          <ImporterDrawer />
+          <EventSnackBar />
         </>
       </div>
     </Router>

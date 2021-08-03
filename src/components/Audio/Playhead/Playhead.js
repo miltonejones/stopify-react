@@ -66,7 +66,8 @@ const Playhead = ({
       icon: <SkipNext />,
       onClick: () => advance(1),
       disabled: !(index < tracks?.length - 1),
-      hidden: collapsed,
+      solo: collapsed,
+      // hidden: collapsed,
     },
     {
       size: "small",
@@ -79,6 +80,7 @@ const Playhead = ({
       size: "small",
       icon: <MoreHoriz />,
       flat: true,
+      menu: true,
       onClick: () => {
         !!track && openTrackMenuDrawer.next({ track });
       },
@@ -87,10 +89,10 @@ const Playhead = ({
   useEffect(() => {
     !!track &&
       playlistCount(track).then((x) => {
-        console.log({ x });
         setHeart(x > 0);
       });
   }, [track, heart]);
+  const menuButton = buttons.filter((b) => b.menu)[0];
   return (
     <>
       <div
@@ -104,6 +106,9 @@ const Playhead = ({
           .map((b, i) => (
             <PlayerButton small={small} flat={flat} {...b} key={i} />
           ))}
+        {flat && small && (
+          <SquareButton {...menuButton}>{menuButton.icon}</SquareButton>
+        )}
       </div>
 
       {!!flat && (

@@ -1,9 +1,9 @@
 function curateDisc(trackList, ascending) {
-  console.log({ trackList, ascending })
+  console.log({ trackList, ascending });
   const action = trackNumberSort(ascending);
   uniqueList(trackList);
   const result = collateMultiDisc(trackList.sort(action));
-  console.log(result)
+  console.log(result);
   return result;
 }
 
@@ -20,10 +20,13 @@ function uniqueList(trackList) {
   if (trackList) {
     trackList.map((track) => {
       const dupes = trackList.filter((dupe) => {
-        return (dupe.trackNumber === track.trackNumber &&
-          (!dupe.discNumber || (dupe.discNumber === track.discNumber))) && dupe.ID > track.ID;
+        return (
+          dupe.trackNumber === track.trackNumber &&
+          (!dupe.discNumber || dupe.discNumber === track.discNumber) &&
+          dupe.ID > track.ID
+        );
       });
-      dupes.map((track) => track.duplicate = !!track.discNumber);
+      dupes.map((track) => (track.duplicate = !!track.discNumber));
     });
     return trackList;
   }
@@ -31,29 +34,44 @@ function uniqueList(trackList) {
 }
 
 function collateMultiDisc(resultList) {
-  if (resultList && resultList.filter((m) => m.discNumber !== undefined && m.discNumber > 1).length) {
+  if (
+    resultList &&
+    resultList.filter((m) => m.discNumber !== undefined && m.discNumber > 1)
+      .length
+  ) {
     let disc = 0;
     const tracks = [];
-    resultList.filter((f) => !f.label).map((track, i) => {
-      if (track.discNumber !== disc) {
-        disc = track.discNumber;
-        tracks.push({
-          ID: -i,
-          Title: `Disc ${disc}`,
-          label: true,
-          discNumber: disc,
-          active: !1,
-          artistName: '',
-          albumName: '',
-          Genre: ''
-        });
-      }
-      tracks.push(track);
-    });
+    const artistFk = resultList
+      .filter((f) => !!f.artistFk)
+      .map((f) => f.artistFk)[0];
+    resultList
+      .filter((f) => !f.label)
+      .map((track, i) => {
+        if (track.discNumber !== disc) {
+          disc = track.discNumber;
+          tracks.push({
+            ID: -i,
+            Title: `Disc ${disc}`,
+            label: true,
+            discNumber: disc,
+            active: !1,
+            artistName: "",
+            albumName: "",
+            Genre: "",
+            artistFk,
+          });
+        }
+        tracks.push(track);
+        return track;
+      });
     tracks.map((f) => {
       if (f.label) {
-        f.missing = tracks.filter((i) => i.discNumber == f.discNumber && !i.label && !i.missing).length == 0;
+        f.missing =
+          tracks.filter(
+            (i) => i.discNumber == f.discNumber && !i.label && !i.missing
+          ).length === 0;
       }
+      return f;
     });
     return tracks;
   }
@@ -69,17 +87,17 @@ function generateSortFunction(fieldName, isStr = !1) {
     } catch (e) {
       return 1;
     }
-
   };
 }
 
 function generateKey(Title) {
   if (!(Title && Title.replace)) {
-    return '';
+    return "";
   }
-  return Title.replace(/[\.\s-\/]/g, '').toLowerCase().trim().replace('the', '');
+  return Title.replace(/[\.\s-\/]/g, "")
+    .toLowerCase()
+    .trim()
+    .replace("the", "");
 }
 
-export {
-  curateDisc
-}
+export { curateDisc };

@@ -145,6 +145,7 @@ const DashShell = ({ small, direct, setChosed, hidden }) => {
           {" "}
           {genreData?.map((k) => (
             <DashPod
+              key={k.genre}
               icon={<LocalOffer />}
               title={`Genre: ${k.genre}`}
               see={() => setObject({ dataType: "genre", ID: k.genre })}

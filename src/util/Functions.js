@@ -10,6 +10,8 @@ export function randomize(collection) {
     .map((f) => f.f);
 }
 
+export const pristine = (r) => r.filter((f) => !f.label);
+
 export function generateKey(Title) {
   if (!(Title && Title.replace)) {
     return "";

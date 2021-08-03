@@ -1,7 +1,6 @@
 import { LinearProgress } from "@material-ui/core";
 import React, { useCallback, useEffect, useState } from "react";
 import { navigationComplete } from "../../../../app/State";
-import { Analyser } from "../../../../services/AudioAnalyzer";
 import { endpoint, search } from "../../../../services/RemoteData";
 import { PlayerAction } from "../../../Audio/Player/Player";
 import ArtistHeader from "../ArtistHeader/ArtistHeader";

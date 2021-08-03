@@ -11,16 +11,30 @@ import {
 import { sortObjects } from "../../../../util/Functions";
 import { PlayerAction } from "../../../Audio/Player/Player";
 import { drawerOpen } from "../../../Audio/ResponsivePlayerDrawer/ResponsivePlayerDrawer";
+// import { SCREEN_STATE } from "../../../Layout/AppLayout/AppLayout";
 import ArtistHeader from "../ArtistHeader/ArtistHeader";
 import { GridFieldType } from "../Thumbnail/ThumbnailTypes";
 import TrackGrid from "../TrackGrid/TrackGrid";
 import "./DataList.css";
 export const dataListChanged = new Observer();
 const fix = (rows, type) => {
-  rows?.map && rows?.map((row) => (row.id = row.ID));
-  return !rows?.map ? [] : sortObjects(rows, type);
+  rows?.map && rows?.map((row) => (row.id = row.id || row.ID || Math.random()));
+  return (!rows?.map ? [] : sortObjects(rows, type)).filter(
+    (row) => !row.duplicate
+  );
 };
-const DataList = ({ dataType, ID, flat, route, small, direct }) => {
+
+// rows?.map((row) => (row.id = row.id || row.ID || Math.random()));
+
+const DataList = ({
+  dataType,
+  ID,
+  flat,
+  route,
+  small,
+  direct,
+  screenState,
+}) => {
   const [items, setItems] = useState([]);
   const [playerDrawerOpen, setPlayerDrawerOpen] = useState(false);
   const [cache, setCache] = useState("");
@@ -28,7 +42,7 @@ const DataList = ({ dataType, ID, flat, route, small, direct }) => {
   const [artistFk, setArtistFk] = useState(null);
   const [info, setInfo] = useState({});
   const [message, setMessage] = useState("No results to display.");
-
+  // const landscape = screenState === SCREEN_STATE.TABLET;
   const init = useCallback(
     () =>
       query(dataType, ID).then((queryDatum) => {
@@ -104,12 +118,14 @@ const DataList = ({ dataType, ID, flat, route, small, direct }) => {
         <ArtistHeader
           direct={direct}
           disabled={small}
+          screenState={screenState}
           {...info}
           artistFk={artistFk}
         />
       )}
       <div className="DataList">
         <TrackGrid
+          screenState={screenState}
           selection={[args.t?.ID]}
           open={!playerDrawerOpen}
           rows={items}

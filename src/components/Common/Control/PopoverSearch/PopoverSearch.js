@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core";
 import { Add, Save, Sync } from "@material-ui/icons";
 import React, { useEffect } from "react";
-import { query, save, search } from "../../../../services/RemoteData";
+import { query, search } from "../../../../services/RemoteData";
 import { PopoverIcons, PopoverWrapper } from "../PopoverInput/PopoverInput";
 import PopoverStyles from "../PopoverInput/PopoverStyles";
 import "./PopoverSearch.css";

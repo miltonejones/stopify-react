@@ -1,9 +1,10 @@
-import { LinearProgress } from "@material-ui/core";
-import { VolumeUp } from "@material-ui/icons";
+import { IconButton, LinearProgress } from "@material-ui/core";
+import { MoreVert, VolumeUp } from "@material-ui/icons";
 import React, { useCallback, useEffect, useState } from "react";
 import { DEFAULT_IMAGE } from "../../../../app/Constants";
 import { PlayerAction } from "../../../Audio/Player/Player";
 import DecoratedTrackTitle from "../../../Common/Control/DecoratedTrackTitle/DecoratedTrackTitle";
+import { openTrackMenuDrawer } from "../../../Common/Control/TrackMenu/TrackMenu";
 import "./SongList.css";
 
 const SongList = (props) => {
@@ -47,12 +48,23 @@ const SongItem = ({ item, play }) => {
           src={item.albumImage || DEFAULT_IMAGE}
         />
       </div>
-      <div
-        onClick={() => play && play(item)}
-        className="genre-song-item-title standard-link"
-      >
+      <div className="genre-song-item-title standard-link flex">
         {active && <VolumeUp />}
-        <DecoratedTrackTitle track={item} />
+        <DecoratedTrackTitle
+          link
+          click={() => play && play(item)}
+          track={item}
+        />
+        <div className="righted">
+          <IconButton
+            size="small"
+            onClick={() => {
+              openTrackMenuDrawer.next({ track: item });
+            }}
+          >
+            <MoreVert />
+          </IconButton>
+        </div>
       </div>
       <div className="genre-song-item-artist">
         <TextOrLink

@@ -7,7 +7,6 @@ import {
   ListItemText,
 } from "@material-ui/core";
 import {
-  Add,
   Album,
   Cached,
   Edit,
@@ -19,6 +18,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { blobDownloadComplete, cache, cached } from "../../../../services/Blob";
 import Observer from "../../../../services/Observables";
+import { playerQueueInsert } from "../../../Audio/ResponsivePlayerDrawer/ResponsivePlayerDrawer";
 import { openTrackEditorDrawer } from "../../Form/TrackEditor/TrackEditor";
 import { openPlaylistMenuDrawer } from "../PlaylistMenu/PlaylistMenu";
 // import ListItemLink from "../ListItemLink/ListItemLink";
@@ -93,7 +93,12 @@ const TrackMenu = ({ track, click }) => {
         );
       })}
 
-      <ListItem>
+      <ListItem
+        onClick={() => {
+          playerQueueInsert.next(track);
+          click && click();
+        }}
+      >
         <ListItemAvatar>
           <Avatar>
             <PlaylistAddCheck />

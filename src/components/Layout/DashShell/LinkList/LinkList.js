@@ -40,11 +40,15 @@ export default LinkList;
 
 export function MenuLink(props) {
   const locale = useHistory();
-  const navigateToObject = () => { 
-    const d = props.to;
-    const address = d?.data?.address || `/browse/${d?.type}`;
+  const navigateToObject = () => {
+    const { to, dest } = props;
+    const address = dest || to?.data?.address || `/browse/${to?.type}`;
     locale.push(address);
   };
 
-  return <Link onClick={navigateToObject}>{props.children}</Link>;
+  return (
+    <Link classes={{ root: "link" }} onClick={navigateToObject}>
+      {props.children}
+    </Link>
+  );
 }

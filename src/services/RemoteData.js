@@ -1,3 +1,4 @@
+import { PlayArrow } from "@material-ui/icons";
 import axios from "axios";
 import { ARTIST_API_ADDRESS } from "../app/Constants";
 import { AppleConvert } from "../util/AppleConvert";
@@ -155,6 +156,7 @@ function saveList(list) {
   return new Promise((o) => {
     eventPromise(reporter.post(ARTIST_API_ADDRESS + "playlist", list)).then(
       (data) => {
+        PLAYLIST_COLLECTION = [];
         updatePlaylistCollection().then(() => o(data));
       }
     );
@@ -210,6 +212,7 @@ function getTrackListByKeys(playlist, Keys) {
 function getPlaylist(id) {
   return new Promise((callback) => {
     query("playlist").then((res) => {
+      console.log({ res });
       const playlist = res.data?.filter((d) => generateKey(d.Title) === id)[0];
       if (playlist) {
         const Keys = [...new Set(playlist.related.filter((f) => !!f))];
@@ -355,8 +358,12 @@ export {
   PLAYLIST_COLLECTION,
 };
 
-const updatePlaylistCollection = () => {
+export const updatePlaylistCollection = () => {
   return new Promise((cb) => {
-    query("playlist").then((res) => cb((PLAYLIST_COLLECTION = res.data)));
+    if (!!PLAYLIST_COLLECTION?.length) return cb(PLAYLIST_COLLECTION);
+    query("playlist").then((res) => {
+      console.log({ res, length: PLAYLIST_COLLECTION.length });
+      cb((PLAYLIST_COLLECTION = res.data));
+    });
   });
 };

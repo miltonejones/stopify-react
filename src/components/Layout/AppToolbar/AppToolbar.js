@@ -3,17 +3,16 @@ import { alpha, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import MenuIcon from "@material-ui/icons/Menu";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import { Avatar } from "@material-ui/core";
 import PopoverInput from "../../Common/Control/PopoverInput/PopoverInput";
 import { useHistory } from "react-router-dom";
+import { Add } from "@material-ui/icons";
+import { openImporterDrawer } from "../../Common/Form/Importer/Importer";
+import { dataListChanged } from "../../Common/Display/DataList/DataList";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -68,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   sectionDesktop: {
     display: "none",
     [theme.breakpoints.up("md")]: {
-      display: "none",
+      display: "flex",
     },
   },
   sectionMobile: {
@@ -142,15 +141,21 @@ export default function AppToolbar({ clicked, setChosed, setParams }) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
+      <MenuItem
+        onClick={() => {
+          openImporterDrawer.next({
+            complete: () => {
+              dataListChanged.next();
+            },
+          });
+        }}
+      >
+        <IconButton color="inherit">
+          <Add />
         </IconButton>
-        <p>Messages</p>
+        Add Music
       </MenuItem>
-      <MenuItem>
+      {/* <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={11} color="secondary">
             <NotificationsIcon />
@@ -168,7 +173,7 @@ export default function AppToolbar({ clicked, setChosed, setParams }) {
           <AccountCircle />
         </IconButton>
         <p>Profile</p>
-      </MenuItem>
+      </MenuItem> */}
     </Menu>
   );
   const APP_LOGO = "http://ullify.com/assets/notify.png";
@@ -211,12 +216,19 @@ export default function AppToolbar({ clicked, setChosed, setParams }) {
 
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
+            <IconButton
+              onClick={() => {
+                openImporterDrawer.next({
+                  complete: () => {
+                    dataListChanged.next();
+                  },
+                });
+              }}
+              color="inherit"
+            >
+              <Add />
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
+            {/* <IconButton aria-label="show 17 new notifications" color="inherit">
               <Badge badgeContent={17} color="secondary">
                 <NotificationsIcon />
               </Badge>
@@ -230,7 +242,7 @@ export default function AppToolbar({ clicked, setChosed, setParams }) {
               color="inherit"
             >
               <AccountCircle />
-            </IconButton>
+            </IconButton> */}
           </div>
           <div className={classes.sectionMobile}>
             <IconButton

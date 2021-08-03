@@ -1,4 +1,4 @@
-import { Button, Link, Menu, MenuItem } from "@material-ui/core";
+import { Button, Menu, MenuItem } from "@material-ui/core";
 import { LocalOffer } from "@material-ui/icons";
 import React, { useState } from "react";
 import { MenuLink } from "../LinkList/LinkList";
@@ -33,24 +33,19 @@ const GenreMenu = ({ items }) => {
       >
         {items.map((item) => (
           <MenuItem key={item.Name} onClick={handleClose}>
-            <MenuLink to={
-              {
-                data:
-                  {address:`/browse/genre/${item.genreKey}`}
-                }}>
+            <MenuLink dest={`/browse/genre/${item.genreKey}`}>
               {item.Name} ({item.Count}
             </MenuLink>
             )
           </MenuItem>
         ))}
         <MenuItem onClick={handleClose}>
-          <MenuLink to={ { data: {address:"/browse/genre"}  }}>View all genres...</MenuLink>
+          <MenuLink dest={"/browse/genre"}>View all genres...</MenuLink>
         </MenuItem>
       </Menu>
     </div>
   );
 };
 
- 
 GenreMenu.defaultProps = {};
 export default GenreMenu;

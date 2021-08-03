@@ -3,6 +3,7 @@ import { Analyser } from "../../../services/AudioAnalyzer";
 import { exists } from "../../../services/Blob";
 import Observer from "../../../services/Observables";
 import { playerURL } from "../../../util/Functions";
+import { androidConnect } from "../../../util/PlayerConnect";
 import "./Player.css";
 
 const Player = ({ width }) => {
@@ -15,6 +16,7 @@ const Player = ({ width }) => {
   };
 
   const play = (src) => {
+    Analyser.enable();
     setSource(src);
   };
 
@@ -31,6 +33,7 @@ const Player = ({ width }) => {
         exists(s.FileKey).then((rows) => {
           const url = rows.length ? rows[0].Blob : playerURL(s.FileKey);
           play(url);
+          androidConnect(s);
         });
       }),
       Analyser.audioEvent.subscribe(response),

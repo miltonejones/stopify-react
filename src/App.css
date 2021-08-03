@@ -92,3 +92,7 @@
 .flex.center {
   justify-content: center;
 }
+
+.righted {
+  margin-left: auto;
+}

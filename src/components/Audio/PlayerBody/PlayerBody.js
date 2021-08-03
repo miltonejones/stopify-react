@@ -1,12 +1,12 @@
-import {
-  ExpandMore,
-  QueueMusic,
-  PlaylistAdd,
-  Search,
-} from "@material-ui/icons";
+import { ExpandMore, QueueMusic, PlaylistAdd } from "@material-ui/icons";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Analyser } from "../../../services/AudioAnalyzer";
-import { getWindowDimensions, mmss, rxcs } from "../../../util/Functions";
+import {
+  getWindowDimensions,
+  mmss,
+  pristine,
+  rxcs,
+} from "../../../util/Functions";
 import Photo from "../../Common/Display/Photo/Photo";
 import Player, { PlayerAction } from "../Player/Player";
 import { SquareButton } from "../PlayerButton/PlayerButton";
@@ -24,6 +24,8 @@ import { SongPersistService } from "../../../services/Persist";
 import { compareTrackToLists } from "../../../services/RemoteData";
 import { openPlaylistMenuDrawer } from "../../Common/Control/PlaylistMenu/PlaylistMenu";
 import PopoverInputDrawer from "../../Common/Control/PopoverInputDrawer/PopoverInputDrawer";
+import { drawerOpen } from "../ResponsivePlayerDrawer/ResponsivePlayerDrawer";
+import { SCREEN_STATE } from "../../Layout/AppLayout/AppLayout";
 
 const useStyles = makeStyles({
   root: {
@@ -47,13 +49,24 @@ const useStyles = makeStyles({
 });
 
 const PlayerBody = (props) => {
-  const { tracks, caption, subheader, flat, start, cancel, collapsed } = props;
+  const {
+    tracks,
+    caption,
+    subheader,
+    flat,
+    start,
+    cancel,
+    collapsed,
+    report,
+    screenState,
+  } = props;
   const { width } = getWindowDimensions();
   const [popper, setPopper] = useState(null);
   const classes = useStyles(props);
   const [mode, setMode] = useState({ repeat: true, shuffle: false });
   const [index, setIndex] = useState(start);
   const [queue, setQueue] = useState([...tracks]);
+  const [cache, setCache] = useState(null);
   const [progress, setProgress] = useState(false);
   const [open, setOpen] = useState(false);
   const [on, setOn] = useState(false);
@@ -63,11 +76,15 @@ const PlayerBody = (props) => {
   const getSong = useCallback(
     (n) => {
       const it = queue[n];
-      PlayerAction.next(it);
-      SongPersistService.add(it);
-      setIndex(n);
+      if (it?.ID) {
+        PlayerAction.next(it);
+        SongPersistService.add(it);
+        report && report(n);
+        return setIndex(n);
+      }
+      drawerOpen.next({ open: false });
     },
-    [queue]
+    [queue, report]
   );
 
   const goto = useCallback(
@@ -81,26 +98,47 @@ const PlayerBody = (props) => {
 
   const advance = useCallback((i) => goto(index + i), [index, goto]);
 
+  const enqueue = useCallback((e) => {
+    const f = pristine(e);
+    setQueue([...f]);
+    setCache(JSON.stringify(f));
+  }, []);
+
+  const splice = useCallback(
+    (e) => {
+      const updated = queue.slice(0);
+      updated.splice(index + 1, 0, e);
+      enqueue(updated);
+    },
+    [queue, index, enqueue]
+  );
+
+  const matched = useCallback(
+    (e) => {
+      const f = pristine(e);
+      return JSON.stringify(f) === cache;
+    },
+    [cache]
+  );
+
   useEffect(() => {
     const subs = [
       Analyser.audioEvent.subscribe((event) => {
         if (event.ended) return !!mode.repeat && advance(1);
         if (event.hasOwnProperty("goto")) return goto(event.goto);
+        if (event.hasOwnProperty("advance")) return advance(event.advance);
         (!progress ||
           Math.abs(progress?.currentTime - event?.currentTime) > 0.2) &&
           setProgress(event);
       }),
       PlayerAction.subscribe((d) => setOn(d)),
     ];
-    !!queue.length &&
-      !!tracks.length &&
-      (queue.length !== tracks.length ||
-        queue[0].FileKey !== tracks[0].FileKey) &&
-      setQueue([...tracks]);
+    !!queue.length && !!tracks.length && !matched(tracks) && enqueue(tracks);
     return () => subs.map((sub) => sub.unsubscribe());
-  }, [progress, advance, goto, mode, tracks, queue]);
+  }, [progress, advance, goto, mode, tracks, queue, splice, enqueue, matched]);
   const theme = useTheme();
   const screenIsBiggerThanSmSize = useMediaQuery(theme.breakpoints.up("sm"));
+  const orientationLandscape = useMediaQuery("(orientation: landscape)");
   const unload = () => {
     cancel && cancel();
   };
@@ -115,6 +153,7 @@ const PlayerBody = (props) => {
     PlayerBody: true,
     collapsed,
     flat,
+    landscape: screenState === SCREEN_STATE.TABLET,
   });
   const className = rxcs({
     art: true,
@@ -154,12 +193,24 @@ const PlayerBody = (props) => {
     close: () => setOpen(false),
     selection: [track?.ID],
   };
+  const EqSizes = {
+    360: screenIsBiggerThanSmSize && !orientationLandscape,
+    240: collapsed,
+    [width - (flat ? 0 : 48)]: !(
+      screenIsBiggerThanSmSize ||
+      collapsed ||
+      orientationLandscape
+    ),
+    160: orientationLandscape,
+  };
+  const EqSize = Object.keys(EqSizes).filter((k) => !!EqSizes[k])[0];
   const EqLabelArgs = {
-    width: screenIsBiggerThanSmSize
-      ? 360
-      : collapsed
-      ? 240
-      : width - (flat ? 0 : 48),
+    width: EqSize,
+    // width: screenIsBiggerThanSmSize
+    //   ? 360
+    //   : collapsed
+    //   ? 240
+    //   : width - (flat ? 0 : 48),
     flat,
   };
   if (!track) {
@@ -193,7 +244,7 @@ const PlayerBody = (props) => {
       <Photo src={track.albumImage} alt={track.Title} className={className} />
 
       <div className="info">
-        <h1>{track.artistName}</h1>
+        <h1>{track.artistName} </h1>
         <p>{track.Title}</p>
         <em>{track.albumName}</em>
       </div>
