@@ -105,7 +105,7 @@ const AppLayout = () => {
             </>
           ))}
           ??
-          {/* <AppLayoutContent {...contentArgs} /> */}
+          <AppLayoutContent {...contentArgs} />
         </div>
       </div>
       <TrackMenuDrawer direct={chooseObject} />
@@ -173,7 +173,7 @@ export const AppLayoutContent = ({
     screenState,
   };
 
-  const orientationLandscape = useMediaQuery("(orientation: landscape)");
+  // const orientationLandscape = useMediaQuery("(orientation: landscape)");
   const okToShowDashShell = screenIsBiggerThanSmSize ? !0 : !playerBodyOpen;
   const home = !selectedObject?.dataType && !route?.type;
 

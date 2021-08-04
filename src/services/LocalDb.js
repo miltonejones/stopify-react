@@ -158,6 +158,7 @@ const asyncLoop = async (rows, action) => {
   for (
     var row, i = 0;
     (row = rows[i++]);
+    // eslint-disable-next-line no-loop-func
     await percentDb(rows.length, i, () => action(row))
   );
 };
@@ -174,9 +175,10 @@ const upgradeDb = (event, definitions, callback) => {
       keyPath: definition.key,
       autoIncrement: "auto" in definition ? definition.auto : true,
     });
-    definition.fields.map((field) => {
-      objectStore.createIndex(field, field, { unique: false });
-    });
+    definition.fields.map((field) =>
+      objectStore.createIndex(field, field, { unique: false })
+    );
+    return db;
   });
   console.log("Database setup complete");
   indexDbResponse.next({

@@ -1,4 +1,3 @@
-import { PlayArrow } from "@material-ui/icons";
 import axios from "axios";
 import { ARTIST_API_ADDRESS } from "../app/Constants";
 import { AppleConvert } from "../util/AppleConvert";

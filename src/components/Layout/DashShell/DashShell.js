@@ -1,4 +1,4 @@
-import { Grid, LinearProgress, Paper } from "@material-ui/core";
+import { Grid, Paper } from "@material-ui/core";
 import {
   Album,
   ChevronRight,

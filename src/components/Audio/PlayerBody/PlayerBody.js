@@ -139,7 +139,7 @@ const PlayerBody = (props) => {
   const theme = useTheme();
   const screenIsBiggerThanSmSize = useMediaQuery(theme.breakpoints.up("sm"));
   const orientationLandscape = useMediaQuery("(orientation: landscape)");
-  const shortenedDisplay = useMediaQuery("screen and (max-height: 600px)");
+  // const shortenedDisplay = useMediaQuery("screen and (max-height: 600px)");
   const unload = () => {
     cancel && cancel();
   };

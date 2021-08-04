@@ -27,6 +27,7 @@ function uniqueList(trackList) {
         );
       });
       dupes.map((track) => (track.duplicate = !!track.discNumber));
+      return dupes;
     });
     return trackList;
   }
@@ -68,7 +69,7 @@ function collateMultiDisc(resultList) {
       if (f.label) {
         f.missing =
           tracks.filter(
-            (i) => i.discNumber == f.discNumber && !i.label && !i.missing
+            (i) => i.discNumber === f.discNumber && !i.label && !i.missing
           ).length === 0;
       }
       return f;
@@ -78,26 +79,26 @@ function collateMultiDisc(resultList) {
   return resultList;
 }
 
-function generateSortFunction(fieldName, isStr = !1) {
-  return (ascending) => (a, b) => {
-    try {
-      const ltValue = !isStr ? a[fieldName] : a[fieldName].toLowerCase();
-      const rtValue = !isStr ? b[fieldName] : b[fieldName].toLowerCase();
-      return ltValue < rtValue ? ascending : -ascending;
-    } catch (e) {
-      return 1;
-    }
-  };
-}
+// function generateSortFunction(fieldName, isStr = !1) {
+//   return (ascending) => (a, b) => {
+//     try {
+//       const ltValue = !isStr ? a[fieldName] : a[fieldName].toLowerCase();
+//       const rtValue = !isStr ? b[fieldName] : b[fieldName].toLowerCase();
+//       return ltValue < rtValue ? ascending : -ascending;
+//     } catch (e) {
+//       return 1;
+//     }
+//   };
+// }
 
-function generateKey(Title) {
-  if (!(Title && Title.replace)) {
-    return "";
-  }
-  return Title.replace(/[\.\s-\/]/g, "")
-    .toLowerCase()
-    .trim()
-    .replace("the", "");
-}
+// function generateKey(Title) {
+//   if (!(Title && Title.replace)) {
+//     return "";
+//   }
+//   return Title.replace(/[\.\s-\/]/g, "")
+//     .toLowerCase()
+//     .trim()
+//     .replace("the", "");
+// }
 
 export { curateDisc };

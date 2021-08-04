@@ -1,4 +1,3 @@
-import { LinearProgress } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { navigationComplete } from "../../../../app/State";
 import { query } from "../../../../services/RemoteData";

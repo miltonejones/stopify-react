@@ -7,7 +7,7 @@ import {
   MoreHoriz,
   PlayCircleFilled,
 } from "@material-ui/icons";
-import { Button, IconButton, LinearProgress } from "@material-ui/core";
+import { Button, IconButton } from "@material-ui/core";
 import CrumbList from "../CrumbList/CrumbList";
 import { rxcs } from "../../../../util/Functions";
 import LoadingAnimation from "../../LoadingAnimation/LoadingAnimation";
