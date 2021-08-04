@@ -9,7 +9,7 @@ import {
 
 import {
   AppLayoutContent,
-  DownloadMessageDrawer, 
+  DownloadMessageDrawer,
 } from "./components/Layout/AppLayout/AppLayout";
 import AppToolbar from "./components/Layout/AppToolbar/AppToolbar";
 import ResponsivePlayerDrawer, {
@@ -36,6 +36,7 @@ function App() {
   const screenIsBiggerThanSmSize = useMediaQuery(theme.breakpoints.up("sm"));
   const screenIsBiggerThanLgSize = useMediaQuery(theme.breakpoints.up("md"));
   const orientationLandscape = useMediaQuery("(orientation: landscape)");
+  const shortenedDisplay = useMediaQuery("screen and (max-height: 600px)");
   useEffect(() => {
     const sub = drawerOpen.subscribe((d) => {
       setPlayerBodyOpen(d.open);
@@ -46,9 +47,9 @@ function App() {
   }, [playerBodyOpen]);
 
   const windowStates = {
-    [SCREEN_STATE.SCREEN]: screenIsBiggerThanSmSize && !orientationLandscape,
+    [SCREEN_STATE.SCREEN]: screenIsBiggerThanSmSize && !shortenedDisplay,
     [SCREEN_STATE.MOBILE]: !screenIsBiggerThanSmSize && !orientationLandscape,
-    [SCREEN_STATE.TABLET]: orientationLandscape && !screenIsBiggerThanLgSize,
+    [SCREEN_STATE.TABLET]: orientationLandscape && shortenedDisplay,
   };
   const screenState = Object.keys(windowStates).filter(
     (s) => windowStates[s]
@@ -79,13 +80,20 @@ function App() {
       <div className="App">
         <>
           <AppToolbar
+            stats={{
+              screenIsBiggerThanLgSize,
+              orientationLandscape,
+              shortenedDisplay,
+              ...contentArgs,
+              ...windowStates,
+            }}
             clicked={() => setOpen(!sidebarOpen)}
             setParams={setParams}
           />
           <ResponsivePlayerDrawer screenState={screenState} />
           <div className="AppLayout">
             <AppSidebar {...sidebarArgs} />
-            <div className={rxcs({ left: true, open: okToShowSidebar })}> 
+            <div className={rxcs({ left: true, open: okToShowSidebar })}>
               <Choice>
                 <Route
                   path="/library"

@@ -10,9 +10,10 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 import { Avatar } from "@material-ui/core";
 import PopoverInput from "../../Common/Control/PopoverInput/PopoverInput";
 import { useHistory } from "react-router-dom";
-import { Add } from "@material-ui/icons";
+import { Add, Info } from "@material-ui/icons";
 import { openImporterDrawer } from "../../Common/Form/Importer/Importer";
 import { dataListChanged } from "../../Common/Display/DataList/DataList";
+import ObjectReader from "../../Dev/ObjectReader/ObjectReader";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -83,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AppToolbar({ clicked, setChosed, setParams }) {
+export default function AppToolbar({ clicked, setChosed, setParams, stats }) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -228,6 +229,7 @@ export default function AppToolbar({ clicked, setChosed, setParams }) {
             >
               <Add />
             </IconButton>
+            <ObjectReader {...stats} edge="end" icon={<Info />} />
             {/* <IconButton aria-label="show 17 new notifications" color="inherit">
               <Badge badgeContent={17} color="secondary">
                 <NotificationsIcon />
@@ -245,6 +247,7 @@ export default function AppToolbar({ clicked, setChosed, setParams }) {
             </IconButton> */}
           </div>
           <div className={classes.sectionMobile}>
+            <ObjectReader {...stats} edge="end" icon={<Info />} />
             <IconButton
               aria-label="show more"
               aria-controls={mobileMenuId}

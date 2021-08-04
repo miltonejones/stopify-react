@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { query } from "../../../../services/RemoteData";
 import "./ArtistHeader.css";
 import ListHeader from "../ListHeader/ListHeader";
-import { LinearProgress } from "@material-ui/core";
 import { navigationComplete } from "../../../../app/State";
+import LoadingAnimation from "../../LoadingAnimation/LoadingAnimation";
 
 const ArtistHeader = ({ artistFk, title, caption, disabled, direct }) => {
   const [artist, setArtist] = useState(null);
@@ -33,7 +33,7 @@ const ArtistHeader = ({ artistFk, title, caption, disabled, direct }) => {
     return (
       <>
         {" "}
-        <LinearProgress variant="indeterminate" />
+        <LoadingAnimation />
       </>
     );
   const args = {

@@ -18,6 +18,11 @@ import { SongPersistService } from "../../../../services/Persist";
 
 const columns = [
   {
+    field: "trackNumber",
+    headerName: "#",
+    width: 56,
+  },
+  {
     field: "Title",
     headerName: "Title",
     width: 240,

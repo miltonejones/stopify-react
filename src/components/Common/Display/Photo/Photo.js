@@ -27,7 +27,8 @@ const Photo = ({
   onPlay,
   cubed,
   rect,
-  landscape
+  small,
+  landscape,
 }) => {
   const [turned, setTurned] = useState(false);
   const [source, setSource] = useState(null);
@@ -44,7 +45,13 @@ const Photo = ({
   }
 
   const cubeClass = rxcs({ cube: !0, "show-right": turned });
-  const componentClass = rxcs({ Photo: !0, open, cubed, rectangle: rect , landscape});
+  const componentClass = rxcs({
+    Photo: !0,
+    open: open,
+    cubed,
+    rectangle: rect,
+    landscape,
+  });
 
   if (!cubed) {
     return (
@@ -54,7 +61,7 @@ const Photo = ({
     );
   }
 
-  const size = open ? "small" : "large";
+  const size = open && small ? "small" : "large";
 
   return (
     <div className={componentClass}>

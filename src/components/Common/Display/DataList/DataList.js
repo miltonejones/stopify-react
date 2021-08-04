@@ -10,7 +10,8 @@ import {
 } from "../../../../services/RemoteData";
 import { sortObjects } from "../../../../util/Functions";
 import { PlayerAction } from "../../../Audio/Player/Player";
-import { drawerOpen } from "../../../Audio/ResponsivePlayerDrawer/ResponsivePlayerDrawer"; 
+import { drawerOpen } from "../../../Audio/ResponsivePlayerDrawer/ResponsivePlayerDrawer";
+import LoadingAnimation from "../../LoadingAnimation/LoadingAnimation";
 import ArtistHeader from "../ArtistHeader/ArtistHeader";
 import { GridFieldType } from "../Thumbnail/ThumbnailTypes";
 import TrackGrid from "../TrackGrid/TrackGrid";
@@ -40,7 +41,7 @@ const DataList = ({
   const [args, setArgs] = useState({ open: false });
   const [artistFk, setArtistFk] = useState(null);
   const [info, setInfo] = useState({});
-  const [message, setMessage] = useState("No results to display.");
+  const [message, setMessage] = useState("please wait...");
   // const landscape = screenState === SCREEN_STATE.TABLET;
   const init = useCallback(
     () =>
@@ -99,7 +100,7 @@ const DataList = ({
     "trackTime",
   ];
   if (!items.length) {
-    return <>{message}</>;
+    return <LoadingAnimation message={message} />;
   }
   // const playByTrack = (t) => {
   //   const start = items.indexOf(t);

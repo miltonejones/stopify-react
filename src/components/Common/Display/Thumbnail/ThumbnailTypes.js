@@ -37,7 +37,8 @@ export const ThumbnailTypes = [
   // album
   {
     when: (i) =>
-      i.hasOwnProperty("collectionId") || (i.hasOwnProperty("albumImage")&&i.hasOwnProperty("trackCount")),
+      i.hasOwnProperty("collectionId") ||
+      (i.hasOwnProperty("albumImage") && i.hasOwnProperty("trackCount")),
     is: (i) => ({
       ID: i.ID,
       Title: i.Name,
@@ -94,6 +95,6 @@ export const DefaultGridColumns = [
 export const GridFieldType = {
   artist: ["Title", "albumName", "Genre", "trackTime"],
   genre: ["Title", "albumName", "artistName", "trackTime"],
-  album: ["Title", "artistName", "Genre", "trackTime"],
+  album: ["trackNumber", "Title", "artistName", "Genre", "trackTime"],
   playlist: DefaultGridColumns,
 };

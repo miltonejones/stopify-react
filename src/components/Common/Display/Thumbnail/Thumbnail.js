@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
       width: 180,
       height: 180,
     },
-    "@media (orientation: landscape)": {
+    "@media screen and (max-height: 600px) and (orientation: landscape)": {
       "& img": {
         width: 160,
         height: 160,
@@ -43,15 +43,12 @@ const useStyles = makeStyles((theme) => ({
         },
       },
 
-
-      "@media (orientation: landscape)": {
+      "@media screen and (max-height: 600px) and (orientation: landscape)": {
         "& img": {
           width: 132,
           height: 132,
         },
       },
-
-      
     },
   },
 }));
@@ -86,6 +83,7 @@ const Thumbnail = (props) => {
             src={image}
             alt={Title}
             rect={rect}
+            small={small}
             landscape={landscape}
           />
         </Badge>

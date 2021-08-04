@@ -7,6 +7,8 @@ import "./CrumbList.css";
 import { NavigateNext } from "@material-ui/icons";
 import { rxcs } from "../../../../util/Functions";
 import { MenuLink } from "../../../Layout/DashShell/LinkList/LinkList";
+import { IconButton, Menu, MenuItem } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -27,7 +29,72 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CrumbList({ route, name, icononly, dark }) {
+function MiniCrumbList({ route }) {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const isMenuOpen = Boolean(anchorEl);
+  const menuId = "primary-search-nav-menu";
+
+  const handleProfileMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const locale = useHistory();
+  const navigateToObject = (d) => {
+    locale.push(d);
+  };
+
+  return (
+    <>
+      <IconButton
+        edge="end"
+        aria-label="account of current user"
+        aria-haspopup="true"
+        aria-controls={menuId}
+        onClick={handleProfileMenuOpen}
+        color="inherit"
+        size="small"
+      >
+        {route?.data?.icon}
+      </IconButton>
+      <Menu
+        anchorEl={anchorEl}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        id={menuId}
+        keepMounted
+        transformOrigin={{ vertical: "top", horizontal: "right" }}
+        open={isMenuOpen}
+        onClose={handleMenuClose}
+      >
+        <MenuItem
+          dense
+          onClick={() => {
+            navigateToObject(`/browse/${route.type}`);
+            handleMenuClose();
+          }}
+        >
+          {route?.data?.icon}
+          {route?.data?.label}
+        </MenuItem>
+        <MenuItem
+          dense
+          onClick={() => {
+            navigateToObject("/");
+            handleMenuClose();
+          }}
+        >
+          <HomeIcon />
+          Home
+        </MenuItem>
+      </Menu>
+    </>
+  );
+}
+
+export default function CrumbList({ route, name, icononly, dark, small }) {
   const classes = useStyles();
   // const home = appRoutes[0];
   // const handleClick = (event, haus) => {
@@ -38,6 +105,8 @@ export default function CrumbList({ route, name, icononly, dark }) {
   //   });
   //   direct && route && direct(route);
   // };
+
+  if (small) return <MiniCrumbList route={route} />;
 
   return (
     <Breadcrumbs
@@ -62,9 +131,8 @@ export default function CrumbList({ route, name, icononly, dark }) {
           dest={`/browse/${route.type}`}
           className={classes.link}
         >
-           {route?.data?.icon} 
-        <IconOnly hide={icononly}>{route?.data?.label}</IconOnly>
-       
+          {route?.data?.icon}
+          <IconOnly hide={icononly}>{route?.data?.label}</IconOnly>
         </MenuLink>
       )}
 
@@ -77,7 +145,7 @@ export default function CrumbList({ route, name, icononly, dark }) {
   );
 }
 
-function IconOnly({hide, children}) {
-  if (hide) return <i/>
-return <>{children}</>
+function IconOnly({ hide, children }) {
+  if (hide) return <i />;
+  return <>{children}</>;
 }

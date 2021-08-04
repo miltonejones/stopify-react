@@ -1,7 +1,9 @@
+import { LinearProgress } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { navigationComplete } from "../../../../app/State";
 import { query } from "../../../../services/RemoteData";
 import { sortBy, ThumbViewSorters } from "../../../../util/Sorters";
+import LoadingAnimation from "../../LoadingAnimation/LoadingAnimation";
 import ThumbGrid from "../ThumbGrid/ThumbGrid";
 import "./DataGrid.css";
 
@@ -37,7 +39,7 @@ const DataGrid = ({
     setItems(sortBy(updated, items));
   };
   if (!sorter?.length) {
-    return <em>Could not find sorter for {dataType}</em>;
+    return <LoadingAnimation />;
   }
 
   if (!dataType) {

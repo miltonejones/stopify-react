@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { navigationComplete } from "../../../../app/State";
 import { endpoint, search } from "../../../../services/RemoteData";
 import { PlayerAction } from "../../../Audio/Player/Player";
+import LoadingAnimation from "../../LoadingAnimation/LoadingAnimation";
 import ArtistHeader from "../ArtistHeader/ArtistHeader";
 import ThumbGrid from "../ThumbGrid/ThumbGrid";
 import { DefaultGridColumns } from "../Thumbnail/ThumbnailTypes";
@@ -56,7 +57,7 @@ const SearchGrid = ({ param, type, direct, route, small }) => {
   }, [gridItems, init, cache, param, type]);
 
   if (!gridItems?.length) {
-    return <LinearProgress variant="indeterminate" />;
+    return <LoadingAnimation />;
   }
 
   if (type === "songs") {

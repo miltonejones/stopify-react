@@ -25,7 +25,7 @@
  
 
 
-@media only screen and (orientation: landscape) {
+@media screen and (max-height: 600px) and (orientation: landscape) {
     .Photo.cubed {
         --photo-width: 160px;
         --minus-z: -80px;

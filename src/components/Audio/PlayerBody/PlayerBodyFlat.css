@@ -92,11 +92,8 @@
   margin-top: auto;
   /* margin: .5rem 0 0 0; */
   text-align: center;
-  display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
+
 .PlayerBody.flat .info h1 {
   padding: 42px 0 0 0;
   font-size: .9rem;
@@ -163,23 +160,27 @@
   100%    {transform: rotate(1turn);}
 }
 
+@media only screen and (max-width: 600px) {
 
-@media only screen and (min-width: 600px) {
+  .ResponsivePlayerDrawer.open .PlayerBody.flat .info {
+
+    display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  
+}
+  @media only screen and (min-width: 600px) {
   .PlayerBody.flat { 
     height: 80px;
     min-height: 80px;
     max-height: 80px;
-    min-width: 100vw;
-    /* margin: 2rem auto; */
-   
-    /* box-shadow: 20px 20px 60px #c8c8c8, 
-                -20px -20px 60px #ffffff; */
-    /* border-radius: 15px;
-    border: 1px solid rgb(223, 223, 223); */ 
-   display: grid;
-   grid-template: 72px/80px 220px 280px 360px 32px 100px; 
-   grid-template-areas: 'photo info buttons eq . lower' ;  
-  
+    min-width: 100vw; 
+    display: grid;
+    grid-template: 72px/80px 220px 280px 360px 32px 100px; 
+    grid-template-areas: 'photo info buttons eq . lower' ; 
   }
 
   .PlayerBody.flat .info h1 {
@@ -247,7 +248,17 @@
 
 .PlayerBody.flat.landscape {  
   display: grid;
-  grid-template: 72px/80px 160px 240px 180px 32px 100px; 
+  grid-template: 72px/80px 160px 240px 220px 32px 100px; 
   grid-template-areas: 'photo info buttons eq . lower' ;  
  
  }
+ .PlayerBody.flat.landscape .info h1 ,
+ .PlayerBody.flat.landscape .info p  ,
+ .PlayerBody.flat.landscape .info em {
+  max-width: 150px;
+ }
+
+ .PlayerBody.flat.landscape .info {
+  justify-content: left;
+  align-items: flex-start; 
+}

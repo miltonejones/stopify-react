@@ -15,9 +15,9 @@ align-items: center;
   margin-right: 24px; 
 }
 
-.crumb {
+/* .crumb {
   margin-left: 24px;
-}
+} */
 
 .crumb.landscape {    
   display: none;
@@ -29,9 +29,9 @@ align-items: center;
 
 
 @media only screen and (max-width: 600px) {
-  .crumb { 
+  /* .crumb { 
     display: none;
-  }
+  } */
 
   .sorter { 
     margin-right: 0;

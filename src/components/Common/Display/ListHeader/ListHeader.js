@@ -10,6 +10,7 @@ import {
 import { Button, IconButton, LinearProgress } from "@material-ui/core";
 import CrumbList from "../CrumbList/CrumbList";
 import { rxcs } from "../../../../util/Functions";
+import LoadingAnimation from "../../LoadingAnimation/LoadingAnimation";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -54,9 +55,9 @@ const useStyles = makeStyles((theme) => ({
         display: "none",
       },
     },
-    "@media (orientation: landscape)": {
+    "@media screen and (max-height: 600px) and (orientation: landscape)": {
       height: 48,
-      backgroundPositionY: '-760px !important',
+      backgroundPositionY: "-760px !important",
       "& .lower": {
         display: "none",
       },
@@ -68,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
   white: {
     color: "white",
     marginLeft: "auto",
-    "@media (orientation: landscape)": {
+    "@media screen and (max-height: 600px) and (orientation: landscape)": {
       display: "none",
     },
   },
@@ -97,19 +98,16 @@ const ListHeader = (props) => {
   } = props;
   const classes = useStyles(props);
   const [off, setOff] = useState(false);
-  if (!title)
-    return (
-      <>
-        <LinearProgress variant="indeterminate" />
-      </>
-    );
+  if (!title) {
+    return <LoadingAnimation />;
+  }
 
   return (
     <div
       className={rxcs({ [classes.ListHeader]: true, off })}
       style={{ backgroundImage: `url(${imageLg})` }}
     >
-      {loading && <LinearProgress variant="indeterminate" />}
+      {loading && <LoadingAnimation />}
       {!!(route || name || title) && (
         <div className={classes.CrumbList}>
           <CrumbList direct={direct} route={route} name={name || title} />

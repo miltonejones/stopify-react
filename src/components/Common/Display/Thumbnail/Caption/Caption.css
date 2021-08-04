@@ -1,4 +1,6 @@
-.Caption {}
+.Caption:not(.small) {
+  margin-top: 8px;
+}
 
 .Caption.small {
   font-size: .8rem;

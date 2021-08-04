@@ -24,7 +24,7 @@ import { SongPersistService } from "../../../services/Persist";
 import { compareTrackToLists } from "../../../services/RemoteData";
 import { openPlaylistMenuDrawer } from "../../Common/Control/PlaylistMenu/PlaylistMenu";
 import PopoverInputDrawer from "../../Common/Control/PopoverInputDrawer/PopoverInputDrawer";
-import { drawerOpen } from "../ResponsivePlayerDrawer/ResponsivePlayerDrawer"; 
+import { drawerOpen } from "../ResponsivePlayerDrawer/ResponsivePlayerDrawer";
 import { SCREEN_STATE } from "../../../app/Constants";
 
 const useStyles = makeStyles({
@@ -139,6 +139,7 @@ const PlayerBody = (props) => {
   const theme = useTheme();
   const screenIsBiggerThanSmSize = useMediaQuery(theme.breakpoints.up("sm"));
   const orientationLandscape = useMediaQuery("(orientation: landscape)");
+  const shortenedDisplay = useMediaQuery("screen and (max-height: 600px)");
   const unload = () => {
     cancel && cancel();
   };
@@ -201,7 +202,7 @@ const PlayerBody = (props) => {
       collapsed ||
       orientationLandscape
     ),
-    160: orientationLandscape,
+    212: screenState === SCREEN_STATE.TABLET,
   };
   const EqSize = Object.keys(EqSizes).filter((k) => !!EqSizes[k])[0];
   const EqLabelArgs = {

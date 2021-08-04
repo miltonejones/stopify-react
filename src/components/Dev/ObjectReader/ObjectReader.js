@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import Drawer from "@material-ui/core/Drawer";
-import { Button, Collapse, Tooltip } from "@material-ui/core";
+import { Button, Collapse, IconButton, Tooltip } from "@material-ui/core";
 import "./ObjectReader.css";
 
 const ObjectReader = (object) => (
-  <TemporaryDrawer title={object.captionText} anchor="bottom">
+  <TemporaryDrawer
+    icon={object.icon}
+    title={object.captionText}
+    anchor="bottom"
+  >
     <ObjectContent {...object} />
   </TemporaryDrawer>
 );
@@ -104,8 +108,16 @@ function TooltipImage({ src }) {
   );
 }
 
+function TemporaryDrawerButton(props) {
+  const { toggleDrawer, title, icon } = props;
+  if (icon) {
+    return <IconButton onClick={toggleDrawer}>{icon}</IconButton>;
+  }
+  return <Button onClick={toggleDrawer}>{title}</Button>;
+}
+
 function TemporaryDrawer(props) {
-  const { anchor, title } = props;
+  const { anchor, title, icon } = props;
   const [open, setOpen] = useState(false);
 
   const toggleDrawer = () => {
@@ -114,7 +126,11 @@ function TemporaryDrawer(props) {
 
   return (
     <div>
-      <Button onClick={toggleDrawer}>{title}</Button>
+      <TemporaryDrawerButton
+        icon={icon}
+        toggleDrawer={toggleDrawer}
+        title={title}
+      />
       <Drawer anchor={anchor} open={open} onClose={toggleDrawer}>
         {props.children}
       </Drawer>

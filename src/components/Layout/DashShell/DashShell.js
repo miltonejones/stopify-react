@@ -29,6 +29,7 @@ import { queueTrack } from "../../../util/PlayerConnect";
 import Underline from "../../Common/Underline/Underline";
 import { navigationComplete } from "../../../app/State";
 import { useHistory } from "react-router-dom";
+import LoadingAnimation from "../../Common/LoadingAnimation/LoadingAnimation";
 // getGenreData
 
 const addressOf = (d) => d?.data?.address || `/browse/${d?.type}`;
@@ -76,7 +77,9 @@ const DashShell = ({ small, direct, setChosed, hidden }) => {
   const ft_album = (a) => `${a.artistName}, ${a.trackCount} tracks`;
   const playTrack = (i) => queueTrack(small, i);
   if (hidden) return <i />;
-  if (!dashData) return <LinearProgress variant="indeterminate" />;
+  if (!dashData) {
+    return <LoadingAnimation />;
+  }
   return (
     <div className="DashShell">
       <Grid container spacing={1}>
