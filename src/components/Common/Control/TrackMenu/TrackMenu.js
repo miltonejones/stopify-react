@@ -193,7 +193,7 @@ export const TrackMenuDrawer = ({ direct }) => {
 
   useEffect(() => {
     openTrackMenuDrawer.subscribe((a) => setArgs({ ...a, open: true }));
-  });
+  }, []);
 
   return (
     <div>

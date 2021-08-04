@@ -1,10 +1,23 @@
 import { IconButton } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { APP_NAME } from "../../../app/Constants";
 import appRoutes from "../../../app/Routes";
 import { navigationComplete } from "../../../app/State";
 import { rxcs } from "../../../util/Functions";
 import "./AppSidebar.css";
+
+const DocumentTitle = () => {
+  const setNav = ({ route, name }) =>
+    (document.title = [APP_NAME, route.data?.label, name]
+      .filter((f) => !!f)
+      .join(" > "));
+  useEffect(() => {
+    const sub = navigationComplete.subscribe(setNav);
+    return () => sub.unsubscribe();
+  }, []);
+  return <i />;
+};
 
 const AppSidebar = ({ wide, direct, type, open }) => {
   const [nav, setNav] = useState({});
@@ -53,6 +66,7 @@ const AppSidebar = ({ wide, direct, type, open }) => {
           <div className="sidebar-label">{r.data.label}</div>
         </div>
       ))}
+      <DocumentTitle />
     </div>
   );
 };

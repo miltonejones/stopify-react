@@ -77,7 +77,7 @@ export const PlaylistMenuDrawer = () => {
 
   useEffect(() => {
     openPlaylistMenuDrawer.subscribe((track) => setArgs({ track, open: true }));
-  });
+  }, []);
 
   return (
     <div>
