@@ -89,9 +89,8 @@
 .cube__face--front { 
     display: block;
 }
- 
-.cube__face--front  { background: hsla(  0, 100%, 50%, 0.7); ;}
-.cube.show-right .cube__face--front  {  box-shadow: 1px 2px 3px #444;}
+  
+.cube.show-right .cube__face--front  {  background: hsla(  0, 100%, 50%, 0.7);  box-shadow: 1px 2px 3px #444;}
 .cube.show-right .cube__face--right  { background: hsla( 230, 100%, 88%, 0.9); box-shadow: 1px 2px 3px #444; }
 /* .cube__face--back   { background: hsla(120, 100%, 50%, 0.7); }
 .cube__face--left   { background: hsla(180, 100%, 50%, 0.7); }

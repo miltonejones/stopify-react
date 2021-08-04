@@ -16,7 +16,7 @@ const CACHE_TABLE_DEF = {
   fields: ["ID", "Blob", "trackFk"],
 };
 
-export const INDEX_NAME = "db_music_cache";
+export const INDEX_NAME = "db_music_cache_v3";
 export const DB_VERSION = 1;
 
 export {

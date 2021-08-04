@@ -15,11 +15,18 @@ class LocalDb$ {
   connect() {
     return new Promise((callback) => {
       if (!this.index?.length) return callback({});
-      const request = window.indexedDB.open(this.index, this.version);
-      request.onerror = (error) => problemDb(request, error);
-      request.onsuccess = () => successDb(request, callback);
-      request.onupgradeneeded = (event) =>
-        upgradeDb(event, this.definitions, callback);
+      try {
+        const request = window.indexedDB.open(this.index, this.version);
+        request.onerror = (error) => problemDb(request, error, callback);
+        // connect success route
+        request.onsuccess = () => successDb(request, callback);
+        // upgrade success route
+        request.onupgradeneeded = (event) =>
+          upgradeDb(event, this.definitions, callback);
+      } catch (e) {
+        console.log({ e });
+        callback("ERROR");
+      }
     });
   }
 
@@ -92,6 +99,9 @@ class LocalDb$ {
 
   async tally(table) {
     const db = await this.connect();
+    if (db === "ERROR") {
+      return 0;
+    }
     return commandDb(db, table, (store) => store.count());
   }
 }
@@ -110,29 +120,34 @@ const createRow = async (db, indexName, row) => {
 const commandDb = (db, indexName, requestFn, allowWrite) => {
   if (!db) return Promise.reject("LOCAL DATABASE NOT READY");
   return new Promise((callback, reject) => {
-    const transaction = db.transaction(
-      [indexName],
-      allowWrite ? "readwrite" : "readonly"
-    );
-    const objectStore = transaction.objectStore(indexName);
-    const dataRequest = requestFn(objectStore);
-    dataRequest.onsuccess = function () {
-      callback(dataRequest.result);
-    };
-    dataRequest.onerror = function (event) {
-      console.log("Database failed to respond!!", event);
-      reject({ message: "Database failed to respond!!" });
-    };
+    try {
+      const transaction = db.transaction(
+        [indexName],
+        allowWrite ? "readwrite" : "readonly"
+      );
+      const objectStore = transaction.objectStore(indexName);
+      const dataRequest = requestFn(objectStore);
+      dataRequest.onsuccess = function () {
+        callback(dataRequest.result);
+      };
+      dataRequest.onerror = function (event) {
+        console.log("Database failed to respond!!", event);
+        reject({ message: "Database failed to respond!!" });
+      };
+    } catch (e) {
+      reject("an error occurred: database not ready");
+    }
   });
 };
 
-const problemDb = (request, error) => {
+const problemDb = (request, error, callback) => {
   console.log("Database failed to open", error);
   indexDbResponse.next({
     state: LOCAL_DATABASE_STATE.ERROR,
     error,
     request,
   });
+  !!callback && callback("ERROR");
 };
 
 const successDb = (request, callback) => {
