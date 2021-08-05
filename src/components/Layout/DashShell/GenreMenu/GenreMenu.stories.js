@@ -1,9 +1,9 @@
-import React from 'react';
-import GenreMenu from './GenreMenu';
+import React from "react";
+import GenreMenu from "./GenreMenu";
 
 export default {
-  title: 'GenreMenu',
-  component: GenreMenu
+  title: "Layout/Dash/GenreMenu",
+  component: GenreMenu,
 };
 
 const Template = (args) => <GenreMenu {...args} />;

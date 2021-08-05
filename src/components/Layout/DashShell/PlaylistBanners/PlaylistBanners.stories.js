@@ -2,7 +2,7 @@ import React from "react";
 import PlaylistBanners from "./PlaylistBanners";
 
 export default {
-  title: "PlaylistBanners",
+  title: "Layout/Dash/PlaylistBanners",
   component: PlaylistBanners,
 };
 

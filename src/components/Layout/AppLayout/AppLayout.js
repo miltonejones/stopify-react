@@ -98,13 +98,13 @@ const AppLayout = () => {
       <div className="AppLayout">
         <AppSidebar {...sidebarArgs} />
         <div className={rxcs({ left: true, open: ok })}>
-          !![{screenState}]
+          {/* !![{screenState}]
           {Object.keys(windowStates).map((s) => (
             <>
               [{s}: {windowStates[s].toString()}]
             </>
           ))}
-          ??
+          ?? */}
           <AppLayoutContent {...contentArgs} />
         </div>
       </div>

@@ -15,6 +15,7 @@ import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { PlayerAction } from "../../../Audio/Player/Player";
 import { SongPersistService } from "../../../../services/Persist";
+import CarouselWrapper from "../../../Layout/DashShell/CarouselWrapper/CarouselWrapper";
 
 const columns = [
   {
@@ -79,6 +80,7 @@ export default function TrackGrid({
   clicked,
   open = true,
   selection,
+  screenState,
 }) {
   const [args, setArgs] = useState({ open: false });
   const theme = useTheme();
@@ -116,6 +118,18 @@ export default function TrackGrid({
     return () => sub.unsubscribe();
   }, [args]);
   const selected = [args.t?.ID];
+
+  if (screenState === "tablet") {
+    return (
+      <>
+        <CarouselWrapper
+          choose={requestPlay}
+          tracks={rows.filter((f) => !!f.albumImage)}
+        />
+      </>
+    );
+  }
+
   if (matches) {
     return (
       <>
@@ -131,6 +145,7 @@ export default function TrackGrid({
   }
   return (
     <>
+      [{screenState}]
       <DataGrid
         onCellClick={handleData}
         classes={{ root: "TrackGrid" }}

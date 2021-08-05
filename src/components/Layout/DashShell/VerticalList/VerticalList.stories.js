@@ -1,9 +1,9 @@
-import React from 'react';
-import VerticalList from './VerticalList';
+import React from "react";
+import VerticalList from "./VerticalList";
 
 export default {
-  title: 'VerticalList',
-  component: VerticalList
+  title: "Layout/Dash/VerticalList",
+  component: VerticalList,
 };
 
 const Template = (args) => <VerticalList {...args} />;

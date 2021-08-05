@@ -1,9 +1,9 @@
-import React from 'react';
-import LinkList from './LinkList';
+import React from "react";
+import LinkList from "./LinkList";
 
 export default {
-  title: 'LinkList',
-  component: LinkList
+  title: "Layout/Dash/LinkList",
+  component: LinkList,
 };
 
 const Template = (args) => <LinkList {...args} />;

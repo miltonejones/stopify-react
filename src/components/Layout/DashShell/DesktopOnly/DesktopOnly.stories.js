@@ -1,9 +1,9 @@
-import React from 'react';
-import DesktopOnly from './DesktopOnly';
+import React from "react";
+import DesktopOnly from "./DesktopOnly";
 
 export default {
-  title: 'DesktopOnly',
-  component: DesktopOnly
+  title: "Layout/Dash/DesktopOnly",
+  component: DesktopOnly,
 };
 
 const Template = (args) => <DesktopOnly {...args} />;

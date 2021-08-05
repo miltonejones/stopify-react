@@ -1,5 +1,6 @@
 import React from "react";
 import CarouselWrapper from "./CarouselWrapper.js";
+import tracks from "../../../../stories/assets/stories-play-list.json";
 
 export default {
   title: "CarouselWrapper",
@@ -10,4 +11,4 @@ const Template = (args) => <CarouselWrapper {...args} />;
 
 export const DefaultView = Template.bind({});
 
-DefaultView.args = {};
+DefaultView.args = { tracks };

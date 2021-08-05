@@ -1,9 +1,9 @@
-import React from 'react';
-import SongList from './SongList';
+import React from "react";
+import SongList from "./SongList";
 
 export default {
-  title: 'SongList',
-  component: SongList
+  title: "Layout/Dash/SongList",
+  component: SongList,
 };
 
 const Template = (args) => <SongList {...args} />;

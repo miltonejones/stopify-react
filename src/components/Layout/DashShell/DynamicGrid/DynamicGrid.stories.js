@@ -1,9 +1,9 @@
-import React from 'react';
-import DynamicGrid from './DynamicGrid';
+import React from "react";
+import DynamicGrid from "./DynamicGrid";
 
 export default {
-  title: 'DynamicGrid',
-  component: DynamicGrid
+  title: "Layout/Dash/DynamicGrid",
+  component: DynamicGrid,
 };
 
 const Template = (args) => <DynamicGrid {...args} />;
