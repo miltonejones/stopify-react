@@ -121,6 +121,7 @@ const DataList = ({
           rows={items}
           screenState={screenState}
           {...info}
+          refresh={() => init()}
           artistFk={artistFk}
         />
       )}

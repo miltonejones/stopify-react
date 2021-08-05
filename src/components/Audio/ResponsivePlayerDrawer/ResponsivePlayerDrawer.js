@@ -59,7 +59,7 @@ function CollapsingDrawer(props) {
 
   return (
     <Collapse
-      classes={{ root: "ResponsivePlayerDrawer", hidden: "hidden" }}
+      classes={{ root: "ResponsivePlayerDrawer", hidden: "shortened" }}
       in={open}
     >
       {props.children}

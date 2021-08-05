@@ -6,6 +6,7 @@ import {
   ExpandMore,
   PlayCircleFilled,
   Shuffle,
+  Sync,
 } from "@material-ui/icons";
 import { Button, IconButton } from "@material-ui/core";
 import CrumbList from "../CrumbList/CrumbList";
@@ -70,10 +71,13 @@ const useStyles = makeStyles((theme) => ({
   },
   white: {
     color: "white",
-    marginLeft: "auto",
+    maxWidth: 32,
     "@media screen and (max-height: 600px) and (orientation: landscape)": {
       display: "none",
     },
+  },
+  margin: {
+    marginLeft: "auto",
   },
   CrumbList: {
     padding: " 0 12px",
@@ -98,6 +102,7 @@ const ListHeader = (props) => {
     name,
     direct,
     rows,
+    refresh,
   } = props;
   const classes = useStyles(props);
   const [off, setOff] = useState(false);
@@ -127,6 +132,12 @@ const ListHeader = (props) => {
       {!!(route || name || title) && (
         <div className={classes.CrumbList}>
           <CrumbList direct={direct} route={route} name={name || title} />
+          <IconButton
+            className={rxcs({ [classes.white]: 1, [classes.margin]: 1 })}
+            onClick={() => refresh && refresh()}
+          >
+            <Sync />
+          </IconButton>
           <IconButton className={classes.white} onClick={() => setOff(!off)}>
             {!off ? <ExpandLess /> : <ExpandMore />}
           </IconButton>
