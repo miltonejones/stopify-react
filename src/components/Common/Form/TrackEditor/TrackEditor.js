@@ -95,7 +95,7 @@ const TrackEditor = ({ track, finish }) => {
 
   const scalarFields = [
     { label: "Title", xs: 10 },
-    { trackNumber: "Title", xs: 6 },
+    { label: "trackNumber", xs: 6 },
     { label: "discNumber", xs: 6 },
     { label: "Key", xs: 12, classes: { root: hidden ? "hidden" : "" } },
   ];
