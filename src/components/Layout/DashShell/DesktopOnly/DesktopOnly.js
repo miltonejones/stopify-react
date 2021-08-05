@@ -9,5 +9,12 @@ const DesktopOnly = (props) => {
   return <>{props.children}</>;
 };
 
+export const MobileOnly = (props) => {
+  const theme = useTheme();
+  const screenIsSmallerThanSmSize = useMediaQuery(theme.breakpoints.down("md"));
+  if (!screenIsSmallerThanSmSize) return <i />;
+  return <>{props.children}</>;
+};
+
 DesktopOnly.defaultProps = {};
 export default DesktopOnly;

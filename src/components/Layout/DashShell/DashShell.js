@@ -16,7 +16,7 @@ import "./owl.css";
 import "./genre.css";
 import "./banner.css";
 import "./DashShell.css";
-import DesktopOnly from "./DesktopOnly/DesktopOnly";
+import DesktopOnly, { MobileOnly } from "./DesktopOnly/DesktopOnly";
 import DynamicGrid from "./DynamicGrid/DynamicGrid";
 import VerticalList from "./VerticalList/VerticalList";
 import SongList from "./SongList/SongList";
@@ -86,29 +86,45 @@ const DashShell = ({ small, direct, setChosed, hidden }) => {
         {/* <Grid item xs={12} sm={12}>
           <DashPod>artist carousel</DashPod>
         </Grid> */}
-        <DesktopOnly>
-          <DynamicGrid size={8}>
+
+        <MobileOnly>
+          <Grid size={12}>
             {" "}
-            <DashPod
-              icon={<Schedule />}
-              title="Recently Added"
-              see={() => setObject({ dataType: "tune" })}
-            >
-              <SongList play={playTrack} data={dashData[2].result} />
+            {!!genreItems && (
+              <DashPod icon={<Home />} title="Stopify" underline>
+                <GenreMenu items={genreItems} />
+              </DashPod>
+            )}
+            <DashPod icon={<Link />} title="Quick Links">
+              <LinkList direct={direct} />
+            </DashPod>
+          </Grid>
+        </MobileOnly>
+
+        <DynamicGrid size={8}>
+          {" "}
+          <DashPod
+            icon={<Schedule />}
+            title="Recently Added"
+            see={() => setObject({ dataType: "tune" })}
+          >
+            <SongList play={playTrack} data={dashData[2].result} />
+          </DashPod>
+        </DynamicGrid>
+
+        <DesktopOnly>
+          <DynamicGrid size={4}>
+            {" "}
+            {!!genreItems && (
+              <DashPod icon={<Home />} title="Stopify" underline>
+                <GenreMenu items={genreItems} />
+              </DashPod>
+            )}
+            <DashPod icon={<Link />} title="Quick Links">
+              <LinkList direct={direct} />
             </DashPod>
           </DynamicGrid>
         </DesktopOnly>
-        <DynamicGrid size={4}>
-          {" "}
-          {!!genreItems && (
-            <DashPod icon={<Home />} title="Stopify" underline>
-              <GenreMenu items={genreItems} />
-            </DashPod>
-          )}
-          <DashPod icon={<Link />} title="Quick Links">
-            <LinkList direct={direct} />
-          </DashPod>
-        </DynamicGrid>
 
         <DynamicGrid size={8}>
           <>
