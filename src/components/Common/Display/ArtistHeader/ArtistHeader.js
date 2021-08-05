@@ -5,7 +5,7 @@ import ListHeader from "../ListHeader/ListHeader";
 import { navigationComplete } from "../../../../app/State";
 import LoadingAnimation from "../../LoadingAnimation/LoadingAnimation";
 
-const ArtistHeader = ({ artistFk, title, caption, disabled, direct }) => {
+const ArtistHeader = ({ artistFk, title, caption, disabled, direct, rows }) => {
   const [artist, setArtist] = useState(null);
   const [nav, setNav] = useState({});
   const [loading, setLoading] = useState(null);
@@ -38,6 +38,7 @@ const ArtistHeader = ({ artistFk, title, caption, disabled, direct }) => {
     );
   const args = {
     ...artist,
+    rows,
     loading,
     caption: caption || `${artist.related?.length} tracks in your library`,
     title: title || artist.Name,

@@ -59,6 +59,10 @@
   transition: width 0.2s linear;
 }
 
+.hidden {
+  display: none;
+}
+
 .debug {
   outline: solid 1px red
 }

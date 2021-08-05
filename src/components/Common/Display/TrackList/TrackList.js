@@ -152,7 +152,7 @@ function TrackItemText({ track }) {
   );
 }
 
-function TrackItemInfo({ track }) {
+export function TrackItemInfo({ track }) {
   return (
     <>
       {!!track.albumName && (

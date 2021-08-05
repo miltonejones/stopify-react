@@ -18,6 +18,7 @@ import Observer from "../../../../services/Observables";
 import { createPlus, iTuneLookup, save } from "../../../../services/RemoteData";
 import PopoverSearch from "../../Control/PopoverSearch/PopoverSearch";
 import { dataListChanged } from "../../Display/DataList/DataList";
+import { TrackItemInfo } from "../../Display/TrackList/TrackList";
 import Underline from "../../Underline/Underline";
 import "./TrackEditor.css";
 
@@ -25,6 +26,7 @@ const event = new Observer("event");
 const TrackEditor = ({ track, finish }) => {
   const [editedTrack, setEditedTrack] = useState({ ...track });
   const [appleResults, setAppleResults] = useState(null);
+  const [hidden, setHidden] = useState(true);
   const updateTrack = (field, index, name, value) => {
     const updatedTrack = Object.assign(editedTrack, {
       [field]: name,
@@ -95,6 +97,7 @@ const TrackEditor = ({ track, finish }) => {
     { label: "Title", xs: 10 },
     { trackNumber: "Title", xs: 6 },
     { label: "discNumber", xs: 6 },
+    { label: "Key", xs: 12, classes: { root: hidden ? "hidden" : "" } },
   ];
   return (
     <div className="wrapper">
@@ -128,7 +131,7 @@ const TrackEditor = ({ track, finish }) => {
                       secondary: "no-wrap max-200",
                     }}
                     primary={tune.Title}
-                    secondary={tune.albumName}
+                    secondary={<TrackItemInfo track={tune} />}
                   ></ListItemText>
                   <ListItemSecondaryAction>
                     <IconButton onClick={() => assign(tune)}>
@@ -151,10 +154,11 @@ const TrackEditor = ({ track, finish }) => {
                 style={{ width: 48, height: 48 }}
                 src={editedTrack.albumImage}
                 alt={editedTrack.Title}
+                onClick={() => setHidden(!hidden)}
               />
             </Grid>
             {scalarFields.map((field, i) => (
-              <Grid key={i} item xs={field.xs}>
+              <Grid key={i} item xs={field.xs} classes={field.classes}>
                 <TextField
                   fullWidth
                   label={field.label}

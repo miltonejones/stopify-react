@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ListHeader.css";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   ExpandLess,
   ExpandMore,
-  MoreHoriz,
   PlayCircleFilled,
+  Shuffle,
 } from "@material-ui/icons";
 import { Button, IconButton } from "@material-ui/core";
 import CrumbList from "../CrumbList/CrumbList";
-import { rxcs } from "../../../../util/Functions";
+import { pristine, rxcs } from "../../../../util/Functions";
 import LoadingAnimation from "../../LoadingAnimation/LoadingAnimation";
+import { queueTracks } from "../../../../util/PlayerConnect";
+import { PlayerAction } from "../../../Audio/Player/Player";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -95,9 +97,23 @@ const ListHeader = (props) => {
     route,
     name,
     direct,
+    rows,
   } = props;
   const classes = useStyles(props);
   const [off, setOff] = useState(false);
+  const [on, setOn] = useState(false);
+
+  useEffect(() => {
+    const subs = [PlayerAction.subscribe((d) => setOn(d))];
+    return () => subs.map((sub) => sub.unsubscribe());
+  }, []);
+
+  const playRows = () => {
+    if (on) return PlayerAction.next(false);
+    const tracks = pristine(rows);
+    queueTracks(false, tracks, 0, tracks[0]);
+  };
+
   if (!title) {
     return <LoadingAnimation />;
   }
@@ -121,15 +137,16 @@ const ListHeader = (props) => {
           <img src={image} alt={title} />
         </div>
         <Button
+          onClick={playRows}
           variant="contained"
           classes={{ root: classes.button }}
           color="secondary"
         >
           <PlayCircleFilled />
-          Play
+          {on ? "Stop" : "Play"}
         </Button>
         <Button variant="contained" classes={{ root: classes.small }}>
-          <MoreHoriz />
+          <Shuffle />
         </Button>
       </div>
       <div className="lower desc">

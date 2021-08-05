@@ -66,6 +66,7 @@ const SearchGrid = ({ param, type, direct, route, small }) => {
         {!!artistFk && (
           <ArtistHeader
             direct={direct}
+            rows={gridItems}
             disabled={small}
             {...info}
             artistFk={artistFk}

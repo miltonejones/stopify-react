@@ -118,6 +118,7 @@ const DataList = ({
         <ArtistHeader
           direct={direct}
           disabled={small}
+          rows={items}
           screenState={screenState}
           {...info}
           artistFk={artistFk}
