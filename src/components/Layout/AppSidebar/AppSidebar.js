@@ -9,7 +9,7 @@ import "./AppSidebar.css";
 
 const DocumentTitle = () => {
   const setNav = ({ route, name }) =>
-    (document.title = [APP_NAME, route.data?.label, name]
+    (document.title = [APP_NAME, route?.data?.label, name]
       .filter((f) => !!f)
       .join(" > "));
   useEffect(() => {

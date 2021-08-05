@@ -27,7 +27,7 @@ export const cache = async (track) => {
 
 const download = (i) => {
   console.log({ i });
-  return new Promise((f) => {
+  return new Promise((f, t) => {
     var c = new XMLHttpRequest();
     addListeners(c);
     c.open("GET", i);
@@ -40,7 +40,7 @@ const download = (i) => {
       while (ic--) {
         bs[ic] = String.fromCharCode(u8[ic]);
       }
-      f("data:audio/mpeg;base64," + btoa(bs.join("")));
+      f((t || "data:audio/mpeg;base64,") + btoa(bs.join("")));
     };
     c.send();
   });

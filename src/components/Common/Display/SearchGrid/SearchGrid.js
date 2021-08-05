@@ -27,6 +27,7 @@ const SearchGrid = ({ param, type, direct, route, small }) => {
           return item.data || r;
         });
         console.log({ queryDatum: queryDatum.data, reformed });
+        reformed?.map((row) => (row.id = row.id || row.ID || Math.random()));
         setGridItems(reformed);
         setCache(c);
         setInfo({
