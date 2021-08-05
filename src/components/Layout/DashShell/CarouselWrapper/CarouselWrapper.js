@@ -3,9 +3,9 @@ import Coverflow from "react-coverflow";
 import { PlayerAction } from "../../../Audio/Player/Player";
 import "./CarouselWrapper.css";
 
-const fn = function () {
-  /* do you want */
-};
+// const fn = function () {
+//   /* do you want */
+// };
 
 const CarouselWrapper = ({ tracks, choose }) => {
   const [index, setIndex] = useState({ open: false });
