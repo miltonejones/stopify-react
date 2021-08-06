@@ -29,8 +29,8 @@ import { grey } from "@material-ui/core/colors";
 import { openTrackMenuDrawer } from "../TrackMenu/TrackMenu";
 const PopoverInput = ({ setChosed, setParams }) => {
   const classes = PopoverStyles();
-  const [paremeter, setParameter] = React.useState(null);
   const [on, setOn] = React.useState(grey[300]);
+  const [paremeter, setParameter] = React.useState(null);
   const [data, setData] = React.useState({});
   const [busy, setBusy] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);

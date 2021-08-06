@@ -14,4 +14,4 @@ const Template = (args) => <ArtistHeader {...args} />;
 
 export const DefaultView = Template.bind({});
 
-DefaultView.args = { artistFk: 614 };
+DefaultView.args = { artistFk: artists[1].ID };
