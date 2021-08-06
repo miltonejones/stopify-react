@@ -22,7 +22,7 @@ const CarouselWrapper = ({ tracks, choose }) => {
     <>
       {" "}
       <Coverflow
-        width={960}
+        width={"100vw"}
         height={240}
         displayQuantityOfSide={2}
         navigation={false}

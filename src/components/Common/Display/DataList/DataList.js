@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { SCREEN_STATE } from "../../../../app/Constants";
 import { navigationComplete } from "../../../../app/State";
 import { Analyser } from "../../../../services/AudioAnalyzer";
 import { blobDownloadComplete } from "../../../../services/Blob";
@@ -8,7 +9,7 @@ import {
   endpoint,
   query,
 } from "../../../../services/RemoteData";
-import { sortObjects } from "../../../../util/Functions";
+import { rxcs, sortObjects } from "../../../../util/Functions";
 import { PlayerAction } from "../../../Audio/Player/Player";
 import { drawerOpen } from "../../../Audio/ResponsivePlayerDrawer/ResponsivePlayerDrawer";
 import LoadingAnimation from "../../LoadingAnimation/LoadingAnimation";
@@ -42,7 +43,7 @@ const DataList = ({
   const [artistFk, setArtistFk] = useState(null);
   const [info, setInfo] = useState({});
   const [message, setMessage] = useState("please wait...");
-  // const landscape = screenState === SCREEN_STATE.TABLET;
+  const landscape = screenState === SCREEN_STATE.TABLET;
   const init = useCallback(
     () =>
       query(dataType, ID).then((queryDatum) => {
@@ -99,6 +100,7 @@ const DataList = ({
     "artistName",
     "trackTime",
   ];
+  const className = rxcs({ DataList: 1, landscape });
   if (!items.length) {
     return <LoadingAnimation message={message} />;
   }
@@ -125,7 +127,7 @@ const DataList = ({
           artistFk={artistFk}
         />
       )}
-      <div className="DataList">
+      <div className={className}>
         <TrackGrid
           screenState={screenState}
           selection={[args.t?.ID]}
