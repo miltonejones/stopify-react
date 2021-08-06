@@ -145,7 +145,6 @@ export default function TrackGrid({
   }
   return (
     <>
-      [{screenState}]
       <DataGrid
         onCellClick={handleData}
         classes={{ root: "TrackGrid" }}
