@@ -4,7 +4,7 @@
   "private": true,
   "title": "Stopify Audio Player",
   "repository": {
-    "url": "https://github.com/miltonejones/stopify-react"
+    "url": "http://ogmobi.miltonjones.nl/"
   },
   "dependencies": {
     "@emotion/react": "11.4.0",

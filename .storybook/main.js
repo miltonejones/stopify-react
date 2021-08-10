@@ -13,4 +13,10 @@ module.exports = {
     "@storybook/addon-storysource",
     "storybook-addon-outline",
   ],
+  refs: {
+    "sploosh-sb": {
+      title: "sploosh.me.uk Storybook",
+      url: "http://storybook.sploosh.me.uk/",
+    },
+  },
 };

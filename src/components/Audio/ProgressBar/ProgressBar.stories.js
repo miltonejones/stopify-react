@@ -12,6 +12,6 @@ export const DefaultView = Template.bind({});
 
 DefaultView.args = {
   flat: false,
-  width: 400,
+  width: 340,
   value: 72,
 };
