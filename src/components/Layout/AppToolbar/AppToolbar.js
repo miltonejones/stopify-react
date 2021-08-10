@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { alpha, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -10,10 +10,12 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 import { Avatar } from "@material-ui/core";
 import PopoverInput from "../../Common/Control/PopoverInput/PopoverInput";
 import { useHistory } from "react-router-dom";
-import { Add, Info } from "@material-ui/icons";
+import { Add, Info, PhotoAlbumRounded } from "@material-ui/icons";
 import { openImporterDrawer } from "../../Common/Form/Importer/Importer";
 import { dataListChanged } from "../../Common/Display/DataList/DataList";
 import ObjectReader from "../../Dev/ObjectReader/ObjectReader";
+import { navigationComplete } from "../../../app/State";
+import { coverFlowRequest } from "../../Common/Display/TrackGrid/TrackGrid";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -85,6 +87,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AppToolbar({ clicked, setChosed, setParams, stats }) {
+  const [nav, setNav] = useState({});
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -92,6 +95,10 @@ export default function AppToolbar({ clicked, setChosed, setParams, stats }) {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  useEffect(() => {
+    const sub = navigationComplete.subscribe(setNav);
+    return () => sub.unsubscribe();
+  }, []);
   // const handleProfileMenuOpen = (event) => {
   //   setAnchorEl(event.currentTarget);
   // };
@@ -248,6 +255,17 @@ export default function AppToolbar({ clicked, setChosed, setParams, stats }) {
           </div>
           <div className={classes.sectionMobile}>
             <ObjectReader {...stats} edge="end" icon={<Info />} />
+            {!!nav?.name && (
+              <IconButton
+                aria-label="show more"
+                aria-controls={mobileMenuId}
+                aria-haspopup="true"
+                onClick={() => coverFlowRequest.next()}
+                color="inherit"
+              >
+                <PhotoAlbumRounded />
+              </IconButton>
+            )}
             <IconButton
               aria-label="show more"
               aria-controls={mobileMenuId}
