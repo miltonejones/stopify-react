@@ -1,1 +1,5 @@
-.Player {}
+.Player h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+}

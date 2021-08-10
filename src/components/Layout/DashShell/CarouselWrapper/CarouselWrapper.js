@@ -22,13 +22,23 @@ const CarouselWrapper = ({ tracks, choose }) => {
     <>
       {" "}
       <Coverflow
-        width={"100vw"}
+        width={960}
         height={240}
         displayQuantityOfSide={2}
         navigation={false}
         infiniteScroll
         enableHeading
         active={index}
+        media={{
+          "@media (max-width: 600px)": {
+            width: "500px",
+            height: "240px",
+          },
+          "@media (min-width: 900px)": {
+            width: "calc(100vw - 80px)",
+            height: "240px",
+          },
+        }}
       >
         {/* <div
           onClick={() => fn()}

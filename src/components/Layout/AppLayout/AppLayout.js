@@ -22,6 +22,7 @@ import { TrackMenuDrawer } from "../../Common/Control/TrackMenu/TrackMenu";
 import DataGrid from "../../Common/Display/DataGrid/DataGrid";
 import DataList from "../../Common/Display/DataList/DataList";
 import SearchGrid from "../../Common/Display/SearchGrid/SearchGrid";
+import Underline from "../../Common/Underline/Underline";
 import AppSidebar from "../AppSidebar/AppSidebar";
 import AppToolbar from "../AppToolbar/AppToolbar";
 import DashShell from "../DashShell/DashShell";
@@ -214,3 +215,12 @@ export const AppLayoutContent = ({
     </Collapse>
   );
 };
+
+export function ComponentDescription({ title, children }) {
+  return (
+    <div className="ComponentDescription">
+      <Underline dark>{title}</Underline>
+      <Typography component="p">{children}</Typography>
+    </div>
+  );
+}

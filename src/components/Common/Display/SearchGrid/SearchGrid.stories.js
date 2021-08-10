@@ -2,7 +2,7 @@ import React from "react";
 import SearchGrid from "./SearchGrid";
 
 export default {
-  title: "SearchGrid",
+  title: "Common/Display/SearchGrid",
   component: SearchGrid,
   parameters: {
     layout: "fullscreen",

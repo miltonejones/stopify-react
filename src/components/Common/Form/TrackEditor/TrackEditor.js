@@ -85,13 +85,47 @@ const TrackEditor = ({ track, finish }) => {
     event.next({ edited: updatedTrack });
   };
 
+  const precheck = () => {
+    const args = [
+      {
+        type: "album",
+        field: "albumName",
+        index: "albumFk",
+      },
+      {
+        type: "artist",
+        field: "artistName",
+        index: "artistFk",
+      },
+    ];
+    return Promise.all(args.map((arg) => verify(arg)));
+  };
+
+  const verify = ({ type, field, index }) =>
+    new Promise((callback) => {
+      const name = editedTrack[field];
+      const image = editedTrack.albumImage;
+      if (!editedTrack[index] && !!editedTrack[field]) {
+        createPlus(editedTrack, type, name, image, index, field).then(
+          (edited) => {
+            console.log({ edited });
+            callback(edited);
+          }
+        );
+        return;
+      }
+      return callback(editedTrack);
+    });
+
   const saveTrack = () => {
-    save(editedTrack).then(() => {
-      dataListChanged.next();
-      finish && finish();
+    precheck().then((finalTrack) => {
+      console.log({ finalTrack });
+      save(finalTrack.pop()).then(() => {
+        dataListChanged.next();
+        finish && finish();
+      });
     });
   };
-  //createPlus = (track, type, Name, image, id, name)
 
   const scalarFields = [
     { label: "Title", xs: 10 },

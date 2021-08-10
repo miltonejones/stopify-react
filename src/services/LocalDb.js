@@ -43,6 +43,10 @@ class LocalDb$ {
 
   async select(table, where, columns, order) {
     const db = await this.connect();
+    console.log({ db });
+    if (!db.hasOwnProperty("transaction")) {
+      return [];
+    }
     const rows = await commandDb(db, table, (store) => store.getAll());
     const records = (!where ? rows : rows.filter(where)).map((row) =>
       !columns

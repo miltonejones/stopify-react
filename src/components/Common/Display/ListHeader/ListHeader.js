@@ -138,6 +138,7 @@ const ListHeader = (props) => {
           >
             <Sync />
           </IconButton>
+
           <IconButton className={classes.white} onClick={() => setOff(!off)}>
             {!off ? <ExpandLess /> : <ExpandMore />}
           </IconButton>

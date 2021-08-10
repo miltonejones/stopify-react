@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import { PlayerAction } from "../../../Audio/Player/Player";
 import { SongPersistService } from "../../../../services/Persist";
 import CarouselWrapper from "../../../Layout/DashShell/CarouselWrapper/CarouselWrapper";
+import Observer from "../../../../services/Observables";
 
 const columns = [
   {
@@ -74,6 +75,8 @@ const columns = [
   },
 ];
 
+export const coverFlowRequest = new Observer("coverFlowRequest");
+
 export default function TrackGrid({
   rows = [],
   fields = [],
@@ -83,6 +86,7 @@ export default function TrackGrid({
   screenState,
 }) {
   const [args, setArgs] = useState({ open: false });
+  const [useCoverflow, setUseCoverflow] = useState(false);
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
 
@@ -111,15 +115,18 @@ export default function TrackGrid({
   };
   useEffect(() => {
     const o = SongPersistService.current;
-    const sub = PlayerAction.subscribe((t) => {
-      t?.hasOwnProperty("FileKey") && setArgs({ ...args, t });
-    });
+    const sub = [
+      PlayerAction.subscribe((t) => {
+        t?.hasOwnProperty("FileKey") && setArgs({ ...args, t });
+      }),
+      coverFlowRequest.subscribe(() => setUseCoverflow(!useCoverflow)),
+    ];
     !!o && !args?.t && setArgs({ ...args, t: o });
-    return () => sub.unsubscribe();
-  }, [args]);
+    return () => sub.map((s) => s.unsubscribe());
+  }, [args, useCoverflow]);
   const selected = [args.t?.ID];
 
-  if (screenState === "tablet") {
+  if (useCoverflow) {
     return (
       <>
         <CarouselWrapper

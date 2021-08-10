@@ -1,9 +1,9 @@
-import React from 'react';
-import PopoverInputDrawer from './PopoverInputDrawer';
+import React from "react";
+import PopoverInputDrawer from "./PopoverInputDrawer";
 
 export default {
-  title: 'PopoverInputDrawer',
-  component: PopoverInputDrawer
+  title: "Common/Control/PopoverInputDrawer",
+  component: PopoverInputDrawer,
 };
 
 const Template = (args) => <PopoverInputDrawer {...args} />;

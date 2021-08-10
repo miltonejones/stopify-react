@@ -33,6 +33,14 @@ const useStyles = makeStyles((theme) => ({
         height: 160,
       },
     },
+    "&.editMode": {
+      outline: "dotted 2px gray",
+      opacity: 0.5,
+      "&.editing": {
+        outline: "dotted 4px #37a",
+        opacity: 1,
+      },
+    },
     "&.open": {
       height: 196,
       [theme.breakpoints.down("xs")]: {
@@ -54,7 +62,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Thumbnail = (props) => {
-  const { track, clicked, open, cubed, small, rect, landscape } = props;
+  const {
+    track,
+    clicked,
+    open,
+    cubed,
+    small,
+    rect,
+    landscape,
+    editMode,
+    edit,
+  } = props;
+  // const [editing, setEditing] = useState(false);
   const classes = useStyles(props);
   const what = ThumbnailTypes.filter((t) => t.when(track))[0];
   if (!what) {
@@ -65,13 +84,23 @@ const Thumbnail = (props) => {
   const foot = footer(track);
   const line = secondary && secondary(track);
   const playOn = () => queueCollection(parsed.type, parsed.ID, small);
+
+  const turn = () => {
+    if (editMode) {
+      return edit(track);
+    }
+  };
+
   return (
     <>
       <div
         className={rxcs({
           [classes.Thumbnail]: true,
           open,
+          editMode,
+          editing: track.selected,
         })}
+        onClick={() => turn()}
       >
         <Badge max={9999} color="secondary" badgeContent={count}>
           <Photo

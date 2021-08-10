@@ -3,7 +3,7 @@ import React from "react";
 import Spinner from "./Spinner";
 
 export default {
-  title: "Spinner",
+  title: "Common/Display/Spinner",
   component: Spinner,
 };
 

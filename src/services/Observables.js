@@ -27,3 +27,17 @@ class Subscriber {
     this.fn = null;
   }
 }
+
+export class Handshake {
+  constructor(name) {
+    this.name = name;
+  }
+  subscribe(fn) {
+    const s = new Subscriber(fn, this.name);
+    this.subs = (this.subs || []).concat(s);
+    return s;
+  }
+  next(value) {
+    this.subs?.map((s) => s.next(value));
+  }
+}

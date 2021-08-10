@@ -1,12 +1,28 @@
-import { Grid, Chip, Menu, MenuItem, IconButton } from "@material-ui/core";
-import React, { useState } from "react";
+import {
+  Grid,
+  Chip,
+  Menu,
+  MenuItem,
+  IconButton,
+  Badge,
+} from "@material-ui/core";
+import React, { useCallback, useEffect, useState } from "react";
 import PaginationBar from "../../Control/PaginationBar/PaginationBar";
 import CrumbList from "../CrumbList/CrumbList";
 import Thumbnail from "../Thumbnail/Thumbnail";
 import "./ThumbGrid.css";
-import { ArrowDownward, ArrowUpward, MoreVert } from "@material-ui/icons";
+import {
+  ArrowDownward,
+  ArrowUpward,
+  CheckCircle,
+  CheckCircleOutline,
+  LinkOutlined,
+  MoreVert,
+} from "@material-ui/icons";
 import { rxcs } from "../../../../util/Functions";
 import { SCREEN_STATE } from "../../../../app/Constants";
+import DesktopOnly from "../../../Layout/DashShell/DesktopOnly/DesktopOnly";
+import { group } from "../../../../services/RemoteData";
 const PAGE_SIZE = 96;
 const ThumbGrid = ({
   items,
@@ -17,15 +33,44 @@ const ThumbGrid = ({
   sorter,
   screenState,
   choose,
+  refresh,
+  dataType,
+  event,
 }) => {
   const [page, setPage] = useState(0);
-  const first = items?.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE);
+  const [editMode, setEditMode] = useState(false);
+  const [cache, setCache] = useState(items);
+  const first = cache?.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE);
+  const [collection, setCollection] = useState(first);
+
+  const commitPage = useCallback(
+    (nu, list) => {
+      const all = list || cache;
+      setPage(nu);
+      const pages = all?.slice(nu * PAGE_SIZE, nu * PAGE_SIZE + PAGE_SIZE);
+      console.log({ all, pages });
+      !!list && setCache(list);
+      setCollection(pages);
+    },
+    [cache]
+  );
+
+  useEffect(() => {
+    const sub = event?.subscribe(() => commitPage(0, items));
+    return () => sub.unsubscribe();
+  }, [cache, items, commitPage, event]);
+
+  const updatePage = (p) => {
+    const nu = page + p;
+    commitPage(nu);
+  };
 
   const args = {
     startPage: page * PAGE_SIZE,
     pageSize: PAGE_SIZE,
-    collection: items,
-    click: (d) => setPage((x) => x + d),
+    collection: cache,
+    pagesOnly: true,
+    click: (d) => updatePage(d),
   };
   // const choose = (s) => {
   //   const current = sorter?.filter((m) => m.isActive)[0];
@@ -37,15 +82,40 @@ const ThumbGrid = ({
   // };
   const landscape = screenState === SCREEN_STATE.TABLET;
   const crumbClass = rxcs({ crumb: 1 });
+  const edit = (t) => {
+    const nu = collection.map((x) => {
+      x.ID === t.ID && (x.selected = !x.selected);
+      return x;
+    });
+    setCollection(nu);
+  };
+  const editGroup = collection.filter((f) => f.selected);
+  const merge = () => {
+    const keys = editGroup.map((f) => f.ID);
+    group(dataType, keys).then(refresh);
+    updateEditMode();
+  };
+  const updateEditMode = () => {
+    if (editMode) {
+      const nu = collection.map((x) => {
+        x.selected = !1;
+        return x;
+      });
+      setCollection(nu);
+    }
+    setEditMode(!editMode);
+  };
+  const ThumbnailArgs = {
+    small,
+    editMode,
+    edit,
+    cubed: true,
+    landscape,
+    open,
+    clicked,
+  };
   return (
     <div className="ThumbGrid">
-      {/* {JSON.stringify(sorter)}
-      <br />
-      --------------------------
-      {JSON.stringify(sorter)}
-      <br />
-      --------------------------
-      {(sorter === sorter).toString()} */}
       <div className="flexed no-wrap">
         <div className={crumbClass}>
           {!!route && (
@@ -66,19 +136,24 @@ const ThumbGrid = ({
             choose={choose}
             sorter={sorter}
           />
+          <DesktopOnly>
+            <Badge badgeContent={editGroup.length}>
+              <IconButton size="small" onClick={() => updateEditMode()}>
+                {editMode ? <CheckCircle /> : <CheckCircleOutline />}
+              </IconButton>
+            </Badge>
+            {!!editGroup.length && (
+              <IconButton size="small" onClick={() => merge()}>
+                <LinkOutlined />
+              </IconButton>
+            )}
+          </DesktopOnly>
         </div>
       </div>
       <Grid container spacing={2}>
-        {first?.map((item, i) => (
+        {collection?.map((item, i) => (
           <Grid key={i} item xs={6} sm={3} md={3} xl={2} lg={2}>
-            <Thumbnail
-              small={small}
-              cubed
-              landscape={landscape}
-              open={open}
-              clicked={clicked}
-              track={item}
-            />
+            <Thumbnail track={item} {...ThumbnailArgs} />
           </Grid>
         ))}
       </Grid>
