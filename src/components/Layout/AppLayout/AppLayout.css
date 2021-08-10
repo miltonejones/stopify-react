@@ -9,3 +9,10 @@
   width: calc(100vw);
   transition: width 0.2s linear;
 }
+
+
+.ComponentDescription h2 {
+  margin: 0;
+  padding: 12px 0 0 0;
+  font-size: 1.2rem;
+}

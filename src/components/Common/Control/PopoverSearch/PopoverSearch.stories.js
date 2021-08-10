@@ -3,7 +3,7 @@ import PopoverSearch from "./PopoverSearch";
 import tracks from "../../../../stories/assets/stories-track-list.json";
 
 export default {
-  title: "PopoverSearch",
+  title: "Common/Control/PopoverSearch",
   component: PopoverSearch,
 };
 

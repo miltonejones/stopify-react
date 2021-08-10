@@ -1,9 +1,9 @@
-import React from 'react';
-import PopoverInput from './PopoverInput';
+import React from "react";
+import PopoverInput from "./PopoverInput";
 
 export default {
-  title: 'PopoverInput',
-  component: PopoverInput
+  title: "Common/Control/PopoverInput",
+  component: PopoverInput,
 };
 
 const Template = (args) => <PopoverInput {...args} />;

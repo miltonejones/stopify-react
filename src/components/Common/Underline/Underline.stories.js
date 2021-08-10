@@ -2,7 +2,7 @@ import React from "react";
 import Underline from "./Underline";
 
 export default {
-  title: "Underline",
+  title: "Common/Display/Underline",
   component: Underline,
 };
 

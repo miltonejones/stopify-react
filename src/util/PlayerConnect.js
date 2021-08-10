@@ -17,7 +17,7 @@ export const queueTrack = (small, t) => {
   queueTracks(small, [t], 0, t);
 };
 
-const CONFIRM_MESSAGE = `The equalizer needs permission to access your system. 
+export const CONFIRM_MESSAGE = `The equalizer needs permission to access your system. 
                           Click here to grant permission.`;
 
 export const queueTracks = (small, items, start, t) => {

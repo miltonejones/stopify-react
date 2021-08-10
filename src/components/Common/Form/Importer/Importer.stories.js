@@ -2,7 +2,7 @@ import React from "react";
 import Importer from "./Importer";
 
 export default {
-  title: "Importer",
+  title: "Common/Form/Importer",
   component: Importer,
 };
 

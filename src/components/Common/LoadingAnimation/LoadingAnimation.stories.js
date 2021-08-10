@@ -1,9 +1,9 @@
-import React from 'react';
-import LoadingAnimation from './LoadingAnimation';
+import React from "react";
+import LoadingAnimation from "./LoadingAnimation";
 
 export default {
-  title: 'LoadingAnimation',
-  component: LoadingAnimation
+  title: "Common/Display/LoadingAnimation",
+  component: LoadingAnimation,
 };
 
 const Template = (args) => <LoadingAnimation {...args} />;

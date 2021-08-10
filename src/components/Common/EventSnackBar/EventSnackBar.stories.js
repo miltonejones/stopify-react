@@ -1,9 +1,9 @@
-import React from 'react';
-import EventSnackBar from './EventSnackBar';
+import React from "react";
+import EventSnackBar from "./EventSnackBar";
 
 export default {
-  title: 'EventSnackBar',
-  component: EventSnackBar
+  title: "Common/Display/EventSnackBar",
+  component: EventSnackBar,
 };
 
 const Template = (args) => <EventSnackBar {...args} />;

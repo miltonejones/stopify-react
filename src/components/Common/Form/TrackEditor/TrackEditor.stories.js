@@ -3,7 +3,7 @@ import TrackEditor from "./TrackEditor";
 import tracks from "../../../../stories/assets/stories-play-list.json";
 
 export default {
-  title: "TrackEditor",
+  title: "Common/Form/TrackEditor",
   component: TrackEditor,
   parameters: {
     layout: "fullscreen",

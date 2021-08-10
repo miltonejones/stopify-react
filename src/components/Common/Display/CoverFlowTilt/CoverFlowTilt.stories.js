@@ -3,7 +3,7 @@ import CoverFlowTilt from "./CoverFlowTilt";
 import tracks from "../../../../stories/assets/stories-play-list.json";
 
 export default {
-  title: "CoverFlowTilt",
+  title: "Tools/Dev/Draft/CoverFlowTilt",
   component: CoverFlowTilt,
 };
 
