@@ -39,15 +39,12 @@ const Importer = ({ complete }) => {
   };
   const commitTitle = (value) => {
     let title;
-    let regex = /v=([^&]{11})/.exec(value);
-    if (regex) {
-      title = regex[1];
-    } else {
-      regex = /list=([^&]{34})/.exec(value);
-      if (regex) {
-        title = regex[1];
-      }
-    }
+    const regex = [
+      /v=([^&]{11})/,
+      /list=([^&]{34})/,
+      /\.\w+\/([^&]{11})/,
+    ].filter((f) => f.exec(value))[0];
+    !!regex && (title = regex.exec(value)[1]);
     if (title) {
       setKeys((k) => k.concat(title));
     } else console.log("could not parse", value);
