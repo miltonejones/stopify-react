@@ -1,6 +1,7 @@
 import {
   Avatar,
   Drawer,
+  IconButton,
   List,
   ListItem,
   ListItemAvatar,
@@ -9,6 +10,7 @@ import {
 import {
   Album,
   Cached,
+  Close,
   Edit,
   LocalOffer,
   People,
@@ -19,6 +21,7 @@ import { useHistory } from "react-router-dom";
 import { blobDownloadComplete, cache, cached } from "../../../../services/Blob";
 import Observer from "../../../../services/Observables";
 import { playerQueueInsert } from "../../../Audio/ResponsivePlayerDrawer/ResponsivePlayerDrawer";
+import Thumbnail from "../../Display/Thumbnail/Thumbnail";
 import { openTrackEditorDrawer } from "../../Form/TrackEditor/TrackEditor";
 import { openPlaylistMenuDrawer } from "../PlaylistMenu/PlaylistMenu";
 // import ListItemLink from "../ListItemLink/ListItemLink";
@@ -77,85 +80,100 @@ const TrackMenu = ({ track, click }) => {
   };
 
   const caption = saved === 1 ? "Remove download" : "Download song";
-
+  const ThumbnailArgs = {
+    small: !0,
+  };
   return (
-    <List>
-      {nodes.map((node) => {
-        return (
-          // <ListItemLink
-          //   icon={node.icon}
-          //   key={node.label}
-          //   secondary={node.footer}
-          //   primary={node.label}
-          //   to={node.path}
-          // />
-          <ListItemSm node={node} click={navigateToObject} />
-        );
-      })}
+    <>
+      <div style={{ position: "absolute", right: 20 }}>
+        <IconButton onClick={() => click()}>
+          <Close />
+        </IconButton>
+      </div>
+      <div className="TrackMenuHeader">
+        <Thumbnail track={track} {...ThumbnailArgs} />
+      </div>
+      <List dense>
+        {nodes.map((node) => {
+          return (
+            // <ListItemLink
+            //   icon={node.icon}
+            //   key={node.label}
+            //   secondary={node.footer}
+            //   primary={node.label}
+            //   to={node.path}
+            // />
+            <ListItemSm node={node} click={navigateToObject} />
+          );
+        })}
 
-      <ListItem
-        onClick={() => {
-          playerQueueInsert.next(track);
-          click && click();
-        }}
-      >
-        <ListItemAvatar>
-          <Avatar>
-            <PlaylistAddCheck />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="Add to queue" secondary="Play this song next" />
-      </ListItem>
+        <ListItem
+          onClick={() => {
+            playerQueueInsert.next(track);
+            click && click();
+          }}
+        >
+          <ListItemAvatar>
+            <Avatar>
+              <PlaylistAddCheck />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText
+            primary="Add to queue"
+            secondary="Play this song next"
+          />
+        </ListItem>
 
-      <ListItem
-        onClick={() => {
-          openTrackEditorDrawer.next(track);
-          click && click();
-        }}
-      >
-        <ListItemAvatar>
-          <Avatar>
-            <Edit />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          classes={{ primary: "link" }}
-          primary="Edit Track"
-          secondary="Open the track editor"
-        />
-      </ListItem>
+        <ListItem
+          onClick={() => {
+            openTrackEditorDrawer.next(track);
+            click && click();
+          }}
+        >
+          <ListItemAvatar>
+            <Avatar>
+              <Edit />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText
+            classes={{ primary: "link" }}
+            primary="Edit Track"
+            secondary="Open the track editor"
+          />
+        </ListItem>
 
-      <ListItem
-        onClick={() => {
-          openPlaylistMenuDrawer.next(track);
-          click && click();
-        }}
-      >
-        <ListItemAvatar>
-          <Avatar>
-            <PlaylistAddCheck />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          classes={{ primary: "link" }}
-          primary="Add to playlist"
-          secondary="Organize this song  to play later"
-        />
-      </ListItem>
+        <ListItem
+          onClick={() => {
+            openPlaylistMenuDrawer.next(track);
+            click && click();
+          }}
+        >
+          <ListItemAvatar>
+            <Avatar>
+              <PlaylistAddCheck />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText
+            classes={{ primary: "link" }}
+            primary="Add to playlist"
+            secondary="Organize this song  to play later"
+          />
+        </ListItem>
 
-      <ListItem onClick={() => save(track)}>
-        <ListItemAvatar>
-          <Avatar>
-            <Cached />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          classes={{ primary: "link" }}
-          primary={caption}
-          secondary="Save this song to your device"
-        />
-      </ListItem>
-    </List>
+        <ListItem onClick={() => save(track)}>
+          <ListItemAvatar>
+            <Avatar>
+              <Cached />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText
+            classes={{ primary: "link" }}
+            primary={caption}
+            secondary="Save this song to your device"
+          />
+        </ListItem>
+      </List>
+    </>
   );
 };
 

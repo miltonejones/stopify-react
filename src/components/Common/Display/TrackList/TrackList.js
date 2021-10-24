@@ -113,10 +113,11 @@ const TrackList = ({
   popper,
 }) => {
   const [page, setPage] = useState(0);
-  const first = tracks.slice(page * pageSize, page * pageSize + pageSize);
-
+  const firstPage = page * pageSize;
+  const group = tracks.slice(firstPage, firstPage + pageSize);
+  const first = !group.length ? tracks.slice(0, pageSize) : group;
   const args = {
-    startPage: page * pageSize,
+    startPage: firstPage,
     pageSize,
     collection: tracks,
     selection,

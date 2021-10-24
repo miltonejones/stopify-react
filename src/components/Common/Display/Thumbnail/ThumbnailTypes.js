@@ -3,7 +3,7 @@ import { generateKey } from "../../../../util/Functions";
 export const ThumbnailTypes = [
   // track
   {
-    when: (i) => i.hasOwnProperty("FileKey"),
+    when: (i) => i && i.hasOwnProperty("FileKey"),
     is: (i) => ({
       ID: i.ID,
       Title: i.Title,
@@ -16,7 +16,7 @@ export const ThumbnailTypes = [
   },
   // artist
   {
-    when: (i) => i.hasOwnProperty("artistImage"),
+    when: (i) => i && i.hasOwnProperty("artistImage"),
     is: (i) => ({
       ID: i.ID,
       Title: i.Name,
@@ -37,8 +37,9 @@ export const ThumbnailTypes = [
   // album
   {
     when: (i) =>
-      i.hasOwnProperty("collectionId") ||
-      (i.hasOwnProperty("albumImage") && i.hasOwnProperty("trackCount")),
+      i &&
+      (i.hasOwnProperty("collectionId") ||
+        (i.hasOwnProperty("albumImage") && i.hasOwnProperty("trackCount"))),
     is: (i) => ({
       ID: i.ID,
       Title: i.Name,
@@ -59,7 +60,8 @@ export const ThumbnailTypes = [
   },
   // playlist
   {
-    when: (i) => i.hasOwnProperty("listKey") || i.hasOwnProperty("related"),
+    when: (i) =>
+      i && (i.hasOwnProperty("listKey") || i.hasOwnProperty("related")),
     is: (i) => ({
       ID: i.listKey || generateKey(i.Title),
       Title: i.Title,
@@ -72,7 +74,7 @@ export const ThumbnailTypes = [
   },
   // genre
   {
-    when: (i) => i.hasOwnProperty("genreKey"),
+    when: (i) => i && i.hasOwnProperty("genreKey"),
     is: (i) => ({
       ID: i.genreKey,
       Title: i.Name,
